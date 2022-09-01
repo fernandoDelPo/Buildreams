@@ -1,8 +1,8 @@
-# grupo_11_ConstruyendoSueños
-La empresa de e-commerce se dedica a la venta de materiales de construcción de primera calidad. En los ultimos años Construyendo Sueños ha logrado ampliar y masificar sus productos con el fin brindar más y mejor servicio a todos sus clientes.
+# grupo_11_Buildreams
+La empresa de e-commerce se dedica a la venta de materiales de construcción de primera calidad. En los ultimos años Buildreams ha logrado ampliar y masificar sus productos con el fin brindar más y mejor servicio a todos sus clientes.
 
 Nuestra empresa apunta a consumidores pequeños y clientes independientes que buscan adquirir nuestros materiales a precios accesibles. 
-Construyendo sueños esta compuesto por 5 integrantes: Cristian Bolzon, Fernando del Pozzi, Matías Muñiz, Evelyn Coronado y Evelyn Giampieri. 
+Buildreams esta compuesto por 5 integrantes: Cristian Bolzon, Fernando del Pozzi, Matías Muñiz y Evelyn Giampieri. 
 
 
 *Selección de 5 paginas web sobre construcciones*
