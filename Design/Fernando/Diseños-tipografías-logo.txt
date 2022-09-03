@@ -1,0 +1,18 @@
+
+----------------------------------< Fernando >--------------------------------
+Paletas de colores: 
+	amarillo = #fff159 / rgb(255, 241, 89)
+	negro = #000000 / rgb(0, 0, 0)
+	gris claro = #ebebeb / rgb(235, 235, 235)
+	azul = #3483fa / rgb(52, 131, 250)
+	rojo = #dd1d21 / rgb(221, 29, 33)
+ 
+
+Tipografía:
+
+	1- Proxima nova
+	2- Arial
+	3- Roboto
+	4- Helvetica
+	5- sans-serif
+
