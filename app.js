@@ -11,7 +11,7 @@ app.listen(3000, () => {
 });
 
 app.get('/', (req, res) => {
-    res.sendFile(path.resolve(__dirname, './src/views/home.html'));
+    res.sendFile(path.resolve(__dirname, './src/views/index.html'));
 });
 
 app.get('/register.html', (req, res) => {
