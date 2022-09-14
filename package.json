@@ -1,0 +1,26 @@
+{
+  "name": "grupo_11_construyendosue-os",
+  "version": "1.0.0",
+  "description": "La empresa de e-commerce se dedica a la venta de materiales de construcción de primera calidad. En los ultimos años Buildreams ha logrado ampliar y masificar sus productos con el fin brindar más y mejor servicio a todos sus clientes.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fernandoDelPo/grupo_11_ConstruyendoSue-os.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fernandoDelPo/grupo_11_ConstruyendoSue-os/issues"
+  },
+  "homepage": "https://github.com/fernandoDelPo/grupo_11_ConstruyendoSue-os#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
