@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+*{
+    font-family: 'Poppins';
+    margin: 0 auto;
+    padding: 0;
+}
+h1{
+    color: #fcf300;
+}
+div .headertop{
+    background-color: #1e1e1e;
+
+}
