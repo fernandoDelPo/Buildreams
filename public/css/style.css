@@ -14,14 +14,36 @@ h1{
     width: 100%;
     display: flex;
 }
-.Subheader{
+.subheader{
     background-color: rgba(44, 44, 44, 0.979);
-    display: flex;
+    display:flex;
+    min-width: 70px;
+    align-items: center;
+    padding: 10px 40px;
+    height: 90px;
 }
-div .derecho{
-    justify-content: flex-end;
-    display: flex;
+.iconos{
+    display:flex;
+    justify-content: space-between;
+    flex: 10;
 }
+nav .facebook{
+    font-size: 40px;
+    color:rgb(50, 50, 218);
+}
+nav .instagram{
+    font-size: 40px;
+    color:rgb(228, 129, 220);
+}
+nav .whatsapp{
+    font-size: 40px;
+    color:rgb(50, 160, 50);
+}
+.logo{
+   display:flex;
+   width: 200px;
+   margin-top: 30px;
+}  
 div .busqueda{
     display: flex;
     flex-wrap: wrap;
@@ -45,18 +67,12 @@ div .busqueda{
     color:#666;
     font-size:12px;
 }
-.Logo{
-    width: 20%;
-}
 .usuario, .favorito, .shop{
     color: #fcf300;
-    padding: 15px;
+    padding: 15px 15px 15px 15px;
     width: 5%;
+    font-size: 30px;
 }
 .banner{
     width: 100%;
-}
-.Facebook, .Instagram, .Whatsapp{
-    width: 40px;
-
 }
