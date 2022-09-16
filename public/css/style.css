@@ -7,8 +7,56 @@
 }
 h1{
     color: #fcf300;
+    padding:15px 15px 15px 15px;
 }
-div .headertop{
+.headertop{
     background-color: #1e1e1e;
+    width: 100%;
+    display: flex;
+}
+.Subheader{
+    background-color: rgba(44, 44, 44, 0.979);
+    display: flex;
+}
+div .derecho{
+    justify-content: flex-end;
+    display: flex;
+}
+div .busqueda{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width:100%;
+}
+.busqueda .boton {
+    display: flex;
+    background-color: #FFF;
+    border: 1px solid rgb(255, 255, 255);
+    outline: none;
+    color: #666;
+    padding: 12px;
+    height: 20px;
+    width: 50%;
+    max-width: 500px;
+    flex: auto;
+    margin-right: 30px;
+}
+.lupa{
+    color:#666;
+    font-size:12px;
+}
+.Logo{
+    width: 20%;
+}
+.usuario, .favorito, .shop{
+    color: #fcf300;
+    padding: 15px;
+    width: 5%;
+}
+.banner{
+    width: 100%;
+}
+.Facebook, .Instagram, .Whatsapp{
+    width: 40px;
 
 }
