@@ -4,86 +4,138 @@
     font-family: 'Poppins';
     margin: 0 auto;
     padding: 0;
+    width: 100%;
 }
-header h1{
-    color: #fcf300;
-    padding:15px 15px 15px 15px;
+
+header{
+    background-color: rgb(36, 36, 36);
+    width: 100%;
 }
 
 .headertop{
-    background-color: #1e1e1e;
-    width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.titulologo{
+    color: #fcf300;
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+    font-size: 40px;
+}
+
+.busqueda{
+    width: 100%;
+    text-align: center;
+    margin: 5px 0px;
+}
+
+.boton{
+    width: 90%;
+    text-align: center;
+}
+
+.usuario, .shop, .favorito{
+    width: 20px;
+    margin: 5px 10px;
+    color: #fcf300;
+}
+
+.frace{
+    width: 90%;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    background-color: rgb(255, 251, 0);
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 10px;
 }
 
 .subheader{
-    background-color: rgba(44, 44, 44, 0.979);
-    display:flex;
-    min-width: 70px;
-    align-items: center;
-    padding: 10px 40px;
-    height: 90px;
+    background-color: rgb(36, 36, 36);
+    display: flex;
 }
 
-.iconos{
-    display:flex;
-    justify-content: space-between;
-    flex: 10;
-}
-
-nav .facebook{
-    font-size: 40px;
-    color:rgb(50, 50, 218);
-}
-
-nav .instagram{
-    font-size: 40px;
-    color:rgb(228, 129, 220);
-}
-
-nav .whatsapp{
-    font-size: 40px;
-    color:rgb(50, 160, 50);
+.subheader a{
+    color: white;
+    text-decoration: none;
 }
 
 .logo{
-   width: 200px;
-   margin-top: 30px;
-}  
+    width: 20%;
+    display: none;
+}
 
-div .busqueda{
+.menu-header{
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    width:100%;
+    display: none;
+    
 }
 
-.busqueda .boton {
-    display: flex;
-    background-color: #FFF;
-    border: 1px solid rgb(255, 255, 255);
-    outline: none;
-    color: #666;
-    padding: 12px;
-    height: 20px;
-    width: 50%;
-    max-width: 500px;
-    flex: auto;
-    margin-right: 30px;
+.menu-header a{
+    display: none;
+    width: 33%;
+    font-size: 12px;
+    margin: 0px;
 }
 
-.lupa{
-    color:#666;
-    font-size:12px;
+.burger-menu{
+    text-align: center;
+    padding-top: 11px;
+    padding-bottom: 13px;
 }
 
-.usuario, .favorito, .shop{
-    color: #fcf300;
-    padding: 15px 15px 15px 15px;
-    width: 5%;
-    font-size: 30px;
+.burger-menu i{
+    background-color: #fcf300;
+    color: rgb(36, 36, 36);
+    border: solid 1px;
+    border-radius: 15%;
+    border-color: white;
+    padding: 5px;
+    width: 22px;
 }
 
 .banner{
     width: 100%;
+    display: none;
 }
+
+body{
+    background-color: rgba(99, 99, 99, 0.979);
+    text-align: center;
+
+}
+
+.titulares{
+    margin: 10px 0px;
+}
+
+.nombre{
+    width: 100%;
+    background-color: #fcf300;
+    color: black;
+}
+
+.subtitulo{
+    width: 95%;
+    background-color: #fcf300;
+    color: black;
+    
+    font-size: 12px;
+}
+
+.articulos{
+    width: 80%;
+    background-color: #d2cb00c2;
+    padding: 5px;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    border: #d2cb00 solid 2px;
+}
+.articulos img{
+    width: 80%;
+    border: rgba(0, 0, 0, 0.979) solid 2px;
+}
+
