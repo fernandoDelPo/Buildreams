@@ -4,138 +4,126 @@
     font-family: 'Poppins';
     margin: 0 auto;
     padding: 0;
-    width: 100%;
+    font-size: 20px;
 }
-
-header{
-    background-color: rgb(36, 36, 36);
-    width: 100%;
+.titulologo{
+    color: #fcf300;
+    padding:15px 15px 15px 15px;
+    font-size: 35px;
+    margin: 0;
 }
-
+.logo{
+    width: 200px;
+    height: 200px;
+    flex-direction: row;
+}  
 .headertop{
+    background-color: #1e1e1e;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
+}
+.subheader{
+    background-color: #2c2c2cfa;
+    display:flex;
+    min-width: 70px;
+    padding: 10px 40px;
+    height: 90px;
+    color: #fcf300;
+}
+.frase{
+    text-align: center;
+    align-self: flex-start;
+}
+.menu-header{
+    display:flex;
+    align-items: flex-end;
+    justify-content: space-around;
+}
+.iconos{
+    display:flex;
+    justify-content: space-between;
+    color:#fcf300;
+}
+a{
+    color:#fcf300;
+    font-size: 20px;
+    display:flex;
+    justify-content: space-between;
+}
+nav .facebook{
+    color:rgb(50, 50, 218);
+}
+
+.busqueda .boton {
+    display: flex;
+} 
+div .busqueda{
+    padding: 15px 15px 15px 15px;
+    width: 5%;
+    font-size: 30px;
+    align-self: flex-end;
+
+}
+.banner{
+    width: 100%;
     justify-content: center;
 }
 
-.titulologo{
-    color: #fcf300;
+main{
+    background-color: white;
+    margin:0 auto;
+}
+.imagen{
+    width: 30%;
+}
+.contenedor{
     width: 100%;
-    margin: 0px;
-    text-align: center;
-    font-size: 40px;
-}
-
-.busqueda{
-    width: 100%;
-    text-align: center;
-    margin: 5px 0px;
-}
-
-.boton{
-    width: 90%;
-    text-align: center;
-}
-
-.usuario, .shop, .favorito{
-    width: 20px;
-    margin: 5px 10px;
-    color: #fcf300;
-}
-
-.frace{
-    width: 90%;
-    color: rgb(0, 0, 0);
-    text-align: center;
-    background-color: rgb(255, 251, 0);
-    margin-top: 10px;
-    font-size: 14px;
-    padding: 10px;
-}
-
-.subheader{
-    background-color: rgb(36, 36, 36);
+    text-align: left;
+    padding: 15px;
+    border-top: solid 1px #ebebeb;
     display: flex;
-}
-
-.subheader a{
-    color: white;
-    text-decoration: none;
-}
-
-.logo{
-    width: 20%;
-    display: none;
-}
-
-.menu-header{
-    display: flex;
-    display: none;
-    
-}
-
-.menu-header a{
-    display: none;
-    width: 33%;
-    font-size: 12px;
-    margin: 0px;
-}
-
-.burger-menu{
-    text-align: center;
-    padding-top: 11px;
-    padding-bottom: 13px;
-}
-
-.burger-menu i{
-    background-color: #fcf300;
-    color: rgb(36, 36, 36);
-    border: solid 1px;
-    border-radius: 15%;
-    border-color: white;
-    padding: 5px;
-    width: 22px;
-}
-
-.banner{
-    width: 100%;
-    display: none;
-}
-
-body{
-    background-color: rgba(99, 99, 99, 0.979);
-    text-align: center;
+    flex-wrap: wrap;
+    align-items: baseline;
+    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
 
 }
-
-.titulares{
-    margin: 10px 0px;
-}
-
-.nombre{
-    width: 100%;
-    background-color: #fcf300;
-    color: black;
-}
-
-.subtitulo{
-    width: 95%;
-    background-color: #fcf300;
-    color: black;
-    
-    font-size: 12px;
-}
-
-.articulos{
-    width: 80%;
-    background-color: #d2cb00c2;
-    padding: 5px;
-    margin-top: 16px;
+.articulos {
+    width: 30%;
+    background-color: white;
+    margin: 0 auto;
     margin-bottom: 10px;
-    border: #d2cb00 solid 2px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
-.articulos img{
-    width: 80%;
-    border: rgba(0, 0, 0, 0.979) solid 2px;
+.camion {
+    display: block;
+    font-size: 16px;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #39b54a;
+    background-color: #FFF;
+    border-radius: 50%;
+    position: absolute;
+    right: 20px;
+    top: -15px;
+    color:#39b54a;
 }
 
+footer{
+    background-color: #666;
+
+}
+.abajo {
+    width: 100%;
+    text-align: justify;
+    padding: 20px;
+}
+.abajo p {
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.abajo h3 {
+    margin: 0 auto;
+}
