@@ -5,15 +5,17 @@
     margin: 0 auto;
     padding: 0;
 }
-h1{
+header h1{
     color: #fcf300;
     padding:15px 15px 15px 15px;
 }
+
 .headertop{
     background-color: #1e1e1e;
     width: 100%;
     display: flex;
 }
+
 .subheader{
     background-color: rgba(44, 44, 44, 0.979);
     display:flex;
@@ -22,34 +24,40 @@ h1{
     padding: 10px 40px;
     height: 90px;
 }
+
 .iconos{
     display:flex;
     justify-content: space-between;
     flex: 10;
 }
+
 nav .facebook{
     font-size: 40px;
     color:rgb(50, 50, 218);
 }
+
 nav .instagram{
     font-size: 40px;
     color:rgb(228, 129, 220);
 }
+
 nav .whatsapp{
     font-size: 40px;
     color:rgb(50, 160, 50);
 }
+
 .logo{
-   display:flex;
    width: 200px;
    margin-top: 30px;
 }  
+
 div .busqueda{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     width:100%;
 }
+
 .busqueda .boton {
     display: flex;
     background-color: #FFF;
@@ -63,16 +71,19 @@ div .busqueda{
     flex: auto;
     margin-right: 30px;
 }
+
 .lupa{
     color:#666;
     font-size:12px;
 }
+
 .usuario, .favorito, .shop{
     color: #fcf300;
     padding: 15px 15px 15px 15px;
     width: 5%;
     font-size: 30px;
 }
+
 .banner{
     width: 100%;
 }
