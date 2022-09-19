@@ -245,7 +245,7 @@ ul{
     color: var(--Light-Gray);
 }
 
-@media(max-width: 761px){
+@media(max-width: 769px){
 
     header .titulologo p{
         padding-left: 20px;
@@ -259,7 +259,7 @@ ul{
     }
 } 
 
-@media(max-width: 564px){
+@media(max-width: 361px){
     .footer-col{
         width: 100%;
     }
