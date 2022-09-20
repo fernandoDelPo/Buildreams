@@ -1,20 +1,20 @@
 /*producto*/
-.pagina{
+.pagina {
     display: flex;
     flex-direction: column;
 }
 
-.ruta{
+.ruta {
     text-align: left;
     margin: 0px 15px;
     font-size: 15px;
     padding: 0px 5px;
     background-color: #fcf300;
     color: black;
-    
+
 }
 
-.producto{
+.producto {
     background-color: #2c2c2cfa;
     color: white;
     border: #fcf300 solid 1px;
@@ -24,14 +24,14 @@
     padding: 8px;
 }
 
-.descripcion{
+.descripcion {
     display: flex;
     flex-direction: wrap;
     flex-wrap: wrap;
     text-align: left;
 }
 
-.producto img{
+.producto img {
     width: 98%;
     box-shadow: 0px 0px 10px #fcf300;
     margin: 10px auto;
@@ -41,38 +41,42 @@
     margin-top: 10px;
 }
 
-.nombre{
+.nombre {
     font-size: 25px;
     background-color: #3b3b3bfa;
     border: #fcf300 solid 2px;
     padding: 0px 15px;
 }
 
-.caracteristicas{
+.caracteristicas {
     background-color: #3b3b3bfa;
     box-shadow: 0px 0px 5px #fcf300;
     padding: 0px 5px;
     flex-grow: 1;
 }
 
-.precio{
+.valor {
+    display: flex;
+}
+
+.precio {
     background-color: white;
     color: black;
     padding: 5px 13px;
     margin: 10px 0px;
 }
 
-.preciotxt{
+.preciotxt {
     background-color: white;
     color: black;
     padding: 9px 2px;
-    margin: 10px 0px;
+    margin: 10px 2px;
     font-size: 16px;
     align-self: center;
 }
 
 
-.finalizador{
+.finalizador {
     background-color: white;
     color: black;
     width: 100%;
@@ -92,14 +96,14 @@
     text-align: center;
 }
 
-.finalizador i{
+.finalizador i {
     color: #3b3b3bfa;
     margin: 5px;
 }
 
 /*Recomendado*/
 
-.recomendado{
+.recomendado {
     display: flex;
     flex-direction: column;
     margin: 15px;
@@ -107,12 +111,12 @@
     border: black solid 2px;
 }
 
-.recomendado img{
+.recomendado img {
     width: 28%;
     padding: 5px;
 }
 
-.recomendado div{
+.recomendado div {
     display: flex;
     background-color: #3b3b3bfa;
     color: white;
@@ -121,8 +125,128 @@
 
 }
 
-.nombreprecio{
+.nombreprecio {
     display: flex;
     flex-direction: column;
 }
 
+@media(min-width: 750px) {
+
+    .producto {
+        background-color: #2c2c2cfa;
+        color: white;
+        border: #fcf300 solid 1px;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 2px 15px 15px;
+        padding: 8px;
+        position: relative;
+    }
+
+    .descripcion {
+        display: flex;
+        flex-direction: row-reverse;
+        flex-wrap: wrap;
+        text-align: left;
+    }
+
+    .producto img {
+        width: 50%;
+        box-shadow: 0px 0px 10px #fcf300;
+        margin: 10px;
+    }
+
+    .valor {
+        position: absolute;
+        width: 45%;
+        bottom: 400px;
+    }
+
+    .finalizador {
+        width: 45%;
+        position: absolute;
+        bottom: 280px;
+
+    }
+
+    .caracteristicas {
+        background-color: #3b3b3bfa;
+        box-shadow: 0px 0px 5px #fcf300;
+        padding: 0px 5px;
+        flex-grow: 1;
+        order: 1;
+    }
+
+    /*Recomendado*/
+
+    .recomendado {
+        display: flex;
+        flex-direction: column;
+        margin: 15px;
+        padding: 5px;
+        border: black solid 2px;
+    }
+
+    .recomendado img {
+        width: 12%;
+        padding: 5px;
+    }
+
+    .recomendado div {
+        display: flex;
+        background-color: #3b3b3bfa;
+        color: white;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        align-items: center;
+
+    }
+
+    .recomendado div p{
+        margin: 10px;
+        
+    }
+
+    .nombreprecio {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin: 10px;
+    }
+
+
+
+}
+
+@media(min-width: 938px) {
+    .nombre{
+        height: 40px;
+        width: 100%;
+    }
+
+    .producto img{
+        width: 40%;
+    }
+
+    .valor {
+        position: absolute;
+        width: 45%;
+        bottom: 380px;
+        right: 110px;
+    }
+
+    .finalizador {
+        width: 45%;
+        position: absolute;
+        bottom: 260px;
+        right: 110px;
+
+    }
+
+    /*Recomendado*/
+
+    .recomendado img{
+        width: 8%;
+    }
+}
