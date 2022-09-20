@@ -22,3 +22,5 @@ https://www.materialesba.com.ar/
 
 - Andersen Materiales es una empresa que brinda soluciones integrales en el mundo de los materiales de construcción, son vendedores de una completa lista de materiales para la construcción de las primeras marcas al mejor precio, además de brindarle una atención totalmente personalizada y personal altamente capacitado para asesorar al cliente en todo lo que requiera.
 https://materialesandersen.com.ar/
+
+link de tablero Trello: https://trello.com/b/tkHj6h7r/buildreams
