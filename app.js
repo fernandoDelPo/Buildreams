@@ -14,18 +14,38 @@ app.get('/', (req, res) => {
     res.sendFile(path.resolve(__dirname, './src/views/index.html'));
 });
 
-app.get('/register', (req, res) => {
+app.get('/register.html', (req, res) => {
     res.sendFile(path.resolve(__dirname, './src/views/register.html'));
 });
 
-app.get('/login', (req,res)=>{
+app.post("/register", (req, res) => {
+    console.log(req.body);
+    res.sendFile(path.resolve(__dirname, './src/views/home.html')); /*res.send("Te registraste exitosamente")*/
+})
+
+app.get('/login.html', (req,res)=>{
     res.sendFile(path.resolve(__dirname, './src/views/login.html'))
 });
 
-app.get('/productCart', (req,res)=>{
+app.post('/login', (req, res) => {
+    console.log(req.body);
+    res.sendFile(path.resolve(__dirname, './src/views/home.html'));
+});
+
+app.get('/productCart.html', (req,res)=>{
     res.sendFile(path.resolve(__dirname, './src/views/productCart.html'))
 });
 
-app.get('/productDetail', (req,res)=>{
+app.post('/productCart', (req, res) => {
+    console.log(req.body);
+    res.sendFile(path.resolve(__dirname, './src/views/productCart.html'));
+});
+
+app.get('/productDetail.html', (req,res)=>{
     res.sendFile(path.resolve(__dirname, './src/views/productDetail.html'))
+});
+
+app.post('/productDetail', (req, res) => {
+    console.log(req.body);
+    res.sendFile(path.resolve(__dirname, './src/views/productDetail.html'));
 });

@@ -5,168 +5,213 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buildreams</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+    <title>Buildreams</title>
+
 </head>
 
 <body>
     <header>
+        <section class="main-header-top-bar">
             <div class="titulologo">
-            <p>BUILDREAMS</p>
+                <a href="/"><img class="logo" src="/images/buildreams_Mati-removebg-preview.png"
+                        alt="Logo Mercado Buildreams"></a>
             </div>
 
-            <div class="busqueda" action="#" method="GET">
-                <input type="text" placeholder="Busqueda de productos">
-                <i class="fa fa-search"></i>
+            <div class="search">
+                <form class="search-bar-form" action="/listar.html" method="GET">
+                    <input class="barra" type="search" , placeholder="Buscar productos">
+                    <button class="lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
             </div>
 
-            <ul class="iconos">
-                <li><a href="usuario"><i class="fa fa-user-circle fa-2x"></i></a></li>
-                <li><a href="carrito"><i class="fa fa-shopping-cart fa-2x"></i></a></li>
-                <li><a href="favorito"><i class="fa fa-heart fa-2x"></i></a></li>
+            <div class="h3-navbar">
+                <h3 class="copy-header">El mejor lugar para comprar los materiales para tu construcción</h3>
+            </div>
+        </section>
+
+
+        <nav class="main-navbar">
+            <ul class="left-navbar">
+                <li><a href="/login.html"><i class="fa fa-user-circle fa-2x" id="icon-nav"></i></a></li>
+                <li><a href="/productCart.html"><i class="fa fa-shopping-cart fa-2x" id="icon-nav"></i></a></li>
+                <li><a href="/register.html"><i class="fa-regular fa-address-card" id="icon-nav"></i></a></li>
             </ul>
-        </div>
-    </header>
-    <section>
-        <img class="banner" src="/images/Banner.png" alt="banner">
-    </section>
-    <section class="subheader">
-        <img class="logo" src="/images/Logo.png" alt="Logo">
-        <h2>El mejor lugar para comprar los materiales para tu construccion</h2>
-        <nav>
-            <ul class="menu-social">
-                <a href="#" target="_blank"><img class="media" src="/images/facebook.svg" alt="Facebook"></a>
-                <a href="#" target="_blank"><img class="media" src="/images/whatsapp-icon.svg" alt="Whatsapp"></a>
-                <a href="#" target="_blank"><img class="media" src="/images/instagram-icon.svg" alt="Instagram"></a>
+
+            <ul class="rigth-navbar">
+                <li><a href="#" target="_blank"><img class="media" src="/images/facebook.svg" alt="Facebook"></a>
+                </li>
+                <li><a href="#" target="_blank"><img class="media" src="/images/whatsapp-icon.svg" alt="Whatsapp"></a>
+                </li>
+                <li><a href="#" target="_blank"><img class="media" src="/images/instagram-icon.svg" alt="Instagram"></a>
+                </li>
             </ul>
+
         </nav>
-    </section>
-    <section class="tercer">
-    <ul class="menu-header">
-        <a href="#" target="_blank">Materiales</a>
-        <a href="#" target="_blank">Revestimientos</a>
-        <a href="#" target="_blank">Herramientas</a>
-    </ul>
-    </section>
+
+    </header>
+
+
     <main>
-        <section class="lista-productos">
-            <br>
-            <h3 class="titulares">Productos descatacados del mes</h3>
-            
-            <div class="productos">
-
-                <article class="articulos">
-                    <img class="imagen" src="/images/plasticor-loma-negra-40kg.jpg" alt="plasticor">
-                    <div class="contenedor">
-                        <p class="camion"><i class="fa-solid fa-truck-fast"></i></p>
-                        <p class="precios">$1.194,02</p>
-                        <p class="descripcion">Marca Loma Negra</p>
-                        <h4 class="nombre">PLASTICOR X 40 KG</h4>
-                        <p class="agregar"><i class="fa fa-cart-plus"></i></p>
-
+        <section class="banner-container">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/images/Banner2.png" class="d-block w-100" alt="...">
                     </div>
-
-                </article>
-
-                <article class="articulos">
-                    <img class="imagen" src="/images/cal-cacique-max-30kg.jpg" alt="cal-cacique-max-30kg">
-                    <div class="contenedor">
-                        <p class="camion"><i class="fa-solid fa-truck-fast"></i></p>
-                        <p class="precios">$949,50</p>
-                        <p class="descripcion">Marca cacique</p>
-                        <h4 class="nombre">CAL CACIQUE MAX 30KG</h4>
-                        <p class="agregar"><i class="fa fa-cart-plus"></i></p>
-
+                    <div class="carousel-item">
+                        <img src="/images/Banner1.png" class="d-block w-100" alt="...">
                     </div>
-
-                </article>
-
-                <article class="articulos">
-                    <img class="imagen" src="/images/ladrillo-hueco.jpg" alt="Ladrillo-hueco-8X18X33">
-                    <div class="contenedor">
-                        <p class="camion"><i class="fa-solid fa-truck-fast"></i></p>
-                        <p class="precios">$104,30</p>
-                        <p class="descripcion">Marca Buildreams</p>
-                        <h4 class="nombre">LADRILLO HUECO 8X18X33 6AG.</h4>
-                        <p class="agregar"><i class="fa fa-cart-plus"></i></p>
+                    <div class="carousel-item">
+                        <img src="/images/Banner2.png" class="d-block w-100" alt="...">
                     </div>
-                </article>
-
-                <article class="articulos">
-                    <img class="imagen" src="/images/Barra-Hierro-10x12.jpg" alt="Barra-Hierro-10x12">
-                    <div class="contenedor">
-                        <p class="camion"><i class="fa-solid fa-truck-fast"></i></p>
-                        <p class="precios">$2300</p>
-                        <p class="descripcion">Aletado 10mm x 12mm</p>
-                        <h4 class="nombre">BARRA HIERRO CONSTRUCCION aletado ø10mm x 12m</h4>
-                        <p class="agregar"><i class="fa fa-cart-plus"></i></p>
-                    </div>
-                </article>
-
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
 
-            <p class="subtitulo">haciendo click aca encontras más productos destacados </p>
+        </section>
+
+        <div class="menuDesplegable">
+            <div class="dropdown">
+                <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Menú
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Productos</a></li>
+                    <li><a class="dropdown-item" href="#">Acerca de nosotros</a></li>
+                    <li><a class="dropdown-item" href="#">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="lista-productos">
+
+            <h4 class="titulares">Productos descatacados del mes</h4>
+
+            <div class="contenedor-articulos">
+
+                <article class="articulos">
+                    <img class="imagen-producto" src="/images/plasticor-loma-negra-40kg.jpg" alt="plasticor">
+                    <div class="contenedor">
+                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                        <p class="precios">$1.194,02</p>
+                        <h4 class="nombre">PLASTICOR X 40 KG</h4>
+                        <p class="descripcion">Marca Loma Negra</p>
+                    </div>
+                </article>
+
+                <article class="articulos">
+                    <img class="imagen-producto" src="/images/cal-cacique-max-30kg.jpg" alt="cal-cacique-max-30kg">
+                    <div class="contenedor">
+                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                        <p class="precios">$949,50</p>
+                        <h4 class="nombre">CAL CACIQUE MAX 30KG</h4>
+                        <p class="descripcion">Marca Cacique</p>
+                    </div>
+
+                </article>
+
+                <article class="articulos">
+                    <img class="imagen-producto" src="/images/ladrillo-hueco.jpg" alt="Ladrillo-hueco-8X18X33">
+                    <div class="contenedor">
+                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                        <p class="precios">$104,30</p>
+                        <h4 class="nombre">LADRILLO HUECO 8X18X33 6AG.</h4>
+                        <p class="descripcion">Marca Buildreams</p>
+                    </div>
+                </article>
+
+                <article class="articulos">
+                    <img class="imagen-producto" src="/images/Barra-Hierro-10x12.jpg" alt="Barra-Hierro-10x12">
+                    <div class="contenedor">
+                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                        <p class="precios">$2300</p>
+                        <h4 class="nombre">BARRA HIERRO aletado ø10mm x 12m</h4>
+                        <p class="descripcion">Techint</p>
+                    </div>
+                </article>
+            </div>
+
+            <h5 class="subtitulo">Haciendo click acá encontras más productos destacados </h5>
 
         </section>
 
         <section class="lista-productos">
             <br>
-            <h3 class="titulares">Ofertas</h3>
-            
-            <div class="productos">
+            <h4 class="titulares">Ofertas</h4>
+
+            <div class="contenedor-articulos">
                 <article class="articulos">
-                    <img class="imagen" src="/images/hidrofugo.jpg" alt="hidrofugo">
+                    <img class="imagen-producto" src="/images/hidrofugo.jpg" alt="hidrofugo">
                     <div class="contenedor">
-                        <p class="camion"><i class="fa-solid fa-truck-fast"></i></p>
+                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
                         <p class="precios">$3500</p>
-                        <p class="descripcion">Marca Sinteplast</p>
                         <h4 class="nombre">HIDRÓFUGO 20KG</h4>
-                        <p class="agregar"><i class="fa fa-cart-plus"></i></p>
+                        <p class="descripcion">Marca Sinteplast</p>
+
                     </div>
                 </article>
 
                 <article class="articulos">
-                    <img class="imagen" src="/images/Revoque2-en-1.jpg" alt="Revoque2-en-1">
+                    <img class="imagen-producto" src="/images/Revoque2-en-1.jpg" alt="Revoque2-en-1">
                     <div class="contenedor">
-                        <p class="camion"><i class="fa-solid fa-truck-fast"></i></p>
+                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
                         <p class="precios">$2760</p>
-                        <p class="descripcion">Marca Weber</p>
                         <h4 class="nombre">REVOQUE 2 EN 1 PROYECTABLE 30KG</h4>
-                        <p class="agregar"><i class="fa fa-cart-plus"></i></p>
-                    </div>
-                </article>
-
-                <article class="articulos">
-                    <img class="imagen" src="/images/yeso.jpg" alt="yeso">
-                    <div class="contenedor">
-                        <p class="camion"><i class="fa-solid fa-truck-fast"></i></p>
-                        <p class="precios">$4129</p>
-                        <p class="descripcion">Marca Durlock Yeso Tradicional</p>
-                        <h4 class="nombre">YEMACO 40KG</h4>
-                        <p class="agregar"><i class="fa fa-cart-plus"></i></p>
-                    </div>
-                </article>
-
-                <article class="articulos">
-                    <img class="imagen" src="/images/pastina.jpg" alt="pastina">
-                    <div class="contenedor">
-                        <p class="camion"><i class="fa-solid fa-truck-fast"></i></p>
-                        <p class="precios">$1800</p>
                         <p class="descripcion">Marca Weber</p>
-                        <h4 class="nombre">PASTINA LISTA GRIS PERLA 1KG</h4>
-                        <p class="agregar"><i class="fa fa-cart-plus"></i></p>
+
                     </div>
+                </article>
+
+                <article class="articulos">
+                    <img class="imagen-producto" src="/images/yeso.jpg" alt="yeso">
+                    <div class="contenedor">
+                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                        <p class="precios">$4129</p>
+                        <h4 class="nombre">YEMACO 40KG</h4>
+                        <p class="descripcion">Marca Durlock Yeso Tradicional</p </div> </article> <article
+                            class="articulos">
+                        <img class="imagen-producto" src="/images/pastina.jpg" alt="pastina">
+                        <div class="contenedor">
+                            <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                            <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                            <p class="precios">$1800</p>
+                            <h4 class="nombre">PASTINA LISTA GRIS PERLA 1KG</h4>
+                            <p class="descripcion">Marca Weber</p>
+                        </div>
                 </article>
             </div>
 
-            <p class="subtitulo">haciendo click aca encontras más de nuestras ofertas </p>
+            <h5 class="subtitulo">Haciendo click acá encontras más de nuestras ofertas </h5>
 
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="abajo">
+
+    <footer>
+        <section class="contenedor02">
             <div class="row">
                 <div class="footer-col">
                     <h4>Nuestra empresa</h4>
@@ -189,12 +234,11 @@
                 <div class="footer-col">
                     <h4>Contactenos</h4>
                     <div class="social">
-                        <a href="#"><i class="fa fa-map-marker"></i></a>
-                        <a href="#"><i class="fa fa-whatsapp"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fa-solid fa-location-dot"></i></a>
+                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
                     </div>
-                </div>
     </footer>
 </body>
 
