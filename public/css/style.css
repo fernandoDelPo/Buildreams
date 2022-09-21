@@ -50,7 +50,7 @@ main {
     padding-top: 228px;
     transition: all 500ms;
     padding-bottom: 25px;
-    
+
 }
 
 .main-header-top-bar {
@@ -61,7 +61,7 @@ main {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-    
+
 }
 
 .container-menu {
@@ -122,7 +122,7 @@ main {
     border-radius: 5px;
 }
 
-.titulologo{
+.titulologo {
     display: flex;
     flex-wrap: wrap;
     align-content: center;
@@ -136,14 +136,14 @@ main {
     max-height: 90%;
 }
 
-.menuDesplegable{
+.menuDesplegable {
     position: fixed;
     top: 233px;
-    left: 15px;
+    left: 5px;
     z-index: 98;
 }
 
-.nombre{
+.nombre {
     font-size: 15px;
 }
 
@@ -151,11 +151,11 @@ main {
     font-size: 20px;
 }
 
- ul.iconos{
-    float:right;
+ul.iconos {
+    float: right;
     margin-right: 20px;
     padding-left: 0;
-} 
+}
 
 ul.iconos li {
     display: inline-block;
@@ -177,6 +177,7 @@ ul.iconos li a {
     align-items: center;
     align-content: flex-end;
 }
+
 .main-navbar ul {
     list-style: none;
     margin: 0;
@@ -202,7 +203,7 @@ ul.iconos li a {
     align-content: center;
 }
 
-.main-navbar ul{
+.main-navbar ul {
     margin: 0;
     padding: 0;
 }
@@ -238,13 +239,14 @@ ul.iconos li a {
     width: 250px;
     text-align: center;
     align-items: center;
-    
+
 }
-.copy-header{
+
+.copy-header {
     font-size: 13px;
     font-weight: lighter;
     margin-top: 10px;
-   
+
 }
 
 .menu-social {
@@ -284,6 +286,7 @@ main section {
     font-size: 25px;
     margin: 30px;
 }
+
 .subtitulo {
     width: 300px;
     margin: 0 auto;
@@ -341,14 +344,15 @@ img.imagen {
     top: -15px;
     transition: all 1000ms;
 }
+
 .contenedor #icon-truck:hover {
     transform: rotate(-360deg);
-    box-shadow: 0px 0px 5px 5px  var(--Shadow-Gray);
+    box-shadow: 0px 0px 5px 5px var(--Shadow-Gray);
     font-size: 25px;
 }
 
-.articulos:hover  {
-    box-shadow: 0px 0px 10px 10px  var(--Shadow-Gray);
+.articulos:hover {
+    box-shadow: 0px 0px 10px 10px var(--Shadow-Gray);
 }
 
 .precios {
@@ -477,7 +481,7 @@ footer.footer {
     background-color: var(--Dark-Gray);
     text-align: start;
     padding: 10px;
-    
+
 }
 
 .pie-de-pagina {
@@ -503,32 +507,47 @@ footer.footer {
     .rigth-navbar {
         width: 30%;
     }
-    
+
 }
 
-@media(min-width: 769px){
+@media (min-width: 481px) {
+    header {
+        height: 200px;
+    }
+
+    main {
+        padding-top: 200px;
+    }
+    .menuDesplegable {
+        top: 205px;
+        left: 5px;
+    }
+}
+
+@media(min-width: 769px) {
 
     .main-header-top-bar {
         justify-content: space-between;
     }
 
-    .titulologo{
+    .titulologo {
         width: 240px;
     }
 
-    .h3-navbar{
+    .h3-navbar {
         width: 260px;
     }
 
     .search {
         width: 240px;
     }
+
     .barra {
         width: 210px;
         height: 30px;
     }
 
-    .copy-header{
+    .copy-header {
         font-size: 15px;
     }
 
@@ -546,16 +565,28 @@ footer.footer {
         flex-wrap: wrap;
     }
 
-} 
+    header {
+        height: 160px;
+    }
 
-@media(min-width: 1280px){
+    main {
+        padding-top: 160px;
+    }
+    .menuDesplegable {
+        top: 165px;
+        left: 5px;
+    }
+
+}
+
+@media(min-width: 1280px) {
 
 
-    .titulologo{
+    .titulologo {
         width: 260px;
     }
 
-    .h3-navbar{
+    .h3-navbar {
         width: 300px;
     }
 
@@ -568,16 +599,19 @@ footer.footer {
         height: 33px;
     }
 
-    .copy-header{
+    .copy-header {
         font-size: 18px;
     }
+
     .left-navbar,
     .rigth-navbar {
         width: 15%;
     }
+
     .media {
         width: 30px;
     }
+
     .main-navbar i {
         width: 25px;
     }
@@ -589,5 +623,5 @@ footer.footer {
     .articulos {
         width: 22%;
     }
-} 
+}
 
