@@ -1,0 +1,134 @@
+
+
+:root {
+    --Yellow: #fcf300;
+    --Orange: #b3640b;
+    --Blue: #03264C;
+    --Light-Blue: #1259c3;
+    --Dark-Gray: #1e1e1e;
+    --Dark-Gray2: #2c2c2c;
+    --Light-Gray: #ebebeb;
+    --Light-Gray2: #b8b8b8;
+    --Shadow-Gray: rgb(100, 100, 100);
+    --Gray-Opacity: rgb(0, 0, 0, 0.5);
+    --Green: #39b54a;
+    --White: #ffffff;
+    --Red: #ff0000;
+    --Blue2: #0022AA;
+}
+
+.main-cart {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--Light-Gray);
+    text-align: center;
+    padding-top: 238px;
+    align-content: center;
+
+}
+
+.form-cart{
+    width: 100%;
+    display: flex;
+    padding: 5px;
+    display: inline-block;
+    align-items: baseline;
+    background-color: #b8b8b8;
+    
+
+}
+
+.table01 {
+    width: 100%;
+    font-size: 12px;
+    background-color: var(--Light-Gray);
+    color: var(--Dark-Gray);
+    text-align: center;
+}
+
+.thead01{
+    background-color: var(--Dark-Gray);
+    font-weight: bold;
+    color: var(--White);
+}
+
+.table01 td {
+    padding: 5px;
+}
+
+.tbody01 td {
+    border-bottom: 1px solid var(--Light-Gray2)
+
+}
+
+.td-number{
+    width: 5%;
+}
+.td-producto {
+    width: 50%;
+}
+.tbody01 .td-producto{
+    text-align: left;
+}
+.td-cantidad{
+    width: 5%
+}
+#cantidad {
+    width: 35px;
+    text-align: center;
+}
+
+.td-precios {
+    width: 10%
+
+}
+.td-total {
+    width: 10%
+}
+
+.td-acciones {
+    width: 20%
+}
+
+.boton-eliminar-producto{
+    background-color: var(--Orange);
+    border-radius: 8px;
+
+}
+
+.boton-compra{
+    text-align: right;
+    padding-right: 10%;
+    padding: 20px;
+
+}
+
+@media (min-width: 481px) {
+    .header-form {
+        height: 200px;
+    } 
+    .main-cart {
+        padding-top: 210px;
+    }
+
+}
+
+@media (min-width: 670px) {
+    .header-form {
+        height: 170px;
+    } 
+    .main-cart {
+        padding-top: 180px;
+    }
+    .form-cart {
+        width: 670px
+    }
+    .table01{
+        font-size: 15px;
+    }
+    
+}
+;

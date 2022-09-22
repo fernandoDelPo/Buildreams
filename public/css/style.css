@@ -50,7 +50,6 @@ main {
     padding-top: 228px;
     transition: all 500ms;
     padding-bottom: 25px;
-
 }
 
 .main-header-top-bar {
@@ -390,45 +389,52 @@ main section div article:hover .descripcion {
     transition: all 1000ms;
 }
 
-/* .camion {
-    display: block;
-    font-size: 16px;
-    padding: 5px;
-    width: 30px;
-    height: 30px;
-    border: 1px solid var(--Green);
-    background-color: var(--White);
-    border-radius: 50%;
-    position: absolute;
-    right: 20px;
-    top: -15px;
-    color: var(--Green);
-} */
 
-/*Footer*/
-footer.footer {
+/*Footer -------------------------------------------------------------------*/
+
+footer {
     background-color: var(--Dark-Gray);
 }
-
-.footer {
-    padding: 70px 0px;
+.contenedor02 {
+    width: 100%;
+    padding: 10px;
     background-color: var(--Dark-Gray);
+    text-align: center;
+    padding: 10px;
+}
+
+.pie-de-pagina {
+    display: flex;
+    flex-direction: column;    
+    align-items: center; 
+}
+
+.copyright {
+    color: var(--Orange);
+    padding: 10px 0;
 }
 
 .footer-col {
+    display: flex;
+    flex-direction: column;
     padding: 0 15px;
 }
 
 .footer-col ul li {
     margin-bottom: 10px;
+    list-style: none;
 }
 
 .footer-col ul a {
-    font-size: 16px;
+    font-size: 13px;
     color: var(--Yellow);
     text-decoration: none;
     display: block;
     transition: all 0.3s ease;
+}
+
+.footer-col ul{
+    padding: 0;
 }
 
 .footer-col ul a:hover {
@@ -436,9 +442,9 @@ footer.footer {
 }
 
 .footer-col h4 {
-    font-size: 20px;
-    color: var(--Yellow);
-    margin-bottom: 35px;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--Orange);
     position: relative;
 }
 
@@ -453,15 +459,11 @@ footer.footer {
     width: 50px;
 }
 
+
 .abajo {
     max-width: 1170px;
     margin: auto;
     background-color: var(--Dark-Gray2);
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
 }
 
 
@@ -476,20 +478,10 @@ footer.footer {
     color: var(--Light-Gray);
 }
 
-.contenedor02 {
-    width: 100%;
-    background-color: var(--Dark-Gray);
-    text-align: start;
-    padding: 10px;
-
+#incon-footer{
+    font-size: 22px;
 }
 
-.pie-de-pagina {
-    display: flex;
-    flex-direction: column;
-    align-content: flex-start;
-    text-decoration: none;
-}
 
 /*-----------------------------------mediaQuery--------------------------------*/
 
@@ -575,6 +567,18 @@ footer.footer {
     .menuDesplegable {
         top: 165px;
         left: 5px;
+    }
+    .pie-de-pagina {
+        flex-direction: row;
+
+    }
+    .footer-col{
+        flex-direction: column;
+        flex-grow: 1;
+    }
+    #footer-contacto{
+        align-self: flex-start;
+
     }
 
 }
