@@ -3,6 +3,10 @@
     padding: 0px;
 }
 
+header{
+    padding: 0px;
+}
+
 main {
     background-color: var(--White);
     margin: 0 auto;
