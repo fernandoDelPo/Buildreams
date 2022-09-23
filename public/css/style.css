@@ -276,7 +276,6 @@ main section {
     margin: 0 auto;
 }
 
-
 .contenedor-articulos {
     padding-bottom: 15px;
 }
@@ -510,6 +509,7 @@ footer {
     main {
         padding-top: 200px;
     }
+
     .menuDesplegable {
         top: 205px;
         left: 5px;
@@ -564,6 +564,7 @@ footer {
     main {
         padding-top: 160px;
     }
+
     .menuDesplegable {
         top: 165px;
         left: 5px;
@@ -628,4 +629,3 @@ footer {
         width: 22%;
     }
 }
-
