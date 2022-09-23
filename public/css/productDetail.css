@@ -2,6 +2,7 @@
 .pagina {
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
 }
 
 .ruta {
@@ -24,7 +25,7 @@
     padding: 8px;
 }
 
-.descripcion {
+.descripciondetalle {
     display: flex;
     flex-direction: wrap;
     flex-wrap: wrap;
@@ -84,7 +85,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 
 .finalizador p {
@@ -130,7 +130,7 @@
     flex-direction: column;
 }
 
-@media(min-width: 750px) {
+@media(min-width: 442px) {
 
     .producto {
         background-color: #2c2c2cfa;
@@ -143,11 +143,12 @@
         position: relative;
     }
 
-    .descripcion {
+    .descripciondetalle {
         display: flex;
         flex-direction: row-reverse;
         flex-wrap: wrap;
         text-align: left;
+        display: block;
     }
 
     .producto img {
@@ -159,14 +160,17 @@
     .valor {
         position: absolute;
         width: 45%;
-        bottom: 400px;
+        bottom: 320px;
+        z-index: 50;
+        right: 10px;
     }
 
     .finalizador {
         width: 45%;
         position: absolute;
-        bottom: 280px;
-
+        bottom: 190px;
+        right: 10px;
+        z-index: 50;
     }
 
     .caracteristicas {
