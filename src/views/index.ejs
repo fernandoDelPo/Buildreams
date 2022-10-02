@@ -31,7 +31,10 @@
                         <img src="/images/Banner1.png" class="d-block w-100" alt="Banner">
                     </div>
                     <div class="carousel-item">
-                        <img src="/images/Banner2.png" class="d-block w-100" alt="Banner">
+                        <img src="/images/Banner3.png" class="d-block w-100" alt="Banner">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/images/Banner4.png" class="d-block w-100" alt="Banner">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -89,60 +92,25 @@
             <br>
             <h4 class="titulares">Ofertas</h4>
 
-            <div class="contenedor-articulos">
-                <article class="articulos">
-                    <img class="imagen-producto" src="/images/hidrofugo.jpg" alt="hidrofugo">
-                    <div class="contenedor">
-                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
-                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                        <p class="precios">$3500</p>
-                        <h4 class="nombre">HIDRÓFUGO 20KG</h4>
-                        <p class="descripcion">Marca Sinteplast</p>
-
-                    </div>
-                </article>
-
-                <article class="articulos">
-                    <img class="imagen-producto" src="/images/Revoque2-en-1.jpg" alt="Revoque2-en-1">
-                    <div class="contenedor">
-                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
-                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                        <p class="precios">$2760</p>
-                        <h4 class="nombre">REVOQUE 2 EN 1 PROYECTABLE 30KG</h4>
-                        <p class="descripcion">Marca Weber</p>
-
-                    </div>
-                </article>
-
-                <article class="articulos">
-                    <img class="imagen-producto" src="/images/yeso.jpg" alt="yeso">
-                    <div class="contenedor">
-                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
-                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                        <p class="precios">$4129</p>
-                        <h4 class="nombre">YEMACO 40KG</h4>
-
-                        <p class="descripcion">Marca Durlock Yeso Tradicional</p>
-                </article>
-
-                <article class="articulos">
-                    <img class="imagen-producto" src="/images/pastina.jpg" alt="pastina">
+                    <div class="contenedor-articulos">
+                        <% productos.forEach(producto => { %>
+                        <article class="articulos">
+                            <img class="imagen-producto" src="/images/<%= producto.imagen%>"  alt="ofert">
+                            <div class="contenedor">
+                                <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                                <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                                <p class="precios"><%=producto.precio %></p>
+                                <h4 class="nombre"><%= producto.nombre  %></h4>
+                                <p class="descripcion"><%= producto.marca %> </p>
+        
+                            </div>
+                        </article>
                     
-                    <div class="contenedor">
-                        <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
-                        <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                        <p class="precios">$1800</p>
-                        <h4 class="nombre">PASTINA LISTA GRIS PERLA 1KG</h4>
-                        <p class="descripcion">Marca Weber</p>
-                    </div>
-
-                </article>
-
-            </div>
-
-            <h5 class="subtitulo">Haciendo click acá encontrás más de nuestras ofertas </h5>
-
-        </section>
+                <% }) %>
+        
+              <h5 class="subtitulo">Haciendo click acá encontrás más de nuestras ofertas </h5>
+        
+            </section>
     </main>
 
     <%- include('partials/footer')%> 
