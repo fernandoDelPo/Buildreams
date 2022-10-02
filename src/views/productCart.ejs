@@ -18,42 +18,10 @@
 
 <body>
     <header class="header-form">
-        <section class="main-header-top-bar">
-            <div class="titulologo">
-                <a href="/"><img class="logo" src="/images/buildreams_Mati-removebg-preview.png"
-                        alt="Logo Mercado Buildreams"></a>
-            </div>
+        
+        <%- include('partials/mainheader')%> 
 
-            <div class="search">
-                <form class="search-bar-form" action="/listar.html" method="GET">
-                    <input class="barra" type="search" , placeholder="Buscar productos">
-                    <button class="lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
-
-            <div class="h3-navbar">
-                <h3 class="copy-header">El mejor lugar para comprar los materiales para tu construcción</h3>
-            </div>
-        </section>
-
-
-        <nav class="main-navbar">
-            <ul class="left-navbar">
-                <li><a href="/login"><i class="fa fa-user-circle fa-2x" id="icon-nav"></i></a></li>
-                <li><a href="/productCart"><i class="fa fa-shopping-cart fa-2x" id="icon-nav"></i></a></li>
-                <li><a href="/register"><i class="fa-regular fa-address-card" id="icon-nav"></i></a></li>
-            </ul>
-
-            <ul class="rigth-navbar">
-                <li><a href="#" target="_blank"><img class="media" src="/images/facebook.svg" alt="Facebook"></a>
-                </li>
-                <li><a href="#" target="_blank"><img class="media" src="/images/whatsapp-icon.svg" alt="Whatsapp"></a>
-                </li>
-                <li><a href="#" target="_blank"><img class="media" src="/images/instagram-icon.svg" alt="Instagram"></a>
-                </li>
-            </ul>
-
-        </nav>
+        <%- include('partials/mainnavbar')%> 
 
     </header>
 
@@ -113,45 +81,8 @@
         </form>
     </main>
 
-    <footer>
-        <section class="contenedor02">
-            <div class="pie-de-pagina">
-                <div class="footer-col">
-                    <h4>Nuestra empresa</h4>
-                    <ul>
-                        <li><a href="#">Sobre nosotros</a></li>
-                        <li><a href="#">Nuestros servicios</a></li>
-                        <li><a href="#">Políticas de privacidad</a></li>
-                        <li><a href="#">Términos y condiciones</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Ayuda</h4>
-                    <ul>
-                        <li><a href="#">Preguntas frecuentes</a></li>
-                        <li><a href="#">Seguimientos</a></li>
-                        <li><a href="#">Metodos de pago</a></li>
-                        <li><a href="#">Métodos de envio</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col" id="footer-contacto">
-                    <h4>Contáctenos</h4>
-                    <ul class="rigth-footer">
-                        <li><a href="#" target="_blank"><img class="media" src="/images/facebook.svg"
-                                    alt="Facebook"></a>
-                        </li>
-                        <li><a href="#" target="_blank"><img class="media" src="/images/whatsapp-icon.svg"
-                                    alt="Whatsapp"></a>
-                        </li>
-                        <li><a href="#" target="_blank"><img class="media" src="/images/instagram-icon.svg"
-                                    alt="Instagram"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <p class="copyright">Copyright © 1999-2022 Buildreams S.R.L</p>
-        </section>
-    </footer>
+    <%- include('partials/footer')%> 
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
     </script>

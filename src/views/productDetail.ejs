@@ -13,45 +13,12 @@
 
 <body>
 
-    <header>
-        <section class="main-header-top-bar">
-            <div class="titulologo">
-                <a href="/"><img class="logo" src="/images/buildreams_Mati-removebg-preview.png"
-                        alt="Logo Mercado Buildreams"></a>
-            </div>
 
-            <div class="search">
-                <form class="search-bar-form" action="/listar.html" method="GET">
-                    <input class="barra" type="search" , placeholder="Buscar productos">
-                    <button class="lupa"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-            </div>
+        <%- include('partials/mainheader')%> 
 
-            <div class="h3-navbar">
-                <h3 class="copy-header">El mejor lugar para comprar los materiales para tu construcción</h3>
-            </div>
-        </section>
+        <%- include('partials/mainnavbar')%> 
 
 
-        <nav class="main-navbar">
-            <ul class="left-navbar">
-                <li><a href="./login"><i class="fa fa-user-circle fa-2x" id="icon-nav"></i></a></li>
-                <li><a href="./productCart"><i class="fa fa-shopping-cart fa-2x" id="icon-nav"></i></a></li>
-                <li><a href="./register"><i class="fa-regular fa-address-card" id="icon-nav"></i></a></li>
-            </ul>
-
-            <ul class="rigth-navbar">
-                <li><a href="#" target="_blank"><img class="media" src="/images/facebook.svg" alt="Facebook"></a>
-                </li>
-                <li><a href="#" target="_blank"><img class="media" src="/images/whatsapp-icon.svg" alt="Whatsapp"></a>
-                </li>
-                <li><a href="#" target="_blank"><img class="media" src="/images/instagram-icon.svg" alt="Instagram"></a>
-                </li>
-            </ul>
-
-        </nav>
-
-    </header>
 
     <main>
 
@@ -138,38 +105,8 @@
         </section>
 
     </main>
-
-
-    <footer>
-        <section class="contenedor02">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Nuestra empresa</h4>
-                    <ul>
-                        <li><a href="#">Sobre nosotros</a></li>
-                        <li><a href="#">Nuestros servicios</a></li>
-                        <li><a href="#">Politicas de privacidad</a></li>
-                        <li><a href="#">Terminos y condiciones</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Ayuda</h4>
-                    <ul>
-                        <li><a href="#">Preguntas frecuentes</a></li>
-                        <li><a href="#">Seguimientos</a></li>
-                        <li><a href="#">Metodos de pago</a></li>
-                        <li><a href="#">Metodos de envio</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Contactenos</h4>
-                    <div class="social">
-                        <a href="#"><i class="fa-solid fa-location-dot"></i></a>
-                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                    </div>
-    </footer>
+    
+    <%- include('partials/footer')%> 
 
 </body>
 

@@ -5,24 +5,22 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start": "node ./src/app.js",
+    "dev": "nodemon ./src/app.js"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fernandoDelPo/grupo_11_ConstruyendoSue-os.git"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/fernandoDelPo/grupo_11_ConstruyendoSue-os/issues"
   },
-  
   "homepage": "https://github.com/fernandoDelPo/grupo_11_ConstruyendoSue-os#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
     "nodemon": "^2.0.19"
   }
