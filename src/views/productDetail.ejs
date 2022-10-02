@@ -30,17 +30,17 @@
 
                 <div class="producto">
 
-                    <p class="nombre">Plasticor Cemento de albañileria</p>
+                    <p class="nombre"><%= producto.nombre %></p>
 
-                    <img src="/images/plasticor-loma-negra-40kg.jpg" class="iamagenprincipal" alt="plasticor">
+                    <img src="/images/<%= producto.imagen %>" class="iamagenprincipal" alt="imagen producto">
 
                     <div class="descripciondetalle">
 
 
-                        <p class="caracteristicas">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id similique voluptatum iste error praesentium sequi quod nostrum vel dolor aspernatur. Dignissimos iste amet aspernatur repudiandae voluptatum. Impedit molestiae nam perferendis.</p>
+                        <p class="caracteristicas"><%= producto.descripcion%></p>
                         
                         <div class="valor">
-                            <p class="precio">$999999</p>
+                            <p class="precio"><%=producto.precio %></p>
                             <p class="preciotxt">C/U</p>
                         </div>
 
@@ -53,53 +53,28 @@
                     </div>
 
                 </div>
-
+                <% productos.forEach(producto => { %>
                 <div class="recomendado">
 
                     <p>tambien podria interesarte...</p>
 
                     <div class="miniproduto">
-                        <img src="/images/ladrillo-hueco.jpg">
+                        
+                            <img src="/images/<%= producto.imagen %>">
 
-                        <div class="nombreprecio">
-                            <p>Ladrillo Hueco</p>
-                            <div>
-                                </p>
-                                <p>$999999</p>
-                                <p>C/U</p>
+                            <div class="nombreprecio">
+                                <p><%= producto.nombre %></p>
+                                <div>
+                                    </p>
+                                    <p>$<%= producto.precio%></p>
+                                    <p>C/U</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="miniproduto">
-                        <img src="/images/Barra-Hierro-10x12.jpg">
-
-                        <div class="nombreprecio">
-                            <p>Barra de hierro</p>
-                            <div>
-                                </p>
-                                <p>$999999</p>
-                                <p>C/U</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="miniproduto">
-                        <img src="/images/hidrofugo.jpg">
-
-                        <div class="nombreprecio">
-                            <p>Hidrofugo </p>
-                            <div>
-                                <p>$999999</p>
-                                <p>C/U</p>
-                            </div>
-                        </div>
-                    </div>
+                        
 
                 </div>
-
-
-
+                <% }) %>
             </div>
 
         </section>

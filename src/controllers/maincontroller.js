@@ -90,7 +90,7 @@ const mainController = {
    productDetail: (req, res) => {
       let idproducto = req.params.id;
       let producto = productos.find(producto => producto.id == idproducto);
-      res.render('productDetail', { productos });
+      res.render('productDetail', { producto, productos });
    },
 }
 

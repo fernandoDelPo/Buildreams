@@ -73,7 +73,7 @@
             <div class="contenedor-articulos">
                 <% productos.forEach(producto => { %>
                     <article class="articulos">
-                        <img class="imagen-producto" src="/images/<%= producto.imagen%>" alt="plasticor">
+                        <a href="/productDetail/<%= producto.id %>" ><img class="imagen-producto" src="/images/<%= producto.imagen%>" alt="plasticor"></a>
                         <div class="contenedor">
                             <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
                             <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
