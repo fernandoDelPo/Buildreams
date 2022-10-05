@@ -71,15 +71,15 @@
             <h4 class="titulares">Productos descatacados del mes</h4>
 
             <div class="contenedor-articulos">
-                <% productos.forEach(producto => { %>
+                <% products.forEach(product => { %>
                     <article class="articulos">
-                        <a href="/productDetail/<%= producto.id %>" ><img class="imagen-producto" src="/images/<%= producto.imagen%>" alt="plasticor"></a>
+                        <a href="/products/productDetail/<%= product.id %>" ><img class="imagen-producto" src="/images/<%= product.imagen%>" alt="plasticor"></a>
                         <div class="contenedor">
                             <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
                             <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                            <p class="precios"><%=producto.precio %> </p>
-                            <h4 class="nombre"><%= producto.nombre  %> </h4>
-                            <p class="descripcion"><%= producto.marca %> </p>
+                            <p class="precios"><%=product.precio %> </p>
+                            <h4 class="nombre"><%= product.nombre  %> </h4>
+                            <p class="descripcion"><%= product.marca %> </p>
                         </div>
                     </article>
                 <% }) %>
@@ -93,15 +93,15 @@
             <h4 class="titulares">Ofertas</h4>
 
                     <div class="contenedor-articulos">
-                        <% productos.forEach(producto => { %>
+                        <% products.forEach(product => { %>
                         <article class="articulos">
-                            <img class="imagen-producto" src="/images/<%= producto.imagen%>"  alt="ofert">
+                            <img class="imagen-producto" src="/images/<%= product.imagen%>"  alt="ofert">
                             <div class="contenedor">
                                 <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
                                 <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                                <p class="precios"><%=producto.precio %></p>
-                                <h4 class="nombre"><%= producto.nombre  %></h4>
-                                <p class="descripcion"><%= producto.marca %> </p>
+                                <p class="precios"><%=product.precio %></p>
+                                <h4 class="nombre"><%= product.nombre  %></h4>
+                                <p class="descripcion"><%= product.marca %> </p>
         
                             </div>
                         </article>

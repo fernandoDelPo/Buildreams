@@ -30,19 +30,20 @@
 
                 <div class="producto">
 
-                    <p class="nombre"><%= producto.nombre %></p>
+                    <p class="nombre"><%= product.nombre %></p>
 
-                    <img src="/images/<%= producto.imagen %>" class="iamagenprincipal" alt="imagen producto">
+                    <img src="/images/<%= product.imagen %>" class="iamagenprincipal" alt="imagen producto">
 
                     <div class="descripciondetalle">
 
 
-                        <p class="caracteristicas"><%= producto.descripcion%></p>
+                        <p class="caracteristicas"><%= product.descripcion%></p>
                         
                         <div class="valor">
-                            <p class="precio"><%=producto.precio %></p>
+                            <p class="precio"><%=product.precio %></p>
                             <p class="preciotxt">C/U</p>
                         </div>
+                        
 
                         <div class="finalizador">
                             <p>+ cantidad -</p>
@@ -53,20 +54,20 @@
                     </div>
 
                 </div>
-                <% productos.forEach(producto => { %>
+                <% products.forEach(product => { %>
                 <div class="recomendado">
 
                     <p>tambien podria interesarte...</p>
 
                     <div class="miniproduto">
                         
-                            <img src="/images/<%= producto.imagen %>">
+                            <img src="/images/<%= product.imagen %>">
 
                             <div class="nombreprecio">
-                                <p><%= producto.nombre %></p>
+                                <p><%= product.nombre %></p>
                                 <div>
                                     </p>
-                                    <p>$<%= producto.precio%></p>
+                                    <p>$<%= product.precio%></p>
                                     <p>C/U</p>
                                 </div>
                             </div>
