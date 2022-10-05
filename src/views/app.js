@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const main = require('./router/main');
+const main = require('../router/main');
 
 app.use(express.static(path.resolve(__dirname, "../public")))
 app.use('/', main);
