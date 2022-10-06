@@ -1,0 +1,18 @@
+
+
+#edit{
+    padding-top: 250px;
+}
+
+@media (min-width: 481px) {
+
+   #edit{
+        padding-top: 210px;
+    }
+}
+
+@media (min-width: 670px) {
+     #edit {
+        padding-top: 200px;
+    }
+}

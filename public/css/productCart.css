@@ -98,6 +98,11 @@
     border-radius: 8px;
 
 }
+.boton-modificar-producto{
+    background-color: var(--Green);
+    border-radius: 8px;
+
+}
 
 .boton-compra{
     text-align: right;

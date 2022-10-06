@@ -1,5 +1,7 @@
 <%- include ('./partials/head.ejs')%>
 <link rel="stylesheet" href="/css/productDetail.css">
+<link rel="stylesheet" href="/css/register.css">
+<link rel="stylesheet" href="/css/productCart.css">
 
 <title>Detalle del producto</title>
 
@@ -34,7 +36,9 @@
                 <div class="finalizador">
                     <p>+ cantidad -</p>
                     <button>agregar al carrito</button>
-                    <a href="favorito"><i class="fa fa-heart fa-2x"></i></a>
+                    <a href="/products/productCart"><i class="fa fa-heart fa-2x"></i></a>
+                    <button class="boton-eliminar-producto" type="reset">Eliminar producto</button>
+                    <a href="/products/editProduct/<%= product.id %>">  <button class="boton-modificar-producto" type="button">Modificar producto</button></a>
                 </div>
 
             </div>

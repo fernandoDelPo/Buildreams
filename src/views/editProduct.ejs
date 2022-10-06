@@ -1,17 +1,19 @@
 <%-include('./partials/head') %>
 
 <link rel="stylesheet" href="/css/register.css">
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/editProduct.css">
 
 
-<title>Crear producto</title>
+<title>Editar producto</title>
 
 <%- include('partials/header')%>
 
 
-<main class="main-form">
-    <form action="/crear-usuario" method="POST" class="create-form">
+<main class="main-form" id="edit">
+    <form action="/modificar-producto" method="POST" class="create-form">
         <div class="control-formulario">
-            <h4>Crea un nuevo producto:</h4>
+            <h4>Modifica el producto:</h4>
         </div>
 
 
@@ -63,18 +65,18 @@
 
 
         <div class="control-formulario">
-            <h4>Perfil de Usuario:</h4>
+            <h4>Perfil de oferta:</h4>
             <div class="padre-control">
                 <div class="hijo-control">
                     <label class="label-control" for="enOferta">Con descuento
-                        <input type="radio" name="enOferta" id="enOferta" required>
-                        <div class="msg-error">¿El producto tiene descuento?.</div>
+                        <input type="radio" name="enOferta" id="Oferta" required>
+                        <div class="msg-error">¿El producto tiene descuento?</div>
                     </label>
                 </div>
                 <div class="hijo-control">
 
                     <label class="label-control" for="sinDescuento">Sin descuento
-                        <input type="radio" name="sinDescuento" id="sinDescuento">
+                        <input type="radio" name="sinDescuento" id="sinOferta">
                     </label>
                 </div>
             </div>
