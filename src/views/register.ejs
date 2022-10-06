@@ -1,27 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include ('./partials/head.ejs')%>
+<link rel="stylesheet" href="/css/register.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/register.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <title>Crear cuenta</title>
+<title>Crear cuenta</title>
 
-</head>
-
-<body>
-    <header class="header-form">
-       
-        <%- include('partials/mainheader')%>
-        
-        <%- include('partials/mainnavbar')%> 
-
-    </header>
+<%- include('partials/header')%>
+<main>
 
     <main class="main-form">
         <form action="/crear-usuario" method="POST" class="create-form">
@@ -33,7 +16,7 @@
                     <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido: Ej: Juan Pérez"
                         value="Escribe tu nombre"
                         pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
-                        class="control" >
+                        class="control">
                     <div class="msg-error">Debes completar este campo sólo con letras. <i
                             class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
                 </label>
@@ -186,13 +169,10 @@
             </div>
         </form>
     </main>
-    
-    <%- include('partials/footer')%> 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-    </script>
+    <%- include('partials/footer')%>
+    <%-include('./partials/script-bootstrap')%>
 
-</body>
+    </body>
 
-</html>
+    </html>

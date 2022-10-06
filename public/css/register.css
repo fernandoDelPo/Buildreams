@@ -40,7 +40,7 @@
     width: 100%;
     background-color: var(--Light-Gray);
     text-align: center;
-    padding-top: 228px;
+    padding-top: 30px;
 }
 
 .create-form {
@@ -266,7 +266,7 @@ button:active {
         height: 200px;
     } 
     .main-form {
-        padding-top: 200px;
+        padding-top: 40px;
     }
 }
 
@@ -275,7 +275,7 @@ button:active {
         height: 170px;
     } 
     .main-form {
-        padding-top: 170px;
+        padding-top: 50px;
     }
 }
 

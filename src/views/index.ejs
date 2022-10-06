@@ -1,120 +1,65 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include ('./partials/head.ejs')%>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<title>Buildreams</title>
 
-    <title>Buildreams</title>
+<%- include('partials/header')%>
+<main>
+<%-include('./partials/carrusel-menu.ejs')%>
 
-</head>
 
-<body>
 
-        <%- include('partials/header')%> 
+<section class="lista-productos">
 
-    <main>
-        <section class="banner-container">
-            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/images/Banner2.png" class="d-block w-100" alt="Banner">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/images/Banner1.png" class="d-block w-100" alt="Banner">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/images/Banner3.png" class="d-block w-100" alt="Banner">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/images/Banner4.png" class="d-block w-100" alt="Banner">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+    <h4 class="titulares">Productos descatacados del mes</h4>
+
+    <div class="contenedor-articulos">
+        <% products.forEach(product => { %>
+        <article class="articulos">
+            <a href="/products/productDetail/<%= product.id %>"><img class="imagen-producto"
+                    src="/images/<%= product.imagen%>" alt="plasticor"></a>
+            <div class="contenedor">
+                <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                <p class="precios"><%=product.precio %> </p>
+                <h4 class="nombre"><%= product.nombre  %> </h4>
+                <p class="descripcion"><%= product.marca %> </p>
             </div>
+        </article>
+        <% }) %>
 
-        </section>
+        <h5 class="subtitulo">Haciendo click acá encontras más productos destacados </h5>
 
-        <div class="menuDesplegable">
-            <div class="dropdown">
-                <a class="btn btn-secondary btn-sm dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Menú
-                </a>
+</section>
 
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">Productos</a></li>
-                    <li><a class="dropdown-item" href="#">Acerca de nosotros</a></li>
-                    <li><a class="dropdown-item" href="#">Contacto</a></li>
-                </ul>
+<section class="lista-productos">
+    <br>
+    <h4 class="titulares">Ofertas</h4>
+
+    <div class="contenedor-articulos">
+        <% products.forEach(product => { %>
+        <article class="articulos">
+            <img class="imagen-producto" src="/images/<%= product.imagen%>" alt="ofert">
+            <div class="contenedor">
+                <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                <p class="precios"><%=product.precio %></p>
+                <h4 class="nombre"><%= product.nombre  %></h4>
+                <p class="descripcion"><%= product.marca %> </p>
+
             </div>
-        </div>
+        </article>
 
-        <section class="lista-productos">
+        <% }) %>
 
-            <h4 class="titulares">Productos descatacados del mes</h4>
+        <h5 class="subtitulo">Haciendo click acá encontrás más de nuestras ofertas </h5>
 
-            <div class="contenedor-articulos">
-                <% products.forEach(product => { %>
-                    <article class="articulos">
-                        <a href="/products/productDetail/<%= product.id %>" ><img class="imagen-producto" src="/images/<%= product.imagen%>" alt="plasticor"></a>
-                        <div class="contenedor">
-                            <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
-                            <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                            <p class="precios"><%=product.precio %> </p>
-                            <h4 class="nombre"><%= product.nombre  %> </h4>
-                            <p class="descripcion"><%= product.marca %> </p>
-                        </div>
-                    </article>
-                <% }) %>
+</section>
+</main>
 
-            <h5 class="subtitulo">Haciendo click acá encontras más productos destacados </h5>
+<%- include('partials/footer')%>
 
-        </section>
+<%-include('./partials/script-bootstrap')%>
 
-        <section class="lista-productos">
-            <br>
-            <h4 class="titulares">Ofertas</h4>
-
-                    <div class="contenedor-articulos">
-                        <% products.forEach(product => { %>
-                        <article class="articulos">
-                            <img class="imagen-producto" src="/images/<%= product.imagen%>"  alt="ofert">
-                            <div class="contenedor">
-                                <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
-                                <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                                <p class="precios"><%=product.precio %></p>
-                                <h4 class="nombre"><%= product.nombre  %></h4>
-                                <p class="descripcion"><%= product.marca %> </p>
-        
-                            </div>
-                        </article>
-                    
-                <% }) %>
-        
-              <h5 class="subtitulo">Haciendo click acá encontrás más de nuestras ofertas </h5>
-        
-            </section>
-    </main>
-
-    <%- include('partials/footer')%> 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-        </script>
 </body>
+
 </html>
