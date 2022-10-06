@@ -8,7 +8,8 @@
        "imagen": "plasticor-loma-negra-40kg.jpg",
        "stock": "150",
        "color": "verde oscuro",
-       "enOferta": false
+       "enOferta": false,
+       "categoria": ""
     },
     {
         "id": 2,
@@ -19,7 +20,9 @@
         "imagen": "cal-cacique-max-30kg.jpg",
         "stock": "100",
         "color": "blanco",
-        "enOferta": false
+        "enOferta": false,
+        "categoria": ""
+
     },
     {
         "id": 3,
@@ -30,7 +33,8 @@
         "imagen": "ladrillo-hueco.jpg",
         "stock": "1500",
         "color": "anaranjado",
-        "enOferta": false
+        "enOferta": false,
+        "categoria": ""
     },
     {
         "id": 4,
@@ -41,7 +45,8 @@
         "imagen": "Barra-Hierro-10x12.jpg",
         "stock": "2300",
         "color": "plateado",
-        "enOferta": false
+        "enOferta": false,
+        "categoria": ""
     },
     {
        "id": 5,
@@ -52,7 +57,8 @@
        "imagen": "hidrofugo.jpg",
        "stock": "345",
        "color": "blanco",
-       "enOferta": true
+       "enOferta": true,
+       "categoria": ""
     },
     {
        "id": 6,
@@ -63,7 +69,8 @@
        "imagen": "Revoque2-en-1.jpg",
        "stock": "546",
        "color": "blanco",
-       "enOferta": true
+       "enOferta": true,
+       "categoria": ""
     },
     {
       "id": 7,
@@ -74,7 +81,8 @@
       "imagen": "yeso.jpg",
       "stock": "546",
       "color": "blanco",
-      "enOferta": true
+      "enOferta": true,
+      "categoria": ""
     },
     {
        "id": 8,
@@ -85,6 +93,7 @@
        "imagen": "pastina.jpg",
        "stock": "123",
        "color": "gris perla",
-       "enOferta": true
+       "enOferta": true,
+       "categoria": ""
     }
  ]
