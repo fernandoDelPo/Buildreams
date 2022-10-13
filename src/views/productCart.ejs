@@ -1,31 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/register.css">
-    <link rel="stylesheet" href="/css/productCart.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-
-    <title>Carro de Compras</title>
-
-</head>
-
-<body>
-    <header class="header-form">
-        
-        <%- include('partials/mainheader')%> 
-
-        <%- include('partials/mainnavbar')%> 
-
-    </header>
+<%-include('./partials/head')%>
+<link rel="stylesheet" href="/css/register.css">
+<link rel="stylesheet" href="/css/productCart.css">
+<title>Carro de Compras</title>
 
 
+<<<<<<< HEAD
     <main class="main-cart">
         <form enctype="multipart/form-data" />  action="" method="POST" class="form-cart">
             <table class="table01">
@@ -80,12 +59,72 @@
             </div>
         </form>
     </main>
+=======
+<%- include('partials/header')%>
+>>>>>>> 7e4c642b7d277a18615823b51badb50dcd8214a2
 
-    <%- include('partials/footer')%> 
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
-    </script>
+
+
+<main class="main-cart">
+    <form action="" method="POST" class="form-cart">
+        <table class="table01">
+            <thead class="thead01">
+                <tr>
+                    <td class="td-number">#</td>
+                    <td class="td-producto">Producto</td>
+                    <td class="td-cantidad">Cantidad</td>
+                    <td class="td-precio">Precio</td>
+                    <td class="td-total">Total</td>
+                    <td class="td-acciones">Acciones</td>
+                </tr>
+            </thead>
+            <tbody class="tbody01">
+                <tr>
+                    <td class="td-number">1</td>
+                    <td class="td-producto">Cemento Loma negra 40 kg</td>
+                    <td class="td-cantidad">
+                        <label for="cantidad"></label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" max="100" value="1">
+                    </td>
+                    <td class="td-precio">950</td>
+                    <td class="td-total">4750</td>
+                    <td class="td-acciones"> <button class="boton-eliminar-producto" type="reset">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-number">2</td>
+                    <td class="td-producto">Sinteplast</td>
+                    <td class="td-cantidad">
+                        <label for="cantidad"></label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" max="100" value="1">
+                    </td>
+                    <td class="td-precio">2500</td>
+                    <td class="td-total">2500</td>
+                    <td class="td-acciones"> <button class="boton-eliminar-producto" type="reset">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td-number">3</td>
+                    <td class="td-producto">YEMACO 40KG</td>
+                    <td class="td-cantidad">
+                        <label for="cantidad"></label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" max="100" value="1">
+                    </td>
+                    <td class="td-precio">950</td>
+                    <td class="td-total">4750</td>
+                    <td class="td-acciones"> <button class="boton-eliminar-producto" type="reset">Eliminar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="boton-compra">
+            <button type="submit" class="button-form"> <a href="/" target="_blank">Comprar</a></button>
+        </div>
+    </form>
+</main>
+
+<%- include('partials/footer')%>
+<%-include('./partials/script-bootstrap')%>
 </body>
 
 </html>

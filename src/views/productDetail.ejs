@@ -1,88 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include ('./partials/head.ejs')%>
+<link rel="stylesheet" href="/css/productDetail.css">
+<link rel="stylesheet" href="/css/register.css">
+<link rel="stylesheet" href="/css/productCart.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle del producto</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/productDetail.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-</head>
+<title>Detalle del producto</title>
 
-<body>
-
-
-        <%- include('partials/mainheader')%> 
-
-        <%- include('partials/mainnavbar')%> 
+<%- include('partials/header')%>
+<main>
 
 
 
-    <main>
+<section>
 
-        <section>
+    <div class="pagina">
 
-            <div class="pagina">
+        <div class="ruta">Home/Construccion/Cementos</div>
 
-                <div class="ruta">Home/Construccion/Cementos</div>
+        <div class="producto">
 
-                <div class="producto">
+            <p class="nombre"><%= product.nombre %></p>
 
-                    <p class="nombre"><%= product.nombre %></p>
+            <img src="/images/<%= product.imagen %>" class="iamagenprincipal" alt="imagen producto">
 
-                    <img src="/images/<%= product.imagen %>" class="iamagenprincipal" alt="imagen producto">
-
-                    <div class="descripciondetalle">
+            <div class="descripciondetalle">
 
 
-                        <p class="caracteristicas"><%= product.descripcion%></p>
-                        
-                        <div class="valor">
-                            <p class="precio"><%=product.precio %></p>
-                            <p class="preciotxt">C/U</p>
-                        </div>
-                        
+                <p class="caracteristicas"><%= product.descripcion%></p>
 
-                        <div class="finalizador">
-                            <p>+ cantidad -</p>
-                            <button>agregar al carrito</button>
-                            <a href="favorito"><i class="fa fa-heart fa-2x"></i></a>
-                        </div>
-
-                    </div>
-
+                <div class="valor">
+                    <p class="precio"><%=product.precio %></p>
+                    <p class="preciotxt">C/U</p>
                 </div>
-                <% products.forEach(product => { %>
-                <div class="recomendado">
 
-                    <p>tambien podria interesarte...</p>
 
-                    <div class="miniproduto">
-                        
-                            <img src="/images/<%= product.imagen %>">
-
-                            <div class="nombreprecio">
-                                <p><%= product.nombre %></p>
-                                <div>
-                                    </p>
-                                    <p>$<%= product.precio%></p>
-                                    <p>C/U</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-
+                <div class="finalizador">
+                    <p>+ cantidad -</p>
+                    <button>agregar al carrito</button>
+                    <a href="/products/productCart"><i class="fa fa-heart fa-2x"></i></a>
+                    <button class="boton-eliminar-producto" type="reset">Eliminar producto</button>
+                    <a href="/products/editProduct/<%= product.id %>">  <button class="boton-modificar-producto" type="button">Modificar producto</button></a>
                 </div>
-                <% }) %>
+
             </div>
 
-        </section>
+        </div>
+        <% products.forEach(product => { %>
+        <div class="recomendado">
 
-    </main>
-    
-    <%- include('partials/footer')%> 
+            <p>tambien podria interesarte...</p>
+
+            <div class="miniproduto">
+
+                <img src="/images/<%= product.imagen %>">
+
+                <div class="nombreprecio">
+                    <p><%= product.nombre %></p>
+                    <div>
+                        </p>
+                        <p>$<%= product.precio%></p>
+                        <p>C/U</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <% }) %>
+    </div>
+
+</section>
+
+</main>
+<%- include('partials/footer')%>
 
 </body>
 

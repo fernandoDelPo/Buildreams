@@ -9,9 +9,13 @@ router.get('/productCart', productController.productCart)
 router.get('/productDetail/:id', productController.productDetail); 
 
 /*** Crear prodcuto */ 
-router.get('/create', productController.create); 
+router.get('/createProduct', productController.create); 
 // router.post('/', upload.single('image'),validationCreate, productController.store);
 
+
+/*** Editar producto */
+router.get('/editProduct/:id', productController.edit); 
+// router.patch('/edit/:id', upload.any(),productsController.update); 
 
 
 // /*** Editar producto por id ***/ 
