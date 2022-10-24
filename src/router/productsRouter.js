@@ -15,15 +15,15 @@ router.get('/createProduct', productController.create);
 
 /*** Editar producto */
 router.get('/editProduct/:id', productController.edit); 
-// router.patch('/edit/:id', upload.any(),productsController.update); 
+router.patch('/editProduct/:id', productController.update); 
 
 
 // /*** Editar producto por id ***/ 
-// router.get('/edit/:id', productController.edit); 
-// router.patch('/edit/:id', upload.any(), productController.update);
+//router.get('/editProduct/:id', productController.edit); 
+//router.put('/edit/:id', upload.any(), productController.update);
  
 // /*** Eliminar un producto */
 
-// router.delete('/delete/:id', productController.destroy); 
+router.delete('/delete/:id', productController.destroy); 
 
 module.exports = router;

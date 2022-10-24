@@ -35,10 +35,16 @@
 
                 <div class="finalizador">
                     <p>+ cantidad -</p>
+
                     <button>agregar al carrito</button>
                     <a href="/products/productCart"><i class="fa fa-heart fa-2x"></i></a>
-                    <button class="boton-eliminar-producto" type="reset">Eliminar producto</button>
-                    <a href="/products/editProduct/<%= product.id %>">  <button class="boton-modificar-producto" type="button">Modificar producto</button></a>
+
+                    <form method="POST" action="/delete/<%= product.id %>?_method=DELETE">
+                    <button class="boton-eliminar-producto" type="submit">Eliminar producto</button></a>
+                    </form>
+                    
+                    <a href="/products/editProduct/<%= product.id %>">  
+                    <button class="boton-modificar-producto" type="button">Modificar producto</button></a>
                 </div>
 
             </div>

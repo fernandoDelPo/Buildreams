@@ -1,219 +1,144 @@
-<%-include('./partials/head') %>
-
-<<<<<<< HEAD
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/register.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <title>Crear producto</title>
-
-</head>
-
-<body>
-    <header class="header-form">
-       
-        <%- include('partials/mainheader')%>
-        
-        <%- include('partials/mainnavbar')%> 
-
-    </header>
-
-    <main class="main-form">
-        <form enctype="multipart/form-data" /> action="/crear-usuario" method="POST" class="create-form">
-            <div class="control-formulario">
-                <h4>Crea un nuevo producto:</h4>
-            </div>
-           
-
-            <div class="control-formulario">
-                <label for="nombre-producto" class="input-label">
-                    <input type="text" name="nombre-producto" id="nombre-producto"
-                        placeholder="Nombre del product@ Ej: Cemento" value="Cement@" pattern="[A-Za-z0-9!?-@]{6,12}"
-                        class="control" required>
-                    <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                        los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-            <div class="control-formulario">
-                <label for="descripcion-producto" class="input-label">
-                    <input type="text" name="descripcion-producto" id="descripcion-producto"
-                        placeholder="Descripcion del producto" value="Detalles del producto" pattern="[A-Za-z0-9!?-@]{6,12}"
-                        class="control" required>
-                    <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                        los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-
-            <div class="control-formulario">
-                <label for="marca-producto" class="input-label">
-                    <input type="text" name="marca-producto" id="marca-producto"
-                        placeholder="Marca del producto" value="Marca" pattern="[A-Za-z0-9!?-@]{6,12}"
-                        class="control" required>
-                    <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                        los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-
-            <div class="control-formulario">
-                <label for="precio-producto" class="input-label">
-                    <input type="number" name="precio-producto" id="precio-producto"
-                        placeholder="Precio del producto" value="0000" 
-                        class="control" required>
-                    <div class="msg-error">Podrá contener números. <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-
-            <div class="control-formulario">
-                <label for="precio-producto" class="input-label">
-                    <input type="stock" name="stock-producto" id="stock-producto"
-                        placeholder="Stock del producto" value="0000" 
-                        class="control" required>
-                    <div class="msg-error">Podrá contener números<i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-=======
 <link rel="stylesheet" href="/css/register.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/editProduct.css">
->>>>>>> 7e4c642b7d277a18615823b51badb50dcd8214a2
 
 
 <title>Editar producto</title>
 
-<%- include('partials/header')%>
+<%-include('./partials/head') %>
+
+<%- include('./partials/header')%>
 
 
-<main class="main-form" id="edit">
-    <form action="/modificar-producto" method="POST" class="create-form">
-        <div class="control-formulario">
-            <h4>Modifica el producto:</h4>
-        </div>
+        <main class="main-form" id="edit">
+
+            <form action="/editProduct/<%= productEdit.id %>?method=PATCH" method="POST" class="create-form">
+
+                <div class="control-formulario">
+                    <h4>Modifica el producto:</h4>
+                </div>
 
 
-        <div class="control-formulario">
-            <label for="nombre-producto" class="input-label">
-                <input type="text" name="nombre-producto" id="nombre-producto"
-                    placeholder="Nombre del product@ Ej: Cemento" value="Cement@" pattern="[A-Za-z0-9!?-@]{6,12}"
-                    class="control" required>
-                <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                    los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-            </label>
-        </div>
-        <div class="control-formulario">
-            <label for="descripcion-producto" class="input-label">
-                <input type="text" name="descripcion-producto" id="descripcion-producto"
-                    placeholder="Descripcion del producto" value="Detalles del producto" pattern="[A-Za-z0-9!?-@]{6,12}"
-                    class="control" required>
-                <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                    los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-            </label>
-        </div>
-
-        <div class="control-formulario">
-            <label for="marca-producto" class="input-label">
-                <input type="text" name="marca-producto" id="marca-producto" placeholder="Marca del producto"
-                    value="Marca" pattern="[A-Za-z0-9!?-@]{6,12}" class="control" required>
-                <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                    los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-            </label>
-        </div>
-
-        <div class="control-formulario">
-            <label for="precio-producto" class="input-label">
-                <input type="number" name="precio-producto" id="precio-producto" placeholder="Precio del producto"
-                    value="0000" class="control" required>
-                <div class="msg-error">Podrá contener números. <i class="fa-solid fa-circle-exclamation"
-                        id="icon-danger"></i></div>
-            </label>
-        </div>
-
-        <div class="control-formulario">
-            <label for="precio-producto" class="input-label">
-                <input type="stock" name="stock-producto" id="stock-producto" placeholder="Stock del producto"
-                    value="0000" class="control" required>
-                <div class="msg-error">Podrá contener números<i class="fa-solid fa-circle-exclamation"
-                        id="icon-danger"></i></div>
-            </label>
-        </div>
-
-
-        <div class="control-formulario">
-            <h4>Perfil de oferta:</h4>
-            <div class="padre-control">
-                <div class="hijo-control">
-                    <label class="label-control" for="enOferta">Con descuento
-                        <input type="radio" name="enOferta" id="Oferta" required>
-                        <div class="msg-error">¿El producto tiene descuento?</div>
+                <div class="control-formulario">
+                    <label for="nombre-producto" class="input-label">
+                        <input type="text" name="nombre-producto" id="nombre-producto" placeholder="Nombre del producto"
+                            value=<%=productEdit.nombre%> class="control" required>
+                        <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite
+                            solo los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
                     </label>
                 </div>
-                <div class="hijo-control">
 
-                    <label class="label-control" for="sinDescuento">Sin descuento
-                        <input type="radio" name="sinDescuento" id="sinOferta">
+                <div class="control-formulario">
+                    <label for="descripcion-producto" class="input-label">
+                        <input type="text" name="descripcion-producto" id="descripcion-producto"
+                            placeholder="Descripcion del producto" value=<%=productEdit.descripcion%> class="control" required>
+                        <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite
+                            solo
+                            los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
                     </label>
                 </div>
-            </div>
-        </div>
 
-        <div class="control-formulario">
-            <h4>Categoría:</h4>
-            <div class="padre-control2">
-                <div class="hijo-control2">
-                    <input type="checkbox" name="herramientas" id="herramientas">
-                    <label for="herramientas">Herramientas</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="cementos-cal" id="cementos-cal">
-                    <label for="cementos-cal">Cementos/cal</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="aberturas" id="aberturas">
-                    <label for="aberturas">Aberturas</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="hierro-chapas" id="hierro-chapas">
-                    <label for="hierro-chapas">Hierro/chapas</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="ladrillos" id="ladrillos">
-                    <label for="ladrillos">Ladrillos</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="agua/gas" id="agua-gas">
-                    <label for="agua-gas">Agua/gas</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="instalaciones" id="instalaciones">
-                    <label for="instalaciones">Instalaciones</label>
+                <div class="control-formulario">
+                    <label for="marca-producto" class="input-label">
+                        <input type="text" name="marca-producto" id="marca-producto" placeholder="Marca del producto"
+                            value=<%=productEdit.marca%> class="control" required>
+                        <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite
+                            solo
+                            los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                    </label>
                 </div>
 
-            </div>
-        </div>
-        <div class="control-formulario">
-            <h4 class="image-h4">Selecciona una imagen para el producto:</h4>
-            <label for="image-profile" class="label-image-profile">
-                <input type="file" name="image-profile" id="image-profile" accept=".jpg, .png">
-            </label>
-        </div>
+                <div class="control-formulario">
+                    <label for="precio-producto" class="input-label">
+                        <input type="number" name="precio-producto" id="precio-producto"
+                            placeholder="Precio del producto" value=<%=productEdit.precio%> class="control" required>
+                        <div class="msg-error">Podrá contener números. <i class="fa-solid fa-circle-exclamation"
+                                id="icon-danger"></i></div>
+                    </label>
+                </div>
 
-        <br>
-        <div class="control-formulario">
-            <button type="reset" class="button-form">Limpiar</button>
-            <button type="submit" class="button-form"> <a href="/" target="_blank">Cargar producto</a></button>
-        </div>
-    </form>
-</main>
-
-<%- include('partials/footer')%>
-
-<%-include('./partials/script-bootstrap.ejs') %> 
+                <div class="control-formulario">
+                    <label for="precio-producto" class="input-label">
+                        <input type="stock" name="stock-producto" id="stock-producto" placeholder="Stock del producto"
+                            value=<%=productEdit.stock%> class="control" required>
+                        <div class="msg-error">Podrá contener números<i class="fa-solid fa-circle-exclamation"
+                                id="icon-danger"></i></div>
+                    </label>
+                </div>
 
 
-</body>
+                <div class="control-formulario">
+                    <h4>Perfil de oferta:</h4>
+                    <div class="padre-control">
+                        <div class="hijo-control">
+                            <label class="label-control" for="enOferta">Con descuento
+                                <input type="radio" name="enOferta" id="Oferta" required>
+                                <div class="msg-error">¿El producto tiene descuento?</div>
+                            </label>
+                        </div>
+                        <div class="hijo-control">
+
+                            <label class="label-control" for="sinDescuento">Sin descuento
+                                <input type="radio" name="sinDescuento" id="sinOferta">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-formulario">
+                    <h4>Categoría:</h4>
+                    <div class="padre-control2">
+                        <div class="hijo-control2">
+                            <input type="checkbox" name="herramientas" id="herramientas">
+                            <label for="herramientas">Herramientas</label>
+                        </div>
+                        <div class="hijo-control2">
+                            <input type="checkbox" name="cementos-cal" id="cementos-cal">
+                            <label for="cementos-cal">Cementos/cal</label>
+                        </div>
+                        <div class="hijo-control2">
+                            <input type="checkbox" name="aberturas" id="aberturas">
+                            <label for="aberturas">Aberturas</label>
+                        </div>
+                        <div class="hijo-control2">
+                            <input type="checkbox" name="hierro-chapas" id="hierro-chapas">
+                            <label for="hierro-chapas">Hierro/chapas</label>
+                        </div>
+                        <div class="hijo-control2">
+                            <input type="checkbox" name="ladrillos" id="ladrillos">
+                            <label for="ladrillos">Ladrillos</label>
+                        </div>
+                        <div class="hijo-control2">
+                            <input type="checkbox" name="agua/gas" id="agua-gas">
+                            <label for="agua-gas">Agua/gas</label>
+                        </div>
+                        <div class="hijo-control2">
+                            <input type="checkbox" name="instalaciones" id="instalaciones">
+                            <label for="instalaciones">Instalaciones</label>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="control-formulario">
+                    <h4 class="image-h4">Selecciona una imagen para el producto:</h4>
+                    <label for="image-profile" class="label-image-profile">
+                        <input type="file" name="image-profile" id="image-profile" accept=".jpg, .png">
+                    </label>
+                </div>
+
+                <br>
+                <div class="control-formulario">
+                    <button type="reset" class="button-form">Limpiar</button>
+                    <button type="submit" class="button-form"> Guardar producto </button>
+                </div>
+            </form>
+        </main>
+
+        <%- include('partials/footer')%>
+
+        <%-include('./partials/script-bootstrap.ejs') %>
+
+
+    </body>
 
 </html>
