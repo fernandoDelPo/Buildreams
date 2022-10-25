@@ -4,56 +4,60 @@
 
 <%- include('partials/header')%>
 <main>
-<%-include('./partials/carrusel-menu.ejs')%>
+    <%-include('./partials/carrusel-menu.ejs')%>
 
 
 
-<section class="lista-productos">
+    <section class="lista-productos">
 
-    <h4 class="titulares">Productos descatacados del mes</h4>
+        <h4 class="titulares">Productos descatacados del mes</h4>
 
-    <div class="contenedor-articulos">
-        <% products.forEach(product => { %>
-        <article class="articulos">
-            <a href="/products/productDetail/<%= product.id %>"><img class="imagen-producto"
-                    src="./images/products/<%= product.imagen%>" alt="imagen del producto"></a>
-            <div class="contenedor">
-                <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
-                <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                <p class="precios"><%=product.precio %> </p>
-                <h4 class="nombre"><%= product.nombre  %> </h4>
-                <p class="descripcion"><%= product.marca %> </p>
-            </div>
-        </article>
-        <% }) %>
+        <div class="contenedor-articulos">
+            <% products.forEach(product => { %>
+            <article class="articulos">
+                <a href="/products/productDetail/<%= product.id %>"><img class="imagen-producto"
+                        src="./images/products/<%= product.imagen%>" alt="imagen del producto"></a>
+                <div class="contenedor">
+                    <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                    <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                    <p class="precios"><%=product.precio %> </p>
+                    <h4 class="nombre"><%= product.nombre  %> </h4>
+                    <p class="descripcion"><%= product.marca %> </p>
+                </div>
+            </article>
+            <% }) %>
 
-        <h5 class="subtitulo">Haciendo click acá encontras más productos destacados </h5>
+            <h5 class="subtitulo">Haciendo click acá encontras más productos destacados </h5>
 
-</section>
+    </section>
 
-<section class="lista-productos">
-    <br>
-    <h4 class="titulares">Ofertas</h4>
+    <section class="lista-productos">
+        <br>
+        <h4 class="titulares">Ofertas</h4>
 
-    <div class="contenedor-articulos">
-        <% products.forEach(product => { %>
-        <article class="articulos">
-            <img class="imagen-producto" src="./images/products/<%= product.imagen%>" alt="imagen del producto">
-            <div class="contenedor">
-                <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
-                <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                <p class="precios"><%=product.precio %></p>
-                <h4 class="nombre"><%= product.nombre  %></h4>
-                <p class="descripcion"><%= product.marca %> </p>
+        <div class="contenedor-articulos">
+           
 
-            </div>
-        </article>
 
-        <% }) %>
+            <% products.forEach(product => { %>
+                <% if (product.enOferta == 'conDescuento') { %>
+            <article class="articulos">
+                <img class="imagen-producto" src="./images/products/<%= product.imagen%>" alt="imagen del producto">
+                <div class="contenedor">
+                    <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
+                    <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
+                    <p class="precios"><%=product.precio %></p>
+                    <h4 class="nombre"><%= product.nombre  %></h4>
+                    <p class="descripcion"><%= product.marca %> </p>
 
-        <h5 class="subtitulo">Haciendo click acá encontrás más de nuestras ofertas </h5>
+                </div>
+            </article>
+            <% } %>
+            <% }) %>
+           
+            <h5 class="subtitulo">Haciendo click acá encontrás más de nuestras ofertas </h5>
 
-</section>
+    </section>
 </main>
 
 <%- include('partials/footer')%>

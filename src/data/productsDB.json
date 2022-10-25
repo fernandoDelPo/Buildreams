@@ -56,7 +56,7 @@
   "imagen": "hidrofugo.jpg",
   "stock": "345",
   "color": "blanco",
-  "enOferta": "conDescuento",
+  "enOferta": "sinDescuento",
   "categoria": "cementos"
  },
  {
