@@ -1,0 +1,67 @@
+:root {
+    --Yellow: #fcf300;
+    --Orange: #b3640b;
+    --Blue: #03264C;
+    --Light-Blue: #1259c3;
+    --Dark-Gray: #1e1e1e;
+    --Dark-Gray2: #2c2c2c;
+    --Light-Gray: #ebebeb;
+    --Shadow-Gray: rgb(100, 100, 100);
+    --Gray-Opacity: rgb(0, 0, 0, 0.5);
+    --Green: #39b54a;
+    --White: #ffffff;
+    --Red: #ff0000;
+    --Blue2: #0022AA;
+}
+
+#create-product-form{
+    margin-top: 207px;
+}
+.control-formulario label{
+    color: var(--Yellow);
+    margin-top: 30px;
+}
+
+.label-image-product {
+    position: relative;
+    display: inline-block;
+    margin: 10px, 0, 20px;
+}
+
+.label-image-product::before {
+    background-color: var(--Orange);
+    color: var(--White);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 15px;
+    content: 'Subir imagen';
+    /* testo por defecto */
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+.label-image-product input[type="file"] {
+    opacity: 0;
+    width: 170px;
+    height: 20px;
+    display: inline-block;
+}
+
+
+@media (min-width: 481px) {
+
+    #create-product-form{
+        margin-top: 168px;
+    }
+ }
+ 
+ @media (min-width: 670px) {
+    #create-product-form{
+        margin-top: 125px;
+    }
+ }

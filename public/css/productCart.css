@@ -23,7 +23,7 @@
     text-align: left;
     flex-direction: column;
     width: 100%;
-    background-color: var(--Light-Gray);
+    background-color: var(--Light-Gray2);
     text-align: center;
     padding-top: 238px;
     align-content: center;
@@ -36,9 +36,12 @@
     padding: 5px;
     display: inline-block;
     align-items: baseline;
-    background-color: #b8b8b8;
-    
+    background-color: var(--Dark-Gray2);
+    transition: all 500ms;
+}
 
+.form-cart:hover {
+    box-shadow: 0px 0px 25px 10px var(--Shadow-Gray);
 }
 
 .table01 {
@@ -95,7 +98,8 @@
 
 .boton-eliminar-producto{
     background-color: var(--Orange);
-    border-radius: 8px;
+    color: var(--White);
+    border-radius: 3px;
 
 }
 .boton-modificar-producto{
@@ -108,7 +112,9 @@
     text-align: right;
     padding-right: 10%;
     padding: 20px;
-
+}
+#boton-compra{
+    background-color: rgb(177, 177, 44);
 }
 
 @media (min-width: 481px) {

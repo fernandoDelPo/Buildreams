@@ -38,7 +38,7 @@
     text-align: left;
     flex-direction: row;
     width: 100%;
-    background-color: var(--Light-Gray);
+    background-color: var(--Light-Gray2);
     text-align: center;
     padding-top: 30px;
 }
@@ -49,7 +49,14 @@
     padding: 20px 15px;
     display: inline-block;
     align-items: baseline;
-    background-color: var(--Light-Gray2);
+    background-color: var(--Dark-Gray2);
+   transition: all 500ms;
+
+}
+
+.create-form:hover {
+    box-shadow: 0px 0px 20px 10px var(--Shadow-Gray);
+
 }
 
 .create-form div {
@@ -71,12 +78,13 @@
     margin-top: 15px;
     outline: none;
     font-family: 'Roboto', sans-serif;
-    border-radius: 8px;
+    border-radius: 3px;
 }
 
 .control-formulario h4 {
     margin-bottom: 0px;
-    margin-top: 5px;
+    margin-top: 35px;
+    color: var(--Yellow);
 }
 
 .button-form {
@@ -85,13 +93,14 @@
     font-size: 20px;
     color: var(--White);
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .padre-control {
     display: flex;
     align-items: center;
     position: relative;
+    color: var(--Yellow);
 
 }
 
@@ -125,6 +134,7 @@
     width: 50%;
     display: inline-flex;
     padding-left: 10px;
+    color: var(--White);
 }
 
 .hijo-control2 label {
@@ -159,7 +169,11 @@
     font-size: 100%;
     background-color: var(--Green);
     box-shadow: 0px 0px 10px var(--Shadow-Gray);
+    border-radius: 3px;
+}
 
+#button-submit{
+    background-color: rgb(182, 182, 40);
 }
 
 .button-form:hover {
@@ -245,6 +259,7 @@ button:active {
     height: 20px;
     display: inline-block;
 }
+
 
 #src-file1::before {
     content: 'Selecciona tu avatar';

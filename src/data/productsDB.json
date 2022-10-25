@@ -1,99 +1,98 @@
 [
-    {
-       "id": 1,
-       "nombre": "PLASTICOR 40KG",
-       "descripcion": "El Cemento de Albañilería Plasticor es un producto que se obtiene de la molienda conjunta de clinker portland, adiciones minerales y aditivos que mejoran la plasticidad, trabajabilidad, adherencia y retención de agua, convirtiéndolo en un producto apto para diferentes obras de albañilería.",
-       "marca": "Loma negra",
-       "precio": "1194.02",
-       "imagen": "plasticor-loma-negra-40kg.jpg",
-       "stock": "150",
-       "color": "verde oscuro",
-       "enOferta": false,
-       "categoria": ""
-    },
-    {
-        "id": 2,
-        "nombre": "CAL CACIQUE MAX 30KG",
-        "descripcion": "Ligante hidraúlico utilizado para elaborar morteros destinados a elevación de mamposterías en general, submuraciones, revoques gruesos, colocación de pisos, contrapisos en interiores y exteriores, y estabilización de suelos.",
-        "marca": "Cacique",
-        "precio": "949.50",
-        "imagen": "cal-cacique-max-30kg.jpg",
-        "stock": "100",
-        "color": "blanco",
-        "enOferta": false,
-        "categoria": ""
-
-    },
-    {
-        "id": 3,
-        "nombre": "LADRILLO HUECO 8X18X33 6AG",
-        "descripcion": "Ladrillo hueco 8cm de ancho, 18cm alto, 33cm de largo",
-        "marca": "Buildreams",
-        "precio": "104.30",
-        "imagen": "ladrillo-hueco.jpg",
-        "stock": "1500",
-        "color": "anaranjado",
-        "enOferta": false,
-        "categoria": ""
-    },
-    {
-        "id": 4,
-        "nombre": "BARRA HIERRO aletado ø10mm x 12m",
-        "descripcion": "Presenta aletas o corrugas que mejoran la adherencia con el hormigón, y poseen una gran ductilidad la cual permite que las barras se puedan cortar y doblar con mayor facilidad. Recomendado especialmente para construir elementos estructurales de hormigón armado. Se presenta en barras de ø10mm x 12m.",
-        "marca": "Acindar",
-        "precio": "2300",
-        "imagen": "Barra-Hierro-10x12.jpg",
-        "stock": "2300",
-        "color": "plateado",
-        "enOferta": false,
-        "categoria": ""
-    },
-    {
-       "id": 5,
-       "nombre": "HIDROFUGO 20GK",
-       "descripcion": "Aditivo en pastaformulado especialmente para agregar a mezclas cementicias para realizar aislaciones hidrófugas.",
-       "marca": "Marca Sineplast",
-       "precio": "3500",
-       "imagen": "hidrofugo.jpg",
-       "stock": "345",
-       "color": "blanco",
-       "enOferta": true,
-       "categoria": ""
-    },
-    {
-       "id": 6,
-       "nombre": "REVOQUE 2 EN 1 PROYECTABLE 3OKG",
-       "descripcion": "Para La realización De revoques interiores aplicados con máquina proyectable (Duo Mix Plus E, Monojet, G4, Etc.).",
-       "marca": "Weber",
-       "precio": "2760",
-       "imagen": "Revoque2-en-1.jpg",
-       "stock": "546",
-       "color": "blanco",
-       "enOferta": true,
-       "categoria": ""
-    },
-    {
-      "id": 7,
-      "nombre": "YEMACO 40KG",
-      "descripcion": "Yeso tradicional para la construcción. Ideal para realizar enluidos de paredes y cielorrasos Se aplica en forma manual y se utiliza en todo tipo de obras.",
-      "marca": "Durlock Yeso Tradicional",
-      "precio": "4160",
-      "imagen": "yeso.jpg",
-      "stock": "546",
-      "color": "blanco",
-      "enOferta": true,
-      "categoria": ""
-    },
-    {
-       "id": 8,
-       "nombre": "PASTINA LISTA GRIS PERLA 1KG",
-       "descripcion": "Pastina acrílica mono componente lista para usar. Ideal para el relleno o renovación de juntas de hasta 4mm, entre cerámicas, porcellanatos y piezas preferentemente esmaltadas. De uso interior y exterior sin riesgos de estanqueidad de agua.",
-       "marca": "Weber",
-       "precio": "1800",
-       "imagen": "pastina.jpg",
-       "stock": "123",
-       "color": "gris perla",
-       "enOferta": true,
-       "categoria": ""
-    }
- ]
+ {
+  "id": 1,
+  "nombre": "PLASTICOR 40KG",
+  "descripcion": "El Cemento de Albañilería Plasticor es un producto que se obtiene de la molienda conjunta de clinker portland, adiciones minerales y aditivos que mejoran la plasticidad, trabajabilidad, adherencia y retención de agua, convirtiéndolo en un producto apto para diferentes obras de albañilería.",
+  "marca": "Loma negra",
+  "precio": "1194.02",
+  "imagen": "plasticor-loma-negra-40kg.jpg",
+  "stock": "150",
+  "color": "verde oscuro",
+  "enOferta": false,
+  "categoria": ""
+ },
+ {
+  "id": 2,
+  "nombre": "CAL CACIQUE MAX 30KG",
+  "descripcion": "Ligante hidraúlico utilizado para elaborar morteros destinados a elevación de mamposterías en general, submuraciones, revoques gruesos, colocación de pisos, contrapisos en interiores y exteriores, y estabilización de suelos.",
+  "marca": "Cacique",
+  "precio": "949.50",
+  "imagen": "cal-cacique-max-30kg.jpg",
+  "stock": "100",
+  "color": "blanco",
+  "enOferta": false,
+  "categoria": ""
+ },
+ {
+  "id": 3,
+  "nombre": "LADRILLO HUECO 8X18X33 6AG",
+  "descripcion": "Ladrillo hueco 8cm de ancho, 18cm alto, 33cm de largo",
+  "marca": "Buildreams",
+  "precio": "104.30",
+  "imagen": "ladrillo-hueco.jpg",
+  "stock": "1500",
+  "color": "anaranjado",
+  "enOferta": false,
+  "categoria": ""
+ },
+ {
+  "id": 4,
+  "nombre": "BARRA HIERRO aletado ø10mm x 12m",
+  "descripcion": "Presenta aletas o corrugas que mejoran la adherencia con el hormigón, y poseen una gran ductilidad la cual permite que las barras se puedan cortar y doblar con mayor facilidad. Recomendado especialmente para construir elementos estructurales de hormigón armado. Se presenta en barras de ø10mm x 12m.",
+  "marca": "Acindar",
+  "precio": "2300",
+  "imagen": "Barra-Hierro-10x12.jpg",
+  "stock": "2300",
+  "color": "plateado",
+  "enOferta": false,
+  "categoria": ""
+ },
+ {
+  "id": 5,
+  "nombre": "HIDROFUGO 20GK",
+  "descripcion": "Aditivo en pastaformulado especialmente para agregar a mezclas cementicias para realizar aislaciones hidrófugas.",
+  "marca": "Marca Sineplast",
+  "precio": "3500",
+  "imagen": "hidrofugo.jpg",
+  "stock": "345",
+  "color": "blanco",
+  "enOferta": true,
+  "categoria": ""
+ },
+ {
+  "id": 6,
+  "nombre": "REVOQUE 2 EN 1 PROYECTABLE 3OKG",
+  "descripcion": "Para La realización De revoques interiores aplicados con máquina proyectable (Duo Mix Plus E, Monojet, G4, Etc.).",
+  "marca": "Weber",
+  "precio": "2760",
+  "imagen": "Revoque2-en-1.jpg",
+  "stock": "546",
+  "color": "blanco",
+  "enOferta": true,
+  "categoria": ""
+ },
+ {
+  "id": 7,
+  "nombre": "YEMACO 40KG",
+  "descripcion": "Yeso tradicional para la construcción. Ideal para realizar enluidos de paredes y cielorrasos Se aplica en forma manual y se utiliza en todo tipo de obras.",
+  "marca": "Durlock Yeso Tradicional",
+  "precio": "4160",
+  "imagen": "yeso.jpg",
+  "stock": "546",
+  "color": "blanco",
+  "enOferta": true,
+  "categoria": ""
+ },
+ {
+  "id": 8,
+  "nombre": "PASTINA LISTA GRIS PERLA 1KG",
+  "descripcion": "Pastina acrílica mono componente lista para usar. Ideal para el relleno o renovación de juntas de hasta 4mm, entre cerámicas, porcellanatos y piezas preferentemente esmaltadas. De uso interior y exterior sin riesgos de estanqueidad de agua.",
+  "marca": "Weber",
+  "precio": "1800",
+  "imagen": "pastina.jpg",
+  "stock": "123",
+  "color": "gris perla",
+  "enOferta": true,
+  "categoria": ""
+ }
+]

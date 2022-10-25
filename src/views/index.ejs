@@ -16,7 +16,7 @@
         <% products.forEach(product => { %>
         <article class="articulos">
             <a href="/products/productDetail/<%= product.id %>"><img class="imagen-producto"
-                    src="/images/<%= product.imagen%>" alt="plasticor"></a>
+                    src="./images/products/<%= product.imagen%>" alt="imagen del producto"></a>
             <div class="contenedor">
                 <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
                 <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
@@ -38,7 +38,7 @@
     <div class="contenedor-articulos">
         <% products.forEach(product => { %>
         <article class="articulos">
-            <img class="imagen-producto" src="/images/<%= product.imagen%>" alt="ofert">
+            <img class="imagen-producto" src="./images/products/<%= product.imagen%>" alt="imagen del producto">
             <div class="contenedor">
                 <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
                 <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
