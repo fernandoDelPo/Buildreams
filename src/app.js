@@ -20,3 +20,4 @@ app.listen(3030, () => {
     console.log('Corriendo en puerto 3030');
 });
 
+module.exports = app;

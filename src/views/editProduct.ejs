@@ -12,7 +12,7 @@
 
         <main class="main-form" id="edit">
 
-            <form action="/editProduct/<%= productEdit.id %>?method=PATCH" method="POST" class="create-form">
+            <form action="/products/editProduct/<%= productEdit.id %>?_method=PATCH" method="POST" class="create-form" enctype="multipart/form-data">
 
                 <div class="control-formulario">
                     <h4>Modifica el producto:</h4>
@@ -20,18 +20,18 @@
 
 
                 <div class="control-formulario">
-                    <label for="nombre-producto" class="input-label">
-                        <input type="text" name="nombre-producto" id="nombre-producto" placeholder="Nombre del producto"
-                            value=<%=productEdit.nombre%> class="control" required>
+                    <label for="nombre" class="input-label">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto"
+                            value='<%=productEdit.nombre%>' class="control" required>
                         <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite
                             solo los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
                     </label>
                 </div>
 
                 <div class="control-formulario">
-                    <label for="descripcion-producto" class="input-label">
-                        <input type="text" name="descripcion-producto" id="descripcion-producto"
-                            placeholder="Descripcion del producto" value=<%=productEdit.descripcion%> class="control" required>
+                    <label for="descripcion" class="input-label">
+                        <input type="text" name="descripcion" id="descripcion"
+                            placeholder="Descripcion del producto" value='<%=productEdit.descripcion%>' class="control" required>
                         <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite
                             solo
                             los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
@@ -39,9 +39,9 @@
                 </div>
 
                 <div class="control-formulario">
-                    <label for="marca-producto" class="input-label">
-                        <input type="text" name="marca-producto" id="marca-producto" placeholder="Marca del producto"
-                            value=<%=productEdit.marca%> class="control" required>
+                    <label for="marca" class="input-label">
+                        <input type="text" name="marca" id="marca" placeholder="Marca del producto"
+                            value='<%=productEdit.marca%>' class="control" required>
                         <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite
                             solo
                             los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
@@ -49,18 +49,18 @@
                 </div>
 
                 <div class="control-formulario">
-                    <label for="precio-producto" class="input-label">
-                        <input type="number" name="precio-producto" id="precio-producto"
-                            placeholder="Precio del producto" value=<%=productEdit.precio%> class="control" required>
+                    <label for="precio" class="input-label">
+                        <input type="number" name="precio" id="precio"
+                            placeholder="Precio del producto" value='<%=productEdit.precio%>' class="control" required>
                         <div class="msg-error">Podrá contener números. <i class="fa-solid fa-circle-exclamation"
                                 id="icon-danger"></i></div>
                     </label>
                 </div>
 
                 <div class="control-formulario">
-                    <label for="precio-producto" class="input-label">
-                        <input type="stock" name="stock-producto" id="stock-producto" placeholder="Stock del producto"
-                            value=<%=productEdit.stock%> class="control" required>
+                    <label for="stock" class="input-label">
+                        <input type="stock" name="stock" id="stock" placeholder="Stock del producto"
+                            value='<%=productEdit.stock%>' class="control" required>
                         <div class="msg-error">Podrá contener números<i class="fa-solid fa-circle-exclamation"
                                 id="icon-danger"></i></div>
                     </label>
@@ -72,14 +72,14 @@
                     <div class="padre-control">
                         <div class="hijo-control">
                             <label class="label-control" for="enOferta">Con descuento
-                                <input type="radio" name="enOferta" id="Oferta" required>
+                                <input type="radio" name="enOferta" id="enOferta" required>
                                 <div class="msg-error">¿El producto tiene descuento?</div>
                             </label>
                         </div>
                         <div class="hijo-control">
 
-                            <label class="label-control" for="sinDescuento">Sin descuento
-                                <input type="radio" name="sinDescuento" id="sinOferta">
+                            <label class="label-control" for="enOferta">Sin descuento
+                                <input type="radio" name="enOferta" id="sinOferta">
                             </label>
                         </div>
                     </div>
@@ -89,31 +89,31 @@
                     <h4>Categoría:</h4>
                     <div class="padre-control2">
                         <div class="hijo-control2">
-                            <input type="checkbox" name="herramientas" id="herramientas">
+                            <input type="checkbox" name="categoria" id="herramientas">
                             <label for="herramientas">Herramientas</label>
                         </div>
                         <div class="hijo-control2">
-                            <input type="checkbox" name="cementos-cal" id="cementos-cal">
+                            <input type="checkbox" name="categoria" id="cementos-cal">
                             <label for="cementos-cal">Cementos/cal</label>
                         </div>
                         <div class="hijo-control2">
-                            <input type="checkbox" name="aberturas" id="aberturas">
+                            <input type="checkbox" name="categoria" id="aberturas">
                             <label for="aberturas">Aberturas</label>
                         </div>
                         <div class="hijo-control2">
-                            <input type="checkbox" name="hierro-chapas" id="hierro-chapas">
+                            <input type="checkbox" name="categoria" id="hierro-chapas">
                             <label for="hierro-chapas">Hierro/chapas</label>
                         </div>
                         <div class="hijo-control2">
-                            <input type="checkbox" name="ladrillos" id="ladrillos">
+                            <input type="checkbox" name="categoria" id="ladrillos">
                             <label for="ladrillos">Ladrillos</label>
                         </div>
                         <div class="hijo-control2">
-                            <input type="checkbox" name="agua/gas" id="agua-gas">
+                            <input type="checkbox" name="categoria" id="agua-gas">
                             <label for="agua-gas">Agua/gas</label>
                         </div>
                         <div class="hijo-control2">
-                            <input type="checkbox" name="instalaciones" id="instalaciones">
+                            <input type="checkbox" name="categoria" id="instalaciones">
                             <label for="instalaciones">Instalaciones</label>
                         </div>
 
