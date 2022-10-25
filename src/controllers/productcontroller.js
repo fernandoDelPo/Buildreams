@@ -69,8 +69,54 @@ const productController = {
    edit: (req, res) => {
 		let idProduct = req.params.id
 		let productEdit = products.find(product => product.id == idProduct)
-		res.render('editProduct', {productEdit})
+		res.render('editProduct', { productEdit })
+
 	},
+	update: (req, res) => {
+
+		let id = req.params.id;
+		let productToEdit = products.find(product => product.id == id)
+
+		let imagen
+        if(req.file != undefined){
+          imagen = req.file.filename
+        } else {
+          imagen = 'default-image.png'
+        }
+
+		
+
+		productToEdit = {
+			id: productToEdit.id,
+			...req.body,
+			imagen: imagen,
+			
+		}
+
+		
+
+		let newProducts = products.map(product => {
+			console.log(productToEdit.id)
+			console.log(product.id)
+			if (product.id == productToEdit.id) {
+				
+				return product = { ...productToEdit };
+				
+			}
+			
+			return product;
+		})
+
+		console.log(newProducts)
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
+		res.redirect('/');
+
+	},
+	destroy: (req, res) => {
+		let id = req.params.id;
+		console.log(id)
+	}
 
 }
 

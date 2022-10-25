@@ -1,3 +1,92 @@
 [
-    
+    {
+        "id": 1,
+        "Nombre": "Evelyn",
+        "Apellido": "Giampieri",
+        "email": "mcaney0@bbc.co.uk",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": "plasticor-loma-negra-40kg.jpg"
+    },
+    {
+        "id": 2,
+        "Nombre": "Cristian",
+        "Apellido": "Bolzón",
+        "email": "cneubigin1@jiathis.com",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": "cal-cacique-max-30kg.jpg"
+    },
+    {
+        "id": 3,
+        "Nombre": "Matias",
+        "Apellido": "Muñoz",
+        "email": "ghammond2@edublogs.org",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": "ladrillo-hueco.jpg"
+    },
+    {
+        "id": 4,
+        "Nombre": "Fernando",
+        "Apellido": "Del Pozzi",
+        "email": "skibard3@yahoo.com",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": ""
+    },
+    {
+        "id": 5,
+        "Nombre": "Lawton",
+        "Apellido": "Castelletti",
+        "email": "lcastelletti4@nifty.com",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": "Barra-Hierro-10x12.jpg"
+    },
+    {
+        "id": 6,
+        "Nombre": "Cyndi",
+        "Apellido": "Vertigan",
+        "email": "cvertigan5@va.gov",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": "hidrofugo.jpg"
+    },
+    {
+        "id": 7,
+        "Nombre": "Etienne",
+        "Apellido": "Kobierra",
+        "email": "ekobierra6@nih.gov",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": "Acero"
+    },
+    {
+        "id": 8,
+        "Nombre": "Brooke",
+        "Apellido": "Suett",
+        "email": "bsuett7@unesco.org",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": "Revoque2-en-1.jpg"
+    },
+    {
+        "id": 9,
+        "Nombre": "Cyrill",
+        "Apellido": "Carreck",
+        "email": "ccarreck8@smugmug.com",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": "Piedra"
+    },
+    {
+        "id": 10,
+        "Nombre": "Minor",
+        "Apellido": "Sales",
+        "email": "msales9@histats.com",
+        "Contraseña": "",
+        "Categoría": "Peso",
+        "Imagen": "yeso.jpg"
+    }
 ]

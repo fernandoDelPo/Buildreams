@@ -60,6 +60,9 @@ form p {
 .botoninicio {
     margin: 10px;
 }
+.botoninicio a {
+    color: black;
+}
 
 @media(min-width: 361px) {
     .login {

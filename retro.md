@@ -8,6 +8,6 @@ En general, el grupo se encuentra consolidandose por lo que se espera que estas 
 
 Retrospectiva en funcion al tercer sprint:
 
-En el proceso de la elaboracion del tercer sprint, el grupo continua consolidandose en cuanto a la distribución y elaboración de tareas. Se establecieron más canales de comunicación y diálogo, ya que utilizamos whatsapp y mensajeria interna. Sin embargo, como grupo debemos realizar la repartición de tareas al principio de cada sprint para que sea equitativo y democrático. Por ello, establecimos que después de cada clase nos ibamos a reunir por meet para conversar sobre los procesos, dudas y problemas que se encuentran en el código.  
+En el proceso de la elaboracion del tercer sprint, el grupo continua consolidandose en cuanto a la distribución y elaboración de tareas. Se establecieron más canales de comunicación y diálogo, ya que utilizamos whatsapp y mensajeria interna. Sin embargo, como grupo debemos realizar la repartición de tareas al principio de cada sprint para que sea equitativo y democrático. Por ello, establecimos que después de cada clase nos ibamos a reunir por meet para conversar sobre los procesos, dudas y problemas que se encuentran en el código.
 
  

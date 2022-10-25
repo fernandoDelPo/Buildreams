@@ -5,6 +5,16 @@ const multer = require('multer');
 const productController = require('../controllers/productController');
 const validationCreate = require('../middlewares/validation');
 
+var storage = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null, 'public/images')
+    },
+    filename: function(req,file,cb){
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+})
+
+var upload = multer({storage: storage})
 
 var storage = multer.diskStorage({
     destination:function(req,file,cb){
@@ -28,15 +38,15 @@ router.post('/', upload.single('imagen'), productController.store);
 
 /*** Editar producto */
 router.get('/editProduct/:id', productController.edit); 
-// router.patch('/edit/:id', upload.any(),productsController.update); 
+router.patch('/editProduct/:id', upload.any(), productController.update); 
 
 
 // /*** Editar producto por id ***/ 
-// router.get('/edit/:id', productController.edit); 
-// router.patch('/edit/:id', upload.any(), productController.update);
+//router.get('/editProduct/:id', productController.edit); 
+//router.put('/edit/:id', upload.any(), productController.update);
  
 // /*** Eliminar un producto */
 
-// router.delete('/delete/:id', productController.destroy); 
+router.delete('/delete/:id', productController.destroy); 
 
 module.exports = router;
