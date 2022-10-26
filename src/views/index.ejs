@@ -40,7 +40,7 @@
 
 
             <% products.forEach(product => { %>
-                <% if (product.enOferta == 'conDescuento') { %>
+                <% if (product.enOferta == true) { %>
             <article class="articulos">
                 <img class="imagen-producto" src="./images/products/<%= product.imagen%>" alt="imagen del producto">
                 <div class="contenedor">

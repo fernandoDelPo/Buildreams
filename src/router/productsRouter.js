@@ -40,11 +40,6 @@ router.post('/', upload.single('imagen'), productController.store);
 router.get('/editProduct/:id', productController.edit); 
 router.patch('/editProduct/:id', upload.any(), productController.update); 
 
-
-// /*** Editar producto por id ***/ 
-//router.get('/editProduct/:id', productController.edit); 
-//router.put('/edit/:id', upload.any(), productController.update);
- 
 // /*** Eliminar un producto */
 
 router.delete('/delete/:id', productController.destroy); 

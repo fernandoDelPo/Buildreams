@@ -25,8 +25,11 @@ const productController = {
 
    //-----------Get y post para crear producto------//
    create: (req, res) => {
+
       res.render('create-product-form')
+
       console.log('estás en el formulario')
+
    },
 
    // Producto nuevo ------------------------------------//
@@ -64,7 +67,7 @@ const productController = {
        res.redirect('/');
     //}
 
- },
+   },
 
    edit: (req, res) => {
 		let idProduct = req.params.id
@@ -72,6 +75,7 @@ const productController = {
 		res.render('editProduct', { productEdit })
 
 	},
+
 	update: (req, res) => {
 
 		let id = req.params.id;
@@ -96,8 +100,7 @@ const productController = {
 		
 
 		let newProducts = products.map(product => {
-			console.log(productToEdit.id)
-			console.log(product.id)
+			
 			if (product.id == productToEdit.id) {
 				
 				return product = { ...productToEdit };
@@ -113,9 +116,15 @@ const productController = {
 		res.redirect('/');
 
 	},
+	
 	destroy: (req, res) => {
+
 		let id = req.params.id;
-		console.log(id)
+
+		let newProducts = products.filter(product => product.id != id)
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
+		res.redirect('/');
 	}
 
 }
