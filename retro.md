@@ -10,4 +10,9 @@ Retrospectiva en funcion al tercer sprint:
 
 En el proceso de la elaboracion del tercer sprint, el grupo continua consolidandose en cuanto a la distribución y elaboración de tareas. Se establecieron más canales de comunicación y diálogo, ya que utilizamos whatsapp y mensajeria interna. Sin embargo, como grupo debemos realizar la repartición de tareas al principio de cada sprint para que sea equitativo y democrático. Por ello, establecimos que después de cada clase nos ibamos a reunir por meet para conversar sobre los procesos, dudas y problemas que se encuentran en el código.
 
+Retrospectiva en funcion al cuarto sprint:
+Nos encontramos incorporando reuniones semanales via meet con el objetivo de discutir y planificar los siguientes objetivos. En el caso de la asistencia de dichas reuniones, una compañera no pudo asistir en su mayoria por lo que en esta parte del proceso lo realizaron en su mayoria la otra parte de sus pares. 
+Se observa que se han completado todas los requerimientos para la realización de esta demo. Como grupo seguimos buscando nuevas formas de solucionar los problemas relacionados a las solicitudes del cliente. 
+Cabe aclarar que este grupo tiene una amplia vision ya que, se incorporan los contenidos visualizados en las clases por lo que a la hora de realizar el siguiente sprint muchas tareas se encuentran a medio camino de ser completadas. 
+
  
