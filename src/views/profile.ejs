@@ -1,0 +1,162 @@
+<%- include ('./partials/head.ejs')%>
+<link rel="stylesheet" href="/css/register.css">
+
+<title>Actualiza tus datos</title>
+
+<%- include('partials/header')%>
+<main>
+
+    <main class="main-form">
+        <form action="/actualizar-usuario" method="POST" class="create-form" enctype="multipart/form-data">
+        
+            <div class="control-formulario">
+                <h4>Actualiza tus datos:</h4>
+            </div>
+            <div class="control-formulario">
+                <label for="nombre" class="input-label">
+                    <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido: Ej: Juan Pérez"
+                        value="Escribe tu nombre"
+                        pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
+                        class="control">
+                    <div class="msg-error">Debes completar este campo sólo con letras. <i
+                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                </label>
+            </div>
+
+            <div class="control-formulario">
+                <label for="nombre-usuario" class="input-label">
+                    <input type="text" name="nombre-usuario" id="nombre-usuario"
+                        placeholder="Nombre de usuari@ Ej: User1" value="Usuari@" pattern="[A-Za-z0-9!?-@]{6,12}"
+                        class="control" required>
+                    <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
+                        los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                </label>
+            </div>
+
+            <div class="control-formulario">
+                <label for="e-mail" class="input-label">
+                    <input type="email" name="e-mail" id="e-mail" placeholder="e-mail" value="email@lol.com"
+                        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" class="control"
+                        required>
+                    <div class="msg-error">Debes ingresar una direccion de e-mail compatible <i
+                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                </label>
+            </div>
+
+            <div class="control-formulario">
+                <h4>Fecha de nacimiento:</h4>
+                <label for="dia-nacimiento" class="input-label">
+                    <input type="date" name="dia-nacimiento" id="dia-nacimiento" required pattern="\d{4}-\d{2}-\d{2}"
+                        id="dia-nacimiento" pattern="[a-zA-Z ]{2,254}" required>
+                    <div class="msg-error">Debes ingresar una fecha</div>
+                </label>
+            </div>
+
+            <div class="control-formulario">
+                <h4>Dirección:</h4>
+                <label for="address" class="input-label">
+                    <input type="text" name="address" id="address" placeholder="Dirección: Ej: Las Amapolas 856"
+                        value="Calle 444" pattern="([a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,249})+([0-9]{2,5})" class="control"
+                        required>
+                    <div class="msg-error">Ingresar la calle y número. Opcional un numero de piso y departamento <i
+                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i>
+                    </div>
+                </label>
+            </div>
+
+            <div class="control-formulario">
+                <label for="conutry" class="input-label">
+                    <input type="text" name="country" id="country" value="País" placeholder="País"
+                        pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
+                        class="control" required>
+                    <div class="msg-error">Debes ingresar el país <i class="fa-solid fa-circle-exclamation"
+                            id="icon-danger"></i></div>
+                </label>
+            </div>
+
+
+            <div class="control-formulario">
+                <label for="state" class="input-label">
+                    <input type="text" name="state" id="state" placeholder="Estado o provincia"
+                        value="Estado o provincia"
+                        pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
+                        class="control" pattern="[a-zA-Z ]{2,254}" required>
+                    <div class="msg-error">Debes ingresar un Estado o Provincia <i
+                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                </label>
+            </div>
+
+            <div class="control-formulario">
+                <label for="cp" class="input-label">
+                    <input type="number" name="cp" id="cp" placeholder="Código Postal" value="1234" class="control"
+                        max="99999" maxlength="5" required>
+                    <div class="msg-error">Debes ingresar el código postal de tu ciudad <i
+                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                </label>
+            </div>
+
+            </div>
+
+            <div class="control-formulario">
+                <h4>Intereses:</h4>
+                <div class="padre-control2">
+                    <div class="hijo-control2">
+                        <input type="checkbox" name="electro" id="electro">
+                        <label for="electro">Electro</label>
+                    </div>
+                    <div class="hijo-control2">
+                        <input type="checkbox" name="moda" id="moda">
+                        <label for="moda">Moda</label>
+                    </div>
+                    <div class="hijo-control2">
+                        <input type="checkbox" name="hogar" id="hogar">
+                        <label for="hogar">Hogar</label>
+                    </div>
+                    <div class="hijo-control2">
+                        <input type="checkbox" name="jugueteria" id="jugueteria">
+                        <label for="jugueteria">Juguetería</label>
+                    </div>
+                    <div class="hijo-control2">
+                        <input type="checkbox" name="vida-sana" id="vida-sana">
+                        <label for="vida-sana">Vida Sana</label>
+                    </div>
+
+                </div>
+            </div>
+            <div class="control-formulario">
+                <h4 class="image-h4">Selecciona una imagen para tu perfil:</h4>
+                <label for="image-profile" class="label-image-profile">
+                    <input type="file" name="image-profile" id="image-profile" accept=".jpg, .png" optional>
+                </label>
+            </div>
+
+            <div class="control-formulario">
+                <label for="pass" class="input-label">
+                    <input type="password" name="pass" id="pass"
+                        placeholder="Requiere una mayúsculas y mínimo 8 caracteres" class="control"
+                        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                    <div class="msg-error">Debes ingresar una contraseña válida <i
+                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                </label>
+                <br>
+                <label for="pass2" class="input-label">
+                    <input type="password" name="pass2" id="pass2" placeholder="Reingresá tu contraseña" class="control"
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                    <div class="msg-error">Confirma la contraseña<i class="fa-solid fa-circle-exclamation"
+                            id="icon-danger"></i></div>
+                </label>
+            </div>
+            <br>
+            <div class="control-formulario">
+                <button type="reset" class="button-form">Limpiar</button>
+                <button type="submit" class="button-form" id="button-submit"> <a href="/" target="_blank">Creá tu cuenta</a></button>
+            </div>
+        </form>
+    </main>
+
+    <%- include('partials/footer')%>
+    <%-include('./partials/script-bootstrap')%>
+
+    </body>
+
+    </html>
