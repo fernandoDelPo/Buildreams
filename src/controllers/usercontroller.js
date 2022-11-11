@@ -12,7 +12,18 @@ const userController = {
     login: (req, res) => {
         res.render('login', {})
     },
+    profile: (req, res) => {
+		res.render('profile')
+    },
+    
+    store:  (req, res) => {
+	},
+
+    logout: (req,res) => {
+	},
+
+    authenticate:(req, res)=>{
+
+    } 
 }
-
-
 module.exports = userController;
