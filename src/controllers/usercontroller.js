@@ -14,8 +14,43 @@ const userController = {
     login: (req, res) => {
         res.render('login', {})
     },
+    editProfile: (req, res) => {
+        let idUser = req.params.id
+		let UserEdit = users.find(user => user.id == idUser)
+		res.render('profile', { UserEdit })
+    },
     profile: (req, res) => {
-		res.render('profile')
+        let idUser = req.params.id;
+        let UserEdit = users.find(user => user.id == idUser);
+        
+        let imagen
+        if(req.file != undefined){
+          imagen = req.file.image-profile
+        } else {
+          imagen = 'default.png'
+        }
+
+        UserEdit ={
+            id: UserEdit.id,
+			...req.body,
+			imagen: imagen,
+        }
+
+        let newUser = users.map(user => {
+			
+			if (user.id == UserEdit.id) {
+				
+				return user = { ...UserEdit };
+				
+			}
+			
+			return user;
+		})
+
+		console.log(newUser)
+
+		fs.writeFileSync(productsFilePath, JSON.stringify(newUser, null, ' '));
+		res.redirect('/');
     },
     store:  (req, res) => {
         

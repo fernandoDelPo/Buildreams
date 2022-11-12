@@ -73,7 +73,7 @@ const productController = {
 		let idProduct = req.params.id
 		let productEdit = products.find(product => product.id == idProduct)
 		res.render('editProduct', { productEdit })
-
+      
 	},
 
 	update: (req, res) => {
