@@ -29,3 +29,12 @@ router.get('/profile', userController.profile);
 
 
 module.exports = router;
+
+//router.get('/register',guestRoute, usercontroller.register)
+//router.post('/',guestRoute,upload.single('image'), usercontroller.editProfile);
+//router.get('/login',guestRoute, usercontroller.login)
+//hacer el post de formulario de login
+//router.post('/login',guestRoute,usercontroller.authenticate)
+
+//logout
+//router.post('/logout',userRoute,usercontroller.logout)
