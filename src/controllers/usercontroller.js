@@ -15,13 +15,13 @@ const userController = {
         res.render('login', {})
     },
     editProfile: (req, res) => {
-        let idUser = req.params.id
-		let UserEdit = users.find(user => user.id == idUser)
+        let id = req.params.id
+		let UserEdit = users.find(user => user.id == id)
 		res.render('profile', { UserEdit })
     },
     profile: (req, res) => {
-        let idUser = req.params.id;
-        let UserEdit = users.find(user => user.id == idUser);
+        let id = req.params.id;
+        let UserEdit = users.find(user => user.id == id);
         
         let imagen
         if(req.file != undefined){
@@ -49,7 +49,7 @@ const userController = {
 
 		console.log(newUser)
 
-		fs.writeFileSync(productsFilePath, JSON.stringify(newUser, null, ' '));
+		fs.writeFileSync(userFilePath, JSON.stringify(newUser, null, ' '));
 		res.redirect('/');
     },
     store:  (req, res) => {
