@@ -19,7 +19,7 @@ const userController = {
 		let UserEdit = users.find(user => user.id == id)
 		res.render('profile', { UserEdit })
     },
-    profile: (req, res) => {
+    UpdateProfile: (req, res) => {
         let id = req.params.id;
         let UserEdit = users.find(user => user.id == id);
         
