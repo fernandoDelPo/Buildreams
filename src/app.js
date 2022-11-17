@@ -7,6 +7,7 @@ const productsRouter = require('./router/productsRouter');
 const userRouter = require('./router/userRouter');
 
 
+
 app.use(methodOverride('_method'))
 app.use(express.static(path.resolve(__dirname, "../public")))
 

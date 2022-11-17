@@ -11,9 +11,50 @@ const userController = {
     register: (req, res) => {
         res.render('register', {})
     },
+
     login: (req, res) => {
         res.render('login', {})
     },
+
+    loginProcess: (req, res) => {
+		let userToLogin = User.findByField('email', req.body.email);
+		
+		if(userToLogin) {
+			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+			if (isOkThePassword) {
+				delete userToLogin.password;
+				req.session.userLogged = userToLogin;
+
+				if(req.body.remember_user) {
+					res.cookie('userEmail', req.body.email, { maxAge: (1000 * 60) * 60 })
+				}
+
+				return res.redirect('/user/profile');
+			} 
+			return res.render('login', {
+				errors: {
+					email: {
+						msg: 'Las credenciales son inválidas'
+					}
+				}
+			});
+		}
+
+		return res.render('userLoginForm', {
+			errors: {
+				email: {
+					msg: 'No se encuentra este email en nuestra base de datos'
+				}
+			}
+		});
+	},
+
+	profile: (req, res) => {
+		return res.render('userProfile', {
+			user: req.session.userLogged
+		});
+	},
+
     editProfile: (req, res) => {
         let id = req.params.id
 		let UserEdit = users.find(user => user.id == id)

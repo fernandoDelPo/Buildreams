@@ -25,7 +25,7 @@ router.post('/login', (req,res)=>{
     res.send('Estás logueado');
 });
 /*Ruta de edicion del usuario*/
-router.get('/profile', userController.profile);
+//router.get('/profile', userController.profile);
 
 
 module.exports = router;

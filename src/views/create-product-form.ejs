@@ -8,135 +8,176 @@
 
 <%- include('partials/header')%>
 
-    <main class="main-form">
-        <form action="/products" method="POST" class="create-form" id="create-product-form" enctype="multipart/form-data">
-            <div class="control-formulario">
-                <h4>Crea un nuevo producto:</h4>
-            </div>
-           
-
-            <div class="control-formulario">
-                <label for="nombre" class="input-label"> Nombre: 
-                    <input type="text" name="nombre" id="nombre"
-                        placeholder="Nombre del product@ Ej: Cemento" value="" pattern="[A-Za-z0-9!?-@]{6,12}"
-                        class="control" required>
-                    <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                        los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-            <div class="control-formulario">
-                <label for="descripcion" class="input-label"> Descripción:
-                    <input type="text" name="descripcion" id="descripcion"
-                        placeholder="Descripcion del producto" value="Detalles del producto" 
-                        class="control" required>
-                    <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                        los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-
-            <div class="control-formulario">
-                <label for="marca" class="input-label"> Marca:
-                    <input type="text" name="marca" id="marca"
-                        placeholder="Marca del producto" value="Marca" pattern="[A-Za-z0-9!?-@]{6,12}"
-                        class="control" required>
-                    <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                        los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-
-            <div class="control-formulario">
-                <label for="precio" class="input-label"> Precio:
-                    <input type="number" name="precio" id="precio"
-                        placeholder="Precio del producto" value="0000" 
-                        class="control" required>
-                    <div class="msg-error">Podrá contener números. <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-
-            <div class="control-formulario">
-                <label for="stock" class="input-label"> Stock:
-                    <input type="stock" name="stock" id="stock"
-                        placeholder="Stock del producto" value="" 
-                        class="control" required>
-                    <div class="msg-error">Podrá contener números<i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
+<main class="main-form">
+    <form action="/products" method="POST" class="create-form" id="create-product-form" enctype="multipart/form-data">
+        <div class="control-formulario">
+            <h4>Crea un nuevo producto:</h4>
+        </div>
 
 
-            <div class="control-formulario">
-                <h4>Promoción:</h4>
-                <div class="padre-control">
-                    <div class="hijo-control">
-                        <label class="label-control" for="enOferta">Con descuento
-                            <input type="radio" name="enOferta" id="oferta" value="conDescuento" required>
-                            <div class="msg-error">Debes elegir una opción.</div>
-                        </label>
+        <div class="control-formulario">
+            <label for="nombre" class="input-label"> Nombre:
+                <input type="text" name="nombre" id="nombre"
+                    class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.nombre : null %>">
+                <% if (locals.errors && errors.nombre) { %>
+                <div class="text-danger">
+                    <%= errors.nombre.msg %>
+                </div>
+                <% } %>
+            </label>
+        </div>
+        <div class="control-formulario">
+            <label for="descripcion" class="input-label"> Descripción:
+                <input type="text" name="descripcion" id="descripcion"
+                    class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.descripcion : null %>">
+                <% if (locals.errors && errors.descripcion) { %>
+                <div class="text-danger">
+                    <%= errors.descripcion.msg %>
+                </div>
+                <% } %>
+            </label>
+        </div>
+
+        <div class="control-formulario">
+            <label for="marca" class="input-label"> Marca:
+                <input type="text" name="marca" id="marca"
+                    class="form-control <%= locals.errors && errors.marca ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.marca : null %>">
+                <% if (locals.errors && errors.marca) { %>
+                <div class="text-danger">
+                    <%= errors.marca.msg %>
+                </div>
+                <% } %>
+            </label>
+        </div>
+
+        <div class="control-formulario">
+            <label for="precio" class="input-label"> Precio:
+                <input type="number" name="precio" id="precio"
+                    class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.precio : null %>">
+                <% if (locals.errors && errors.precio) { %>
+                <div class="text-danger">
+                    <%= errors.precio.msg %>
+                </div>
+                <% } %>
+            </label>
+        </div>
+
+        <div class="control-formulario">
+            <label for="stock" class="input-label"> Stock:
+                <input type="stock" name="stock" id="stock"
+                    class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.stock : null %>">
+                <% if (locals.errors && errors.stock) { %>
+                <div class="text-danger">
+                    <%= errors.stock.msg %>
+                </div>
+                <% } %>
+            </label>
+        </div>
+
+        <div class="control-formulario">
+            <label for="color" class="input-label"> Color:
+                <input type="text" name="color" id="color"
+                    class="form-control <%= locals.errors && errors.color ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.color : null %>">
+                <% if (locals.errors && errors.color) { %>
+                <div class="text-danger">
+                    <%= errors.color.msg %>
+                </div>
+                <% } %>
+            </label>
+        </div>
+
+
+        <div class="control-formulario">
+            <h4>Promoción:</h4>
+            <div class="padre-control">
+                <div class="hijo-control">
+                    <select name="enOferta"
+                        class="form-select <%= locals.errors && errors.enOferta ? 'is-invalid' : null %>">
+                        <option value="">Elegí una opción</option>
+                        <%  let opciones = ['En oferta', 'Sin promoción']; %>
+                        <% for (const oneOp of opciones) { %>
+                        <option value="<%= oneOp %>"
+                            <%= locals.oldData && (oneOp === oldData.enOferta) ? 'selected' : null %>>
+                            <%= oneOp %> </option>
+                        <% } %>
+                    </select>
+                    <% if (locals.errors && errors.enOferta) { %>
+                    <div class="text-danger">
+                        <%= errors.enOferta.msg %>
                     </div>
-                    <div class="hijo-control">
-
-                        <label class="label-control" for="enOferta">Sin descuento
-                            <input type="radio" name="enOferta" id="oferta" value="sinDescuento">
-                        </label>
-                    </div>
+                    <% } %>
                 </div>
             </div>
-            
-       
+        </div>
 
-            <div class="control-formulario">
-                <h4>Categoría:</h4>
-                <div class="padre-control2">
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="categoria" id="herramientas" value="herramientas">
-                        <label for="herramientas">Herramientas</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="categoria" id="cementos-cal" value="cementos">
-                        <label for="cementos-cal">Cementos/cal</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="categoria" id="aberturas" value="aberturas">
-                        <label for="aberturas">Aberturas</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="categoria" id="hierro-chapas" value="hierro-chapas">
-                        <label for="hierro-chapas">Hierro/chapas</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="categoria" id="ladrillos" value="ladrillos">
-                        <label for="ladrillos">Ladrillos</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="categoria" id="agua-gas" value="agua-gas">
-                        <label for="agua-gas">Agua/gas</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="categoria" id="instalaciones" value="instalaciones">
-                        <label for="instalaciones">Instalaciones</label>
-                    </div>
 
+
+        <div class="control-formulario">
+            <h4>Categoría:</h4>
+            <div class="padre-control2">
+                <div class="hijo-control2">
+                    <input type="checkbox" name="categoria" id="herramientas" value="herramientas">
+                    <label for="herramientas">Herramientas</label>
                 </div>
+                <div class="hijo-control2">
+                    <input type="checkbox" name="categoria" id="cementos-cal" value="cementos">
+                    <label for="cementos-cal">Cementos/cal</label>
+                </div>
+                <div class="hijo-control2">
+                    <input type="checkbox" name="categoria" id="aberturas" value="aberturas">
+                    <label for="aberturas">Aberturas</label>
+                </div>
+                <div class="hijo-control2">
+                    <input type="checkbox" name="categoria" id="hierro-chapas" value="hierro-chapas">
+                    <label for="hierro-chapas">Hierro/chapas</label>
+                </div>
+                <div class="hijo-control2">
+                    <input type="checkbox" name="categoria" id="ladrillos" value="ladrillos">
+                    <label for="ladrillos">Ladrillos</label>
+                </div>
+                <div class="hijo-control2">
+                    <input type="checkbox" name="categoria" id="agua-gas" value="agua-gas">
+                    <label for="agua-gas">Agua/gas</label>
+                </div>
+                <div class="hijo-control2">
+                    <input type="checkbox" name="categoria" id="instalaciones" value="instalaciones">
+                    <label for="instalaciones">Instalaciones</label>
+                </div>
+
             </div>
+        </div>
 
 
-            <div class="control-formulario">
-                <h4 class="image-h4">Selecciona una imagen para el producto:</h4>
-                <label for="image-product" class="label-image-product">
-                    <input type="file" name="imagen" id="image-product" accept=".jpg, .png">
-                </label>
-            </div>
+        <div class="control-formulario">
+            <h4 class="image-h4">Selecciona una imagen para el producto:</h4>
+            <label for="image-product" class="label-image-product">
+                <input type="file" name="imagen" id="image-product"
+                    class="form-control <%= locals.errors && errors.imagen ? 'is-invalid' : null %>">
+                <% if (locals.errors && errors.imagen) { %>
+                <div class="text-danger">
+                    <%= errors.imagen.msg %>
+                </div>
+                <% } %>>
+            </label>
+        </div>
 
-            <br>
-            <div class="control-formulario">
-                <button type="reset" class="button-form">Limpiar</button>
-                <button type="submit" class="button-form"> Cargar producto</button>
-            </div>
-        </form>
-    </main>
-    
-    <%- include('partials/footer')%> 
+        <br>
+        <div class="control-formulario">
+            <button type="reset" class="button-form">Limpiar</button>
+            <button type="submit" class="button-form"> Cargar producto</button>
+        </div>
+    </form>
+</main>
 
-    <%-include('./partials/script-bootstrap') %> 
+<%- include('partials/footer')%>
+
+<%-include('./partials/script-bootstrap') %>
 
 
 </body>
