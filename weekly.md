@@ -23,3 +23,20 @@ Tercera reunión weekly: 20 de octubre.
 Nuevamente analizamos el avance de cada integrante y acordamos como resolver los problemas que se presentaron.
 
 
+--------------------------------------------------------------------------------------------------------
+
+Cuarta reunión weekly: 1 de noviembre.
+El equipo se reunió para dividir las tareas de 5 Sprint.
+Evelyn: Implementar rutas de huéspedes y de usuarios.
+Cristian: Implementar el registro de usuarios.
+Matias: Implementar el login de usuarios.
+
+--------------------------------------------------------------------------------------------------------
+
+Quinta reunión weekly: 17 de noviembre.
+
+Hablamos los cuatro integrantes del equipo de las dificultades para resolver las tareas establecidas. 
+Concordamos en avisar con la debida anticipación sobre los problemas que se nos presenten, para que en equipo podamos resolverlos.
+Cristian subirá en breve el registro de usuarios para que Matías pueda realizar el login.
+Una vez resuelto el sprint 5, pasaremos a distribuir las tareas del sprint 6. 
+Asimismo, acordamos modificar el header para que sea visualmente más concreto. 

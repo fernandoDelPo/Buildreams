@@ -60,6 +60,7 @@ const userController = {
 		let UserEdit = users.find(user => user.id == id)
 		res.render('profile', { UserEdit })
     },
+
     UpdateProfile: (req, res) => {
         let id = req.params.id;
         let UserEdit = users.find(user => user.id == id);
@@ -93,6 +94,7 @@ const userController = {
 		fs.writeFileSync(userFilePath, JSON.stringify(newUser, null, ' '));
 		res.redirect('/');
     },
+    
     store:  (req, res) => {
         
 	},
