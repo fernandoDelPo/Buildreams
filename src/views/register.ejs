@@ -7,7 +7,7 @@
 <main>
 
     <main class="main-form">
-        <form action="/crear-usuario" method="POST" class="create-form" enctype="multipart/form-data">
+        <form action="/users/register" method="POST" class="create-form" enctype="multipart/form-data">
         
             <div class="control-formulario">
                 <h4>Completa los datos de inscripción:</h4>
@@ -44,27 +44,6 @@
             </div>
 
             <div class="control-formulario">
-                <h4>Fecha de nacimiento:</h4>
-                <label for="dia-nacimiento" class="input-label">
-                    <input type="date" name="dia-nacimiento" id="dia-nacimiento" required pattern="\d{4}-\d{2}-\d{2}"
-                        id="dia-nacimiento" pattern="[a-zA-Z ]{2,254}" required>
-                    <div class="msg-error">Debes ingresar una fecha</div>
-                </label>
-            </div>
-
-            <div class="control-formulario">
-                <h4>Dirección:</h4>
-                <label for="address" class="input-label">
-                    <input type="text" name="address" id="address" placeholder="Dirección: Ej: Las Amapolas 856"
-                        value="Calle 444" pattern="([a-zA-ZÀ-ÿ\u00f1\u00d1\s]{2,249})+([0-9]{2,5})" class="control"
-                        required>
-                    <div class="msg-error">Ingresar la calle y número. Opcional un numero de piso y departamento <i
-                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i>
-                    </div>
-                </label>
-            </div>
-
-            <div class="control-formulario">
                 <label for="conutry" class="input-label">
                     <input type="text" name="country" id="country" value="País" placeholder="País"
                         pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
@@ -74,55 +53,6 @@
                 </label>
             </div>
 
-
-            <div class="control-formulario">
-                <label for="state" class="input-label">
-                    <input type="text" name="state" id="state" placeholder="Estado o provincia"
-                        value="Estado o provincia"
-                        pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
-                        class="control" pattern="[a-zA-Z ]{2,254}" required>
-                    <div class="msg-error">Debes ingresar un Estado o Provincia <i
-                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-
-            <div class="control-formulario">
-                <label for="cp" class="input-label">
-                    <input type="number" name="cp" id="cp" placeholder="Código Postal" value="1234" class="control"
-                        max="99999" maxlength="5" required>
-                    <div class="msg-error">Debes ingresar el código postal de tu cuidad <i
-                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                </label>
-            </div>
-
-            </div>
-
-            <div class="control-formulario">
-                <h4>Intereses:</h4>
-                <div class="padre-control2">
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="electro" id="electro">
-                        <label for="electro">Electro</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="moda" id="moda">
-                        <label for="moda">Moda</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="hogar" id="hogar">
-                        <label for="hogar">Hogar</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="jugueteria" id="jugueteria">
-                        <label for="jugueteria">Juguetería</label>
-                    </div>
-                    <div class="hijo-control2">
-                        <input type="checkbox" name="vida-sana" id="vida-sana">
-                        <label for="vida-sana">Vida Sana</label>
-                    </div>
-
-                </div>
-            </div>
             <div class="control-formulario">
                 <h4 class="image-h4">Selecciona una imagen para tu perfil:</h4>
                 <label for="image-profile" class="label-image-profile">

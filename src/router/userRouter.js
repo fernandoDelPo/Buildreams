@@ -20,6 +20,7 @@ let upload = multer({storage});
 
 /* Ruta registro, faltan agregar más*/
 router.get('/register', userController.register)
+router.post('/', upload.single('image-profile'), userController.store)
 router.get('/login', userController.login)
 router.post('/login', (req,res)=>{
     res.send('Estás logueado');

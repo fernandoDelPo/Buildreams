@@ -1,39 +1,12 @@
 [
     {
         "id": 1,
-        "Nombre": "Evelyn",
-        "Apellido": "Giampieri",
-        "email": "mcaney0@bbc.co.uk",
-        "Contraseña": "",
-        "Categoría": "Peso",
-        "Imagen": "default.png"
-    },
-    {
-        "id": 2,
-        "Nombre": "Cristian",
-        "Apellido": "Bolzón",
-        "email": "cneubigin1@jiathis.com",
-        "Contraseña": "",
-        "Categoría": "Peso",
-        "Imagen": "default.png"
-    },
-    {
-        "id": 3,
-        "Nombre": "Matias",
-        "Apellido": "Muñoz",
-        "email": "ghammond2@edublogs.org",
-        "Contraseña": "",
-        "Categoría": "Peso",
-        "Imagen": "default.png"
-    },
-    {
-        "id": 4,
-        "Nombre": "Fernando",
-        "Apellido": "Del Pozzi",
-        "email": "skibard3@yahoo.com",
-        "Contraseña": "",
-        "Categoría": "Peso",
-        "Imagen": "default.png"
+        "nombre": "",
+        "nombre-usuario": "",
+        "e-mail": "",
+        "country":"",
+        "image-profile": "default.png",
+        "pass": ""
     }
 
 ]
