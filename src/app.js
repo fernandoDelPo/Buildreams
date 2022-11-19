@@ -1,15 +1,30 @@
 const express = require('express');
+const session = require('express-session');
 const path = require('path');
 const app = express();
 const methodOverride= require('method-override');
 const mainRouter = require('./router/mainRouter');
 const productsRouter = require('./router/productsRouter');
 const userRouter = require('./router/userRouter');
+const cookies = require('cookie-parser');
+
+const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
 
 
+app.use(session({
+	secret: "Shhh, It's a secret",
+	resave: false,
+	saveUninitialized: false,
+}));
+
+app.use(cookies());
+// app.use(userLoggedMiddleware);
 
 app.use(methodOverride('_method'))
 app.use(express.static(path.resolve(__dirname, "../public")))
+app.use(methodOverride('_method'));
+app.use(express.urlencoded({ extended: false }));
+
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);

@@ -1,12 +1,23 @@
 [
-    {
-        "id": 1,
-        "nombre": "",
-        "nombre-usuario": "",
-        "e-mail": "",
-        "country":"",
-        "image-profile": "default.png",
-        "pass": ""
-    }
+ {
+  "id": 1,
+  "nombre": "Javi Herrera",
+  "nick": "Javi Herrera",
+  "email": "javi@dh.com",
+  "password": "$2a$10$kbHNepDXku1qKDytFK3RpuLtkW/dqMGDi4jXL7lNQUF8lm1HZ2.N.",
+  "country": "Argentiona",
+  "image": "default.png",
+  "categoria": ""
+ },
+ {
+  "id": 2,
+  "nombre": "Fernando Del Pozzi",
+  "nick": "delpo60",
+  "email": "fernandodelpozzi@gmail.com",
+  "country": "Argentina",
+  "password": "$2a$10$nnX9bwK.i1ZnLEagjECLFuctXxQtslryIn2.IRId4XUjOCh4yTJ4q",
+  "image": "default.png",
+  "category": "admin"
+ }
 
 ]

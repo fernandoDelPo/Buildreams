@@ -193,9 +193,19 @@ button:active {
     width: 300px;
 }
 
+.text-danger {
+    font-size: 12px;
+    color: var(--Red);
+}
+
 .input-label {
     width: 100% auto;
     position: relative;
+}
+
+.control-formulario label{
+    color: var(--Yellow);
+    margin-top: 30px;
 }
 
 .msg-error {
@@ -284,6 +294,10 @@ button:active {
         padding-top: 40px;
     }
 }
+.input-label {
+    width: 300px;
+    position: relative;
+}
 
 @media (min-width: 670px) {
     .header-form {
@@ -302,5 +316,10 @@ button:active {
 
     .control {
         width: 350px;
+    }
+
+    .input-label {
+        width: 350px;
+        position: relative;
     }
 };
