@@ -7,7 +7,7 @@
   "password": "$2a$10$kbHNepDXku1qKDytFK3RpuLtkW/dqMGDi4jXL7lNQUF8lm1HZ2.N.",
   "country": "Argentiona",
   "image": "default.png",
-  "categoria": ""
+  "category": ""
  },
  {
   "id": 2,
@@ -27,6 +27,6 @@
   "country": "argentna",
   "password": "$2a$10$6EyUoCX0ndBhpHI.UAEfw.S.zyDt8EpYPPjCWzml/dFHuC0kTMRw.",
   "image": "default.png",
-  "category": "user"
+  "category": "admin"
  }
 ]

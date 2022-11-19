@@ -42,7 +42,7 @@ const controller = {
    /* Create - Formulario para crear*/
 
    create: (req, res) => {
-      res.render('product-create-form')
+      res.render('create-product-form')
       console.log(req.cookies.color);
    },
 
