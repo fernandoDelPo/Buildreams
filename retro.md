@@ -15,4 +15,5 @@ Nos encontramos incorporando reuniones semanales via meet con el objetivo de dis
 Se observa que se han completado todas los requerimientos para la realización de esta demo. Como grupo seguimos buscando nuevas formas de solucionar los problemas relacionados a las solicitudes del cliente. 
 Cabe aclarar que este grupo tiene una amplia vision ya que, se incorporan los contenidos visualizados en las clases por lo que a la hora de realizar el siguiente sprint muchas tareas se encuentran a medio camino de ser completadas. 
 
- 
+Retrospectiva del 5to sprint: 
+La realización de esta etapa fue incompleta debido a que parte de los integrantes se han ausentado o no hay logrado completar sus tareas ya designadas. Por lo tanto, se va a realizar una nueva reunión para reafirmar las responsabilidades y obligaciones, entendiendo que el trabajo en equipo es fundamental para la realización de este proyecto. 

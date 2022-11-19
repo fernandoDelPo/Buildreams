@@ -27,20 +27,20 @@
             </article>
             <% }) %>
 
-            <h5 class="subtitulo">Haciendo click acá encontras más productos destacados </h5>
-
     </section>
+
+    <h5 class="subtitulo">Haciendo click acá encontras más productos destacados </h5>
 
     <section class="lista-productos">
         <br>
         <h4 class="titulares">Ofertas</h4>
 
         <div class="contenedor-articulos">
-           
+
 
 
             <% products.forEach(product => { %>
-                <% if (product.enOferta == true) { %>
+            <% if (product.enOferta == "En oferta") { %>
             <article class="articulos">
                 <img class="imagen-producto" src="./images/products/<%= product.imagen%>" alt="imagen del producto">
                 <div class="contenedor">
@@ -54,10 +54,11 @@
             </article>
             <% } %>
             <% }) %>
-           
-            <h5 class="subtitulo">Haciendo click acá encontrás más de nuestras ofertas </h5>
 
     </section>
+
+    <h5 class="subtitulo">Haciendo click acá encontrás más de nuestras ofertas </h5>
+
 </main>
 
 <%- include('partials/footer')%>

@@ -52,13 +52,21 @@
     display: inline-block;
 }
 
+.text-danger {
+    font-size: 12px;
+    color: var(--Red);
+}
+
 
 @media (min-width: 481px) {
 
     #create-product-form{
         margin-top: 168px;
     }
+    
  }
+
+
  
  @media (min-width: 670px) {
     #create-product-form{

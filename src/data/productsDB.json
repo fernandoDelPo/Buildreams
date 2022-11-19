@@ -8,7 +8,7 @@
   "imagen": "plasticor-loma-negra-40kg.jpg",
   "stock": "150",
   "color": "verde oscuro",
-  "enOferta": false,
+  "enOferta": "Sin promoción",
   "categoria": ""
  },
  {
@@ -20,7 +20,7 @@
   "imagen": "ladrillo-hueco.jpg",
   "stock": "1500",
   "color": "anaranjado",
-  "enOferta": false,
+  "enOferta": "Sin promoción",
   "categoria": ""
  },
  {
@@ -32,7 +32,7 @@
   "imagen": "Barra-Hierro-10x12.jpg",
   "stock": "2300",
   "color": "plateado",
-  "enOferta": false,
+  "enOferta": "Sin promoción",
   "categoria": ""
  },
  {
@@ -44,7 +44,7 @@
   "imagen": "hidrofugo.jpg",
   "stock": "345",
   "color": "blanco",
-  "enOferta": true,
+  "enOferta": "En oferta",
   "categoria": ""
  },
  {
@@ -56,7 +56,7 @@
   "imagen": "Revoque2-en-1.jpg",
   "stock": "546",
   "color": "blanco",
-  "enOferta": true,
+  "enOferta": "En oferta",
   "categoria": ""
  },
  {
@@ -68,7 +68,7 @@
   "imagen": "yeso.jpg",
   "stock": "546",
   "color": "blanco",
-  "enOferta": true,
+  "enOferta": "En oferta",
   "categoria": ""
  },
  {
@@ -80,7 +80,43 @@
   "imagen": "pastina.jpg",
   "stock": "123",
   "color": "gris perla",
-  "enOferta": true,
-  "categoria": ""
+  "enOferta": "En oferta",
+  "categoria": "cementos"
+ },
+ {
+  "id": 9,
+  "nombre": "Cemento Robusto",
+  "descripcion": "Cemento para contrapiso",
+  "marca": "Loma Negra",
+  "precio": "1600",
+  "stock": "230",
+  "color": "verde",
+  "enOferta": "Sin promoción",
+  "categoria": "cementos",
+  "imagen": "imagen-1668725165693.jpg"
+ },
+ {
+  "id": 10,
+  "nombre": "Cemento Robusto",
+  "descripcion": "Cemento para contrapiso",
+  "marca": "Loma Negra",
+  "precio": "800",
+  "stock": "230",
+  "color": "verde",
+  "enOferta": "En oferta",
+  "categoria": "cementos",
+  "imagen": "imagen-1668725640972.jpg"
+ },
+ {
+  "id": 11,
+  "nombre": "Ladrillo 18 * 10",
+  "descripcion": "Ladrillo visto",
+  "marca": "Ladrillón",
+  "precio": "1500",
+  "stock": "10",
+  "color": "anaranjado",
+  "enOferta": "Sin promoción",
+  "categoria": "ladrillos",
+  "imagen": "imagen-1668726474085.jpg"
  }
 ]

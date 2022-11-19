@@ -43,4 +43,21 @@ router.post('/logout',userRoute,userController.logout)
 
 router.get('/profile', userRoute, userController.profile);
 
+
+
+
+/*Ruta de edicion del usuario*/
+//router.get('/profile', userController.profile);
+
+
 module.exports = router;
+
+//router.get('/register',guestRoute, usercontroller.register)
+//router.get('/profile/edit/:id', guestRoute, usercontroller.editProfile)
+//router.put('/profile/update/:id',guestRoute,upload.single('image'), usercontroller.UpdateProfile);
+//router.get('/login',guestRoute, usercontroller.login)
+//hacer el post de formulario de login
+//router.post('/login',guestRoute,usercontroller.authenticate)
+
+//logout
+//router.post('/logout',userRoute,usercontroller.logout)
