@@ -30,6 +30,7 @@ app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', userRouter);
 
+
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: false }));
 
@@ -37,6 +38,14 @@ app.use(express.json());
 
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
+app.get('/', (req, res) => {
+    res.render('index');
+}),
+
+app.use((req, res, next) => {
+    res.status(404).render('not-found');
+   })
+   
 
 app.listen(3030, () => {
     console.log('Corriendo en puerto 3030');

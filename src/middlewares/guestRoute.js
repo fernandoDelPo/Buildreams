@@ -1,9 +1,8 @@
 module.exports = (req, res, next) => {
-
-    if (req.session.users) {
-        res.redirect('/profile');
+    // El usuario existe en session
+    if (req.session.user) {
+        res.redirect('/users/profile');
     } else {
         next();
     }
 }
-//

@@ -1,24 +1,47 @@
 
 const express = require('express');
+const multer = require('multer');
 const router = express.Router();
 const path = require('path');
-const uploadFile = require('../middlewares/multerMiddleware');
-const validations = require('../middlewares/authRegister');
-const userController = require('../controllers/usercontroller');
+
+/* Requerimiento de controladores */
+
+const userController = require('../controllers/userController')
+const userRoute = require('../middlewares/userRoute');
 const guestRoute = require('../middlewares/guestRoute');
-//const userRoute = require('../middlewares/userRoute');
 
+/* Configuración de multer*/
 
+let storage = multer.diskStorage({
+    destination:function(req,file,cb){
+        cb(null, 'public/images/users')
+    },
+    filename: function(req,file,cb){
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+})
+let upload = multer({storage});
 
-/* Ruta registro, faltan agregar más*/
-router.get('/register', guestRoute, userController.register);
+/* Mostrar el formulario para hacer el registro */
 
-router.post('/', guestRoute, uploadFile.single('image'),  validations,  userController.store);
+router.get('/register', guestRoute, userController.register)
 
-router.get('/login', userController.login)
-//router.post('/login', (req,res)=>{
-    //res.send('Estás logueado');
-//});
+/*hacer envío (post) del formulario de registro*/
+
+router.post('/',guestRoute,upload.single('image'), userController.store)
+
+/* Se muestra el formulario de login*/
+router.get('/login', guestRoute, userController.login)
+
+/* Hacemos el envío del formulario de login*/
+
+router.post('/login',guestRoute,userController.authenticate)
+
+/* Cerrar cesión(logout) */
+
+router.post('/logout',userRoute,userController.logout)
+
+router.get('/profile', userRoute, userController.profile);
 
 
 
