@@ -2,29 +2,27 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const multer = require('multer')
-
-const userController = require('../controllers/userController');
-//const guestRoute = require('../middlewares/guestRoute');
+const uploadFile = require('../middlewares/multerMiddleware');
+const validations = require('../middlewares/authRegister');
+const userController = require('../controllers/usercontroller');
+const guestRoute = require('../middlewares/guestRoute');
 //const userRoute = require('../middlewares/userRoute');
 
-let storage = multer.diskStorage({
-    destination:function(req,file,cb){
-        cb(null, 'public/images/users')
-    },
-    filename: function(req,file,cb){
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-    }
-})
-let upload = multer({storage});
+
 
 /* Ruta registro, faltan agregar más*/
-router.get('/register', userController.register)
-router.post('/', upload.single('image-profile'), userController.store)
+router.get('/register', guestRoute, userController.register);
+
+router.post('/', guestRoute, uploadFile.single('image'),  validations,  userController.store);
+
 router.get('/login', userController.login)
-router.post('/login', (req,res)=>{
-    res.send('Estás logueado');
-});
+//router.post('/login', (req,res)=>{
+    //res.send('Estás logueado');
+//});
+
+
+
+
 /*Ruta de edicion del usuario*/
 //router.get('/profile', userController.profile);
 

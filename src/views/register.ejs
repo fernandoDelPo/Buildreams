@@ -7,80 +7,96 @@
 <main>
 
     <main class="main-form">
-        <form action="/users/register" method="POST" class="create-form" enctype="multipart/form-data">
-        
+
+        <form method="POST" action="/users" class="create-form" enctype="multipart/form-data">
+
             <div class="control-formulario">
                 <h4>Completa los datos de inscripción:</h4>
             </div>
             <div class="control-formulario">
-                <label for="nombre" class="input-label">
-                    <input type="text" name="nombre" id="nombre" placeholder="Nombre y Apellido: Ej: Juan Pérez"
-                        value="Escribe tu nombre"
-                        pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
-                        class="control">
-                    <div class="msg-error">Debes completar este campo sólo con letras. <i
-                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                <label for="nombre" class="input-label"> Nombre y apellido
+                    <input type="text" name="nombre" id="nombre"
+                        class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.nombre : null %>">
+                    <% if (locals.errors && errors.nombre) { %>
+                    <div class="text-danger">
+                        <%= errors.nombre.msg %>
+                    </div>
+                    <% } %>
                 </label>
             </div>
 
             <div class="control-formulario">
-                <label for="nombre-usuario" class="input-label">
-                    <input type="text" name="nombre-usuario" id="nombre-usuario"
-                        placeholder="Nombre de usuari@ Ej: User1" value="Usuari@" pattern="[A-Za-z0-9!?-@]{6,12}"
-                        class="control" required>
-                    <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite solo
-                        los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                <label for="nick" class="input-label"> Alias o Nick
+                    <input type="text" name="nick" id="nick"
+                        class="form-control <%= locals.errors && errors.nick ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.nick : null %>">
+                    <% if (locals.errors && errors.nick) { %>
+                    <div class="text-danger">
+                        <%= errors.nick.msg %>
+                    </div>
+                    <% } %>
                 </label>
             </div>
 
             <div class="control-formulario">
-                <label for="e-mail" class="input-label">
-                    <input type="email" name="e-mail" id="e-mail" placeholder="e-mail" value="email@lol.com"
-                        pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" class="control"
-                        required>
-                    <div class="msg-error">Debes ingresar una direccion de e-mail compatible <i
-                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                <label for="email" class="input-label"> Email
+                    <input type="email" name="email" id="e-mail"
+                        class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.email : null %>">
+                    <% if (locals.errors && errors.email) { %>
+                    <div class="text-danger">
+                        <%= errors.email.msg %>
+                    </div>
+                    <% } %>
+
                 </label>
             </div>
 
             <div class="control-formulario">
-                <label for="conutry" class="input-label">
-                    <input type="text" name="country" id="country" value="País" placeholder="País"
-                        pattern="[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]{2,48}"
-                        class="control" required>
-                    <div class="msg-error">Debes ingresar el país <i class="fa-solid fa-circle-exclamation"
-                            id="icon-danger"></i></div>
+                <label for="country" class="input-label"> País
+                    <input type="text" name="country" id="country"
+                        class="form-control <%= locals.errors && errors.country ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData ? oldData.country : null %>">
+                    <% if (locals.errors && errors.country) { %>
+                    <div class="text-danger">
+                        <%= errors.country.msg %>
+                    </div>
+                    <% } %>
                 </label>
             </div>
 
             <div class="control-formulario">
                 <h4 class="image-h4">Selecciona una imagen para tu perfil:</h4>
-                <label for="image-profile" class="label-image-profile">
-                    <input type="file" name="image-profile" id="image-profile" accept=".jpg, .png" optional>
+                <label for="image" class="label-image-profile">
+                    <input type="file" name="image" id="image"
+                        class="form-control <%= locals.errors && errors.image ? 'is-invalid' : null %>">
+                    <% if (locals.errors && errors.image) { %>
+                    <div class="text-danger">
+                        <%= errors.image.msg %>
+                    </div>
+                    <% } %>>
                 </label>
             </div>
 
             <div class="control-formulario">
-                <label for="pass" class="input-label">
-                    <input type="password" name="pass" id="pass"
-                        placeholder="Requiere una mayúsculas y mínimo 8 caracteres" class="control"
-                        pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-                    <div class="msg-error">Debes ingresar una contraseña válida <i
-                            class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
+                <label for="password" class="input-label"> Contraseña
+                    <input type="password" name="password" id="password"
+                        class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                    <% if (locals.errors && errors.password) { %>
+                    <div class="text-danger">
+                        <%= errors.password.msg %>
+                    </div>
+                    <% } %>
                 </label>
                 <br>
-                <label for="pass2" class="input-label">
-                    <input type="password" name="pass2" id="pass2" placeholder="Reingresá tu contraseña" class="control"
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-                    <div class="msg-error">Confirma la contraseña<i class="fa-solid fa-circle-exclamation"
-                            id="icon-danger"></i></div>
-                </label>
-            </div>
-            <br>
-            <div class="control-formulario">
-                <button type="reset" class="button-form">Limpiar</button>
-                <button type="submit" class="button-form" id="button-submit"> <a href="/" target="_blank">Creá tu cuenta</a></button>
-            </div>
+                <br>
+
+                <div class="control-formulario">
+                    <button type="reset" class="button-form">Limpiar</button>
+                    <button type="submit" class="button-form" id="button-submit">Creá tu
+                        cuenta</button>
+                </div>
         </form>
     </main>
 
