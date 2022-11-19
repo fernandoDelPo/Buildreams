@@ -9,7 +9,6 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-
 const controller = {
 
    productCart: (req, res) => {
@@ -119,9 +118,7 @@ const controller = {
 
       fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
       res.redirect('/');
-   }
-},
-
+   },
    edit: (req, res) => {
       let idProduct = req.params.idProduct
       let productEdit = products.find(product => product.id == idProduct)
@@ -182,5 +179,5 @@ update: (req, res) => {
 
       res.redirect('/');
    }
-
+}
 module.exports = controller;

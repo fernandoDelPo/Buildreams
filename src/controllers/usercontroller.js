@@ -8,139 +8,208 @@ const users = JSON.parse(fs.readFileSync(userFilePath, 'utf-8'));
 const userLoginInfoFilePath = path.join(__dirname, '../data/userLoginInfo.json');
 const usersLoginInfo = JSON.parse(fs.readFileSync(userLoginInfoFilePath, 'utf-8'));
 
+const {
+	validationResult
+} = require('express-validator');
+
+// const User = require('../models/User');
+
 const userController = {
+	register: (req, res) => {
+		console.log('estas por get')
+		res.render('register')
 
-    register: (req, res) => {
-        res.render('user-register')
-    },
+	},
 
-    store: (req, res) => {
+	store: (req, res) => {
 
+		console.log('estas por post')
 
-        /* Se crea un nuevo usuario con los datos del forulario */
-        let newUser = {
-            id: users[users.length - 1].id + 1,
-            ...req.body,
-            image: req.file ? req.file.filename : 'default-image.png',
-            category: 'user'
+		const resultValidation = validationResult(req);
+		console.log('estas por post')
+		if (resultValidation.errors.length > 0) {
+			return res.render('register', {
+				errors: resultValidation.mapped(),
+				oldData: req.body
+			});
+		}
 
-        };
-
-        /* Se encripta la contraseña y borramos el password para que no se guarde en nuestro json */
-
-        newUser.password = bcrypt.hashSync(req.body.password, 10);
-        delete newUser.repassword
-
-        /* Escribimos en nuestro archivo json */
-
-        let usersNews = [...users, newUser]
-        fs.writeFileSync(userFilePath, JSON.stringify(usersNews, null, ' '));
-
-        res.redirect('/');
-    },
-
-    login: (req, res) => {
-        res.render('login')
-    },
-
-    authenticate: (req, res) => {
-
-        /* Se hace la lógica para guardar los datos en nuestro JSON */
-
-        const { email, password } = req.body;
-
-        /* Verificamos si el mail q puso en el formulario esta en nuestra db */
-
-        let user = users.find(user => user.email == email)
-
-        if (user) {
-            /* y la contraseña es correcta... */
-
-            if (bcrypt.compareSync(password, user.password)) {
-
-                /* Eliminamos los datos sensibles y guardamos el usuario en sesión */
-
-                delete user.password;
-
-                req.session.user = user;
+		users.forEach(user => {
+			if (user.email === req.body.email) {
+				return res.render('register', {
+					errors: {
+						email: {
+							msg: 'Este email ya está registrado'
+						}
+					},
+					oldData: req.body
+				});
+				console.log()
+			}
+		});
 
 
-                // Si pidió que lo recordemos
 
-                if (req.body.remember) {
+		let newUser = {
+			id: users[users.length - 1].id + 1,
+			...req.body,
+			image: req.file ? req.file.filename : 'default.png',
+			category: 'user'
+		};
 
-                    /* Generamos un token seguro, eso para que no pueda entrar cualquiera */
-                    /* https://stackoverflow.com/questions/8855687/secure-random-token-in-node-js */
+		//encriptamos la contrasenia y borramos el password para q noo se guarde en nuestro json
+		newUser.password = bcrypt.hashSync(req.body.password, 10);
+		delete newUser.repassword
 
-                    const token = crypto.randomBytes(64).toString('base64');
-                    user.token = token
 
-                    /* Lo guardamos en base de datos, para poder chequearlo luego */
+		//escribimos en nuestro archivo json
+		let usersNews = [...users, newUser]
+		fs.writeFileSync(userFilePath, JSON.stringify(usersNews, null, ' '));
 
-                    let userLoginInfo = [...usersLoginInfo, user]
-                    fs.writeFileSync(userLoginInfoFilePath, JSON.stringify(userLoginInfo, null, ' '));
+		return res.redirect('./users/login');
 
-                    // Recordamos al usuario por 3 meses msegs  segs  mins  hs   días */
+	},
 
-                    res.cookie('rememberToken', token, { maxAge: 1000 * 60 * 60 * 24 * 90 });
-                }
+	login: (req, res) => {
+		res.render('login');
+	},
 
-                /* Finalmente lo mandamos al home */
+	authenticate: (req, res) => {
+		const { email,password } = req.body;
 
-                return res.redirect('/');
-            } else {
+		//verifico si el mail q puso en el formulario esta en nuestra db
+		let user = users.find(user => user.email == email)
 
-                /* Si la contraseña esta mal */
+		if (user) {
+			// y la contraseña es correcta...
+			if (bcrypt.compareSync(password, user.password)) {
+				// Eliminamos los datos sensibles y guardamos el usuario en sesión
+				delete user.password;
 
-                return res.render('login', {
-                    old: req.body,
-                    errors: {
-                        email: 'los datos de la contraseña son inválidos'
-                    }
-                });
-            }
-        } else {
+				req.session.user = user;
+				
+				// Si pidió que lo recordemos
+				if (req.body.remember) {
+					// Generamos un token seguro, eso para que no pueda entrar cualquiera
+					// https://stackoverflow.com/questions/8855687/secure-random-token-in-node-js
+					const token = crypto.randomBytes(64).toString('base64');
+					user.token=token
+					// Lo guardamos en base, para poder chequearlo luego
+		
+					
+					let userLoginInfo = [...usersLoginInfo, user]
+					fs.writeFileSync(userLoginInfoFilePath, JSON.stringify(userLoginInfo, null, ' '));
+					
+					// Recordamos al usuario por 3 meses         msegs  segs  mins  hs   días
+					res.cookie('remember', token, { maxAge: 1000 * 60  * 60 *  24 * 90 });                
+				}
 
-            /* Si el email no existe */
+				// Finalmente lo mandamos a la home
+				return res.redirect('/');
+			} else {
+				// Si la contraseña esta mal
+				return res.render('login', { 
+					old: req.body,
+					errors: { 
+						email: 'El email o la contraseña son inválidos'
+					}
+				});
+			}
+		} else {
+			// Si el email no existe
+			return res.render('login', { 
+				old: req.body,
+				errors: { 
+					email: 'El email o la contraseña son inválidos'
+				}
+			});        
+		}
+	},
+	loginProcess: (req, res) => {
+		let userToLogin = user.findByField('email', req.body.email);
 
-            return res.render('login', {
-                old: req.body,
-                errors: {
-                    email: 'El email o la contraseña son inválidos'
-                }
-            });
-        }
+		if (userToLogin) {
+			let isOkThePassword = bcryptjs.compareSync(req.body.password, userToLogin.password);
+			if (isOkThePassword) {
+				delete userToLogin.password;
+				req.session.userLogged = userToLogin;
 
-    },
-    profile: (req, res) => {
-        res.render('profile');
-    },
-    logout: (req, res) => {
+				if (req.body.remember_user) {
+					res.cookie('userEmail', req.body.email, {
+						maxAge: (1000 * 60) * 60
+					})
+				}
 
-        /* Borramos el registro de la base de datos si existe */
+				return res.redirect('/users/profile');
+			}
+			return res.render('login', {
+				errors: {
+					email: {
+						msg: 'Las credenciales son inválidas'
+					}
+				}
+			});
+		}
 
-        const token = usersLoginInfo.find(user => user.token = req.cookies.rememberToken);
-        if (token) {
-            let logerDeleter = usersLoginInfo.filter(user => user.token != req.cookies.rememberToken);
-            fs.writeFileSync(userLoginInfoFilePath, JSON.stringify(logerDeleter, null, ' '));
-        }
+		return res.render('login', {
+			errors: {
+				email: {
+					msg: 'No se encuentra este email en nuestra base de datos'
+				}
+			}
+		});
+	},
+	profile: (req, res) => {
+		return res.render('profile', {
+			user: req.session.userLogged
+		});
+	},
 
-        /* Destruimos la sesión */
+	editProfile: (req, res) => {
+		let id = req.params.id
+		let UserEdit = users.find(user => user.id == id)
+		res.render('profile', {
+			UserEdit
+		})
+	},
 
-        req.session.destroy();
+	UpdateProfile: (req, res) => {
+		let id = req.params.id;
+		let UserEdit = users.find(user => user.id == id);
 
-        /* Destruimos la cookie de recordar */
+		let imagen
+		if (req.file != undefined) {
+			imagen = req.file.image - profile
+		} else {
+			imagen = 'default.png'
+		}
 
-        res.clearCookie('rememberToken');
+		UserEdit = {
+			id: UserEdit.id,
+			...req.body,
+			imagen: imagen,
+		}
 
-        /*  Redirigimos al home */
-        res.redirect('/');
-    }
+		let newUser = users.map(user => {
 
-};
+			if (user.id == UserEdit.id) {
 
+				return user = {
+					...UserEdit
+				};
+
+			}
+
+			return user;
+		})
+
+		console.log(newUser)
+
+		fs.writeFileSync(userFilePath, JSON.stringify(newUser, null, ' '));
+		res.redirect('/');
+	},
+
+	logout: (req, res) => {},
+
+}
 module.exports = userController;
-
-
-
-
