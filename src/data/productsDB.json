@@ -12,18 +12,6 @@
   "categoria": ""
  },
  {
-  "id": 2,
-  "nombre": "CAL CACIQUE MAX 30KG",
-  "descripcion": "Ligante hidraúlico utilizado para elaborar morteros destinados a elevación de mamposterías en general, submuraciones, revoques gruesos, colocación de pisos, contrapisos en interiores y exteriores, y estabilización de suelos.",
-  "marca": "Cacique",
-  "precio": "949.50",
-  "imagen": "cal-cacique-max-30kg.jpg",
-  "stock": "100",
-  "color": "blanco",
-  "enOferta": false,
-  "categoria": ""
- },
- {
   "id": 3,
   "nombre": "LADRILLO HUECO 8X18X33 6AG",
   "descripcion": "Ladrillo hueco 8cm de ancho, 18cm alto, 33cm de largo",

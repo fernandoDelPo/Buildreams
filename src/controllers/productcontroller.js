@@ -8,125 +8,95 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 
-const productController = {
+const controller = {
+
    productCart: (req, res) => {
-      res.render('productCart', {})
+   res.render('productCart', {})
    },
+
+   /* Raíz - Mostarar todos los productos*/
+
+   index: (req, res) => {
+      res.render('products', {
+         products,
+         toThousand
+      })
+   },
+
+   /* Detalle - Detalle de un producto*/
 
    productDetail: (req, res) => {
       let idproduct = req.params.id;
       let product = products.find(product => product.id == idproduct);
       res.render('productDetail', {
          product,
-         products
+         toThousand
       });
    },
 
 
    //-----------Get y post para crear producto------//
+
+
+   /* Create - Formulario para crear*/
+
    create: (req, res) => {
-
-      res.render('create-product-form')
-
-      console.log('estás en el formulario')
-
+      res.render('product-create-form')
+      console.log(req.cookies.color);
    },
 
-   // Producto nuevo ------------------------------------//
+   /* Create -  Método para almacenar */
+
    store: (req, res) => {
-		
-   //    const errors = validationResult(req);
 
-   //  console.log(errors.errors);
-    
-   //  if (!errors.isEmpty()) {
-   //        return res.render('create-product-form', { errors: errors.mapped(), old: req.body })
-       
-   //  }else{
+      const errors = validationResult(req);
 
-       let imagen
-       if(req.file != undefined){
-          imagen = req.file.filename
-       } else {
-          imagen = 'default-image.png'
-       }
-       
-       let newProduct = {
-          id: products[products.length - 1].id + 1,
-          ...req.body,
-          imagen
+      /* res.cookie('color','rojo') */
 
-       };
-       console.log(req.body);
+      console.log(errors.errors);
 
-        let productsNews = [...products, newProduct]
-       fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
-       console.log(productsNews)
-       console.log('creaste un producto');
+      if (!errors.isEmpty()) {
+         return res.render('produc-create-form', { errors: errors.mapped(), old: req.body })
 
-       res.redirect('/');
-    //}
+      } else {
 
+         let imagen
+         if (req.file != undefined) {
+            imagen = req.file.filename
+         } else {
+            imagen = 'default-image.png'
+         }
+
+         let newProduct = {
+            id: newProduct.id,
+            ...req.body,
+            imagen
+         };
+
+         let productsNews = products.map(product => {
+            if (product.id == productToEdit.id) {
+               return product = {...productToEdit};
+            }
+            return product;
+         })
+
+         fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
+         res.redirect('/');
+      }
    },
 
-   edit: (req, res) => {
-		let idProduct = req.params.id
-		let productEdit = products.find(product => product.id == idProduct)
-		res.render('editProduct', { productEdit })
+   /* Delete - Eliminar un producto de la base de datos */
 
-	},
+   destroy: (req, res) => {
 
-	update: (req, res) => {
+      let id = req.params.id;
 
-		let id = req.params.id;
-		let productToEdit = products.find(product => product.id == id)
+      let finalProducts = products.filter(product => product.id != id)
 
-		let imagen
-        if(req.file != undefined){
-          imagen = req.file.filename
-        } else {
-          imagen = 'default-image.png'
-        }
-
-		
-
-		productToEdit = {
-			id: productToEdit.id,
-			...req.body,
-			imagen: imagen,
-			
-		}
-
-		
-
-		let newProducts = products.map(product => {
-			
-			if (product.id == productToEdit.id) {
-				
-				return product = { ...productToEdit };
-				
-			}
-			
-			return product;
-		})
-
-		console.log(newProducts)
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-		res.redirect('/');
-
-	},
-	
-	destroy: (req, res) => {
-
-		let id = req.params.id;
-
-		let newProducts = products.filter(product => product.id != id)
-
-		fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-		res.redirect('/');
-	}
+      fs.writeFileSync(productsFilePath, JSON.stringify(finalProducts, null, ' '));
+      res.redirect('/');
+   }
 
 }
 
-module.exports = productController;
+module.exports = controller;
