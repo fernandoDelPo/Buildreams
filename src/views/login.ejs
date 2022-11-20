@@ -21,7 +21,7 @@
 
                 <form action="/users/login" method="POST">
 
-                    <label for="email" class="form-label" name="email" id="email" class="<%=locals.errors && errors.email ? 'is-danger' : '' %> " value="<%= locals.old && old.email %>"></label>>Email</label>
+                    <label for="email" class="form-label" name="email" id="email" class="<%=locals.errors && errors.email ? 'is-danger' : '' %> " value="<%= locals.old && old.email %>"></label>Email</label>
                     <% if(locals.errors && errors.email) { %>
                         <p class="feedback is-danger"><%= errors.email %> </p>
                     <% } %> 
@@ -41,25 +41,13 @@
 
             </div>
 
-
-            <div class="bloque">
-
-                <h4 class="titulosinicio">Nuevos Clientes</h4>
-
-                <p>¿No tienes una cuenta?</p>
-                <p>Registrate y continua con tu compra, podrás acceder a beneficios exclusivos</p>
-
-                <button class="botoninicio"><a href="/users/register">Crear cuenta</a></button>
-
-            </div>
-
         </div>
     </section>
 
 </main>
 
 <%- include('partials/footer')%>
-<%-include('./partials/script-bootstrap')%>
+<%-include('partials/script-bootstrap')%>
 
 </body>
 

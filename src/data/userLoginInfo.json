@@ -1,1 +1,24 @@
-[]
+[
+ {
+  "id": 3,
+  "nombre": "evelyn giampieri",
+  "nick": "eve",
+  "email": "eve.giampieri@gmail.com",
+  "country": "argentna",
+  "password": "$2a$10$6EyUoCX0ndBhpHI.UAEfw.S.zyDt8EpYPPjCWzml/dFHuC0kTMRw.",
+  "image": "default.png",
+  "category": "admin",
+  "token": "FQuaLqSZRJ26TXZmIDrCbJw0lrk/yrPiC/DTVKJWAnoiHv3XAXHXhwI7aj5QyzDEQnROaAuYGc6peB13IYgzeA=="
+ },
+ {
+  "id": 3,
+  "nombre": "evelyn giampieri",
+  "nick": "eve",
+  "email": "eve.giampieri@gmail.com",
+  "country": "argentna",
+  "password": "$2a$10$6EyUoCX0ndBhpHI.UAEfw.S.zyDt8EpYPPjCWzml/dFHuC0kTMRw.",
+  "image": "default.png",
+  "category": "admin",
+  "token": "f7t7lWPw+duQfEyQFOL/+UEh1ldk5oV/EEk/5qS+xX3dYQY+1zZ54W3fldsH1o6Tdt11BSQSzjCj56f4PVHhSg=="
+ }
+]
