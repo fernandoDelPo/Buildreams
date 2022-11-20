@@ -74,15 +74,17 @@ form p {
 
     .login{
         flex-direction: row;
-        width: 90%;
-        margin: 0px 5%;
+        width: 70%;
+        margin: 0px 25%;
         justify-content: space-between;
     }
 
     .bloque{
-        width: 44%;
+        width: 70%;
     }
 
 }
+
+
 
 

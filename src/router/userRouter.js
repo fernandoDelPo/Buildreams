@@ -14,9 +14,15 @@ router.get('/register', guestRoute, userController.register);
 
 router.post('/', guestRoute, uploadFile.single('image'),  validations,  userController.store);
 
-router.get('/login',guestRoute,userController.login)
-router.post('/login',guestRoute, auth, userController.authenticate)
+router.get('/login',guestRoute, userController.login)
+router.post('/login',guestRoute, userController.authenticate)
 
+router.get('/profile',userRoute, userController.profile);
+router.put('/profile/edit/:id', guestRoute, userController.editProfile)
+
+router.post('/logout',userRoute, userController.logout)
+
+module.exports = router;
 
 /*Ruta de edicion del usuario*/
 //router.get('/profile', userController.profile);

@@ -188,7 +188,7 @@ ul.iconos li a {
     color: var(--Dark-Gray);
     display: inline-block;
     padding: 5px 4px 5px 0;
-    font-size: 10px;
+    font-size: 20px;
 }
 
 .main-navbar {
@@ -209,7 +209,10 @@ ul.iconos li a {
 
 .main-navbar i {
     width: 17px;
-    color: var(--Yellow);
+}
+.main-navbar a{
+color: var(--Yellow);
+font-size: 15px;
 }
 
 .left-navbar {
@@ -228,7 +231,6 @@ ul.iconos li a {
     text-align: center;
     padding-left: 0px;
     justify-content: space-between;
-
 }
 
 .h3-navbar {
