@@ -1,0 +1,78 @@
+:root {
+    --Yellow: #fcf300;
+    --Orange: #b3640b;
+    --Blue: #03264C;
+    --Light-Blue: #1259c3;
+    --Dark-Gray: #1e1e1e;
+    --Dark-Gray2: #2c2c2c;
+    --Light-Gray: #ebebeb;
+    --Light-Gray2: #b8b8b8;
+    --Shadow-Gray: rgb(100, 100, 100);
+    --Gray-Opacity: rgb(0, 0, 0, 0.5);
+    --Gray-Opacity2: rgb(0, 0, 0, 0.6);
+    --Green: #39b54a;
+    --White: #ffffff;
+    --Red: #ff0000;
+    --Blue2: #0022AA;
+}
+
+
+
+.main-profile {
+    background-image: url(../images/3915952.jpg);
+    background-repeat: repeat-y;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+}
+
+.profile {
+    border-radius: 10px;
+    margin: auto 0;
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 80%;
+    height: 80%;
+    background-color: var(--Gray-Opacity);
+
+}
+
+h1 {
+    color: var(--White);
+}
+
+.column-profile p {
+    color: var(--White);
+}
+
+.button-edit {
+    background-color: var(--Gray-Opacity2);
+    border: none;
+    font-size: 20px;
+    color: var(--White);
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+}
+
+.button-delete {
+    margin: 5px;
+    background-color: var(--Gray-Opacity2);
+    border: none;
+    font-size: 20px;
+    color: var(--White);
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+
+.image-profile img{
+    width: 170px;
+    height: 170px;
+    border-radius: 150px;
+    border:5px solid var(--Light-Gray2)
+}

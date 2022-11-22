@@ -1,14 +1,15 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
-const app = express();
 const methodOverride= require('method-override');
-const mainRouter = require('./router/mainRouter');
-const productsRouter = require('./router/productsRouter');
-const userRouter = require('./router/userRouter');
 const cookies = require('cookie-parser');
+const auth = require('./middlewares/auth');
 
-const userLoggedMiddleware = require('./middlewares/userLoggedMiddleware');
+const app = express();
+
+app.use(express.static(path.resolve(__dirname, "../public")))
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 
 
 app.use(session({
@@ -18,34 +19,30 @@ app.use(session({
 }));
 
 app.use(cookies());
-// app.use(userLoggedMiddleware);
-
 app.use(methodOverride('_method'))
-app.use(express.static(path.resolve(__dirname, "../public")))
-app.use(methodOverride('_method'));
-app.use(express.urlencoded({ extended: false }));
+app.use(auth);
 
+app.set('views', path.join(__dirname, '/views'));
+app.set('view engine', 'ejs');
+
+const mainRouter = require('./router/mainRouter');
+const productsRouter = require('./router/productsRouter');
+const userRouter = require('./router/userRouter');
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', userRouter);
 
 
-app.use(methodOverride('_method'));
-app.use(express.urlencoded({ extended: false }));
 
-app.use(express.json());
-
-app.set('views', path.join(__dirname, '/views'));
-app.set('view engine', 'ejs');
-app.get('/', (req, res) => {
-    res.render('index');
-}),
-
-app.use((req, res, next) => {
-    res.status(404).render('not-found');
-   })
-   
+app.use((err, req, res, next) => {
+    res.locals.message = err.message;
+    res.locals.path = req.path;
+    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  
+    res.status(err.status || 500);
+    res.render('error');
+  });
 
 app.listen(3030, () => {
     console.log('Corriendo en puerto 3030');

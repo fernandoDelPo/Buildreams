@@ -6,9 +6,11 @@ const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
 const mainController = {
    home: (req, res) => {
-      res.render('index', { products });
+      res.render('index', {
+         products
+      }, );
    },
-   
+
 }
 
 module.exports = mainController;

@@ -19,17 +19,14 @@ const {
 
 const userController = {
 	register: (req, res) => {
-		console.log('estas por get')
 		res.render('register')
 
 	},
 
 	store: (req, res) => {
 
-		console.log('estas por post')
-
 		const resultValidation = validationResult(req);
-		console.log('estas por post')
+
 		if (resultValidation.errors.length > 0) {
 			return res.render('register', {
 				errors: resultValidation.mapped(),
@@ -47,7 +44,6 @@ const userController = {
 					},
 					oldData: req.body
 				});
-				console.log()
 			}
 		});
 
@@ -77,36 +73,35 @@ const userController = {
 		res.render('login');
 	},
 	authenticate: (req, res) => {
-			const { email, password } = req.body;
-			let user = users.find(user => user.email == email)
-	
-			if (user) {
-				if (bcrypt.compareSync(password, user.password)) {
-					req.session.user = user;
-	
-					if (req.body.remember) {
-	
-						const token = crypto.randomBytes(64).toString('base64');
-						user.token = token
-	
-						let userLoginInfo = [...usersLoginInfo, user]
-						fs.writeFileSync(userLoginInfoFilePath, JSON.stringify(userLoginInfo, null, ' '));
-	
-						res.cookie('remember', token, { maxAge: 1000 * 60 * 60 * 24 * 90 });
-					}
-	
-					return res.redirect('/');
-				} else {
-					// Si la contraseña esta mal
-					return res.render('login', {
-						old: req.body,
-						errors: {
-							email: 'El email o la contraseña son inválidos'
-						}
+		const {
+			email,
+			password
+		} = req.body;
+		let user = users.find(user => user.email == email)
+
+		if (user) {
+			if (bcrypt.compareSync(password, user.password)) {
+				// delete user.password;
+
+				req.session.user = user;
+
+				if (req.body.remember) {
+
+					const token = crypto.randomBytes(64).toString('base64');
+					user.token = token
+
+					let userLoginInfo = [...usersLoginInfo, user]
+					fs.writeFileSync(userLoginInfoFilePath, JSON.stringify(userLoginInfo, null, ' '));
+
+					res.cookie('rememberToken', token, {
+						maxAge: 1000 * 60 * 60 * 24 * 90
 					});
 				}
+				req.session.userLogged = user;
+
+				return res.redirect('/users/profile');
 			} else {
-				// Si el email no existe
+
 				return res.render('login', {
 					old: req.body,
 					errors: {
@@ -114,9 +109,19 @@ const userController = {
 					}
 				});
 			}
+		} else {
+
+			return res.render('login', {
+				old: req.body,
+				errors: {
+					email: 'El email o la contraseña son inválidos'
+				}
+			});
+		}
 	},
+
 	profile: (req, res) => {
-		return res.render('profile', {
+		return res.render('userProfile', {
 			user: req.session.userLogged
 		});
 	},
@@ -165,7 +170,22 @@ const userController = {
 		res.redirect('/');
 	},
 
-	logout: (req, res) => {},
+	logout: (req, res) => {
+		const token = usersLoginInfo.find(user => user.token = req.cookies.rememberToken);
+		if (token) {
+			let logerDeleter = usersLoginInfo.filter(user => user.token != req.cookies.rememberToken);
+			fs.writeFileSync(userLoginInfoFilePath, JSON.stringify(logerDeleter, null, ' '));
+		}
+		// Destruimos la sesión
+		req.session.destroy();
+
+		// Destruimos la cookie de recordar
+		res.clearCookie('rememberToken');
+
+		// Redirigimos a la home
+		res.redirect('/');
+	}
 
 }
+
 module.exports = userController;

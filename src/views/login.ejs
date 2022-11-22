@@ -16,23 +16,65 @@
 
             <div class="bloque">
                 <h4 class="titulosinicio">Clientes Registrados</h4>
+                <% if (locals.errors && errors.email) { %>
+
+                <p class="text-danger">Las credenciales son inválidas</p>
+                <p class="text-danger">Verifique su email o contraseña</p>
+
+                <% } else { %>
 
                 <p>Si tiene una cuenta, inicie sesion con su e-mail y contraseña</p>
 
+                <% } %>
+
+
+
                 <form action="/users/login" method="POST">
 
-                    <label for="email" class="form-label" name="email" id="email" class="<%=locals.errors && errors.email ? 'is-danger' : '' %> " value="<%= locals.old && old.email %>"></label>Email</label>
-                    <% if(locals.errors && errors.email) { %>
-                        <p class="feedback is-danger"><%= errors.email %> </p>
-                    <% } %> 
+                    <label for="email" class="input-label"> Email
+                        <input type="email" name="email" id="e-mail"
+                            class="form-control"
+                            value="<%= locals.oldData ? oldData.email : null %>">
+                        <% if (locals.errors && errors.email) { %>
+                        <div class="text-danger">
+                            <%= errors.email.msg %>
+                        </div>
+                        <% } %>
+                    </label>
+
+                    <label for="password" class="input-label"> Contraseña
+                        <input type="password" name="password" id="password" class="form-control">
+                        <% if (locals.errors && errors.password) { %>
+                        <div class="text-danger">
+                            <%= errors.password.msg %>
+                        </div>
+                        <% } %>
+                    </label>
+
+                    <label for="remember" class="form-label">Recordar mis datos</label>
+                    <input class="form-input" type="checkbox" name="remember" id="remember">
+
+                    <button class="submit" class="button-form" id="button-submit">Enviar</button>
+
+
+
+
+
+
+
+                    <!-- <label for="email" class="form-label" name="email" id="email"
+                    </label>Email</label>
                     <input type="text" name="email" id="email" class="form-control">
+                    <% if(locals.errors && errors.email) { %>
+                        <p class="text-danger"><%= errors.email %> </p>
+                        <% } %>
 
                     <label for="password" class="form-label">Contraseña</label>
                     <input class="form-input" type="password" name="password" id="password">
 
                     <label for="remember" class="form-label">Recordar mis datos</label>
                     <input class="form-input" type="checkbox" name="remember" id="remember">
-                    <button class="submit" class="button-form" id="button-submit">Enviar</button>
+                    <button class="submit" class="button-form" id="button-submit">Enviar</button> -->
 
                 </form>
                 <div class="nuevacuenta">

@@ -210,9 +210,10 @@ ul.iconos li a {
 .main-navbar i {
     width: 17px;
 }
-.main-navbar a{
-color: var(--Yellow);
-font-size: 15px;
+
+.main-navbar a {
+    color: var(--Yellow);
+    font-size: 11px;
 }
 
 .left-navbar {
@@ -244,7 +245,7 @@ font-size: 15px;
 }
 
 .copy-header {
-    font-size: 13px;
+    font-size: 11px;
     font-weight: lighter;
     margin-top: 10px;
 
@@ -301,6 +302,14 @@ main section {
 
 img.imagen {
     width: 100%;
+}
+
+    
+.image-profile2 {
+    width: 60px;
+    height: 60px;
+    border-radius: 150px;
+    border: 2px solid var(--Yellow)
 }
 
 .contenedor {
@@ -396,6 +405,7 @@ main section div article:hover .descripcion {
 footer {
     background-color: var(--Dark-Gray);
 }
+
 .contenedor02 {
     width: 100%;
     padding: 10px;
@@ -406,8 +416,8 @@ footer {
 
 .pie-de-pagina {
     display: flex;
-    flex-direction: column;    
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
 }
 
 .copyright {
@@ -434,7 +444,7 @@ footer {
     transition: all 0.3s ease;
 }
 
-.footer-col ul{
+.footer-col ul {
     padding: 0;
 }
 
@@ -479,7 +489,7 @@ footer {
     color: var(--Light-Gray);
 }
 
-#incon-footer{
+#incon-footer {
     font-size: 22px;
 }
 
@@ -499,6 +509,15 @@ footer {
     .left-navbar,
     .rigth-navbar {
         width: 30%;
+    }
+
+    .main-navbar a {
+        font-size: 15px;
+    }
+
+    .copy-header {
+        font-size: 15px;
+
     }
 
 }
@@ -541,10 +560,6 @@ footer {
         height: 30px;
     }
 
-    .copy-header {
-        font-size: 15px;
-    }
-
     .left-navbar,
     .rigth-navbar {
         width: 25%;
@@ -571,16 +586,28 @@ footer {
         top: 165px;
         left: 5px;
     }
+
     .pie-de-pagina {
         flex-direction: row;
 
     }
-    .footer-col{
+
+    .footer-col {
         flex-direction: column;
         flex-grow: 1;
     }
-    #footer-contacto{
+
+    #footer-contacto {
         align-self: flex-start;
+
+    }
+
+    .main-navbar a {
+        font-size: 16px;
+    }
+
+    .copy-header {
+        font-size: 16px;
 
     }
 

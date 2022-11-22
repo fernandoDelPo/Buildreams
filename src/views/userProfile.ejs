@@ -1,0 +1,39 @@
+<%- include('partials/head')%>
+
+
+<link rel="stylesheet" href="/css/profile.css">
+<title>UserProfile</title>
+
+
+<%- include('partials/header')%>
+
+<main class="main-profile">
+	
+	<div class="profile">
+		<section>
+			<div class="columns">
+				<div class="column is-6">
+					<figure class="image-profile">
+						<img src="/images/avatars/<%= user.image || '404.png' %>" alt="">
+					</figure>
+				</div>
+				<div class="column-profile">
+					<h1> Hola <%= user.nick %>!</h1>
+					<p><%= user.nombre %></p>
+					<p><%= user.email %></p>
+					<a href="/users/edit" class="button-edit">Modificar datos</a>
+					<form class="form is-inline" action="/users/<%= user.id %>?_method=DELETE" method="POST">
+						<button type="submit" class="button-delete ">Eliminar usuario</button>
+					</form>
+				</div>
+			</div>
+		</section>
+	</div>
+</main>
+
+<%- include('partials/footer')%>
+<%-include('partials/script-bootstrap')%>
+
+</body>
+
+</html>

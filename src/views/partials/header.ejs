@@ -7,6 +7,7 @@
                 <a href="/"><img class="logo" src="/images/buildreams_Mati-removebg-preview.png"
                         alt="Logo Mercado Buildreams"></a>
             </div>
+            
 
             <div class="search">
                 <form class="search-bar-form" action="/listar.html" method="GET">
@@ -15,22 +16,53 @@
                 </form>
             </div>
 
+            <% if (locals.user) { %>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <img src="/images/avatars/<%= locals.user.image || '404.png' %>" class="image-profile2" width="50">
+                    Hi
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/users/profile">Ver perfil</a>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <a class="dropdown-item" href="/products/productCart">Carrito de compras</a>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <a class="dropdown-item" href="/users/logout">Salir</a>
+                </ul>
+            </li>
+            <% } else { %>
+
             <div class="h3-navbar">
                 <h3 class="copy-header">El mejor lugar para comprar los materiales para tu construcción</h3>
             </div>
+            <% } %>
+
         </section>
         <nav class="main-navbar">
             <ul class="left-navbar">
-                <li><a href="/users/login">Login</a></li>
-                <li><a href="/products/productCart">Carrito</a></li>
-                <li><a href="/users/register">Registrarse</a></li>
-            </ul>
+                <li><a href="#">Contáctanos</a></li>
+                <li><a href="/products/productCart">Todos los productos</a></li>
 
-            <ul class="rigth-navbar">
-                <li><a href="/users/profile">Perfil</a></li>
-                <li><a href="#">Contactanos</a></li>
-                <li><a href="/users/logout">Salir</a></li>
             </ul>
+            <% if (!locals.user) { %>
+            <ul class="rigth-navbar">
+                <li><a href="/users/login">Acceso</a></li>
+                <li><a href="/users/register">Registrarse</a></li>
+
+            </ul>
+            <% } else { %>
+            </ul class="rigth-navbar">
+            <% if (user.category == "admin") { %>
+                <li><a href="/products/createProduct">Añadir productos</a></li>
+                <% } %>
+
+            <li><a href="/users/logout">Salir</a></li>
+            </ul>
+            <% } %>
         </nav>
     </header>
- 

@@ -17,7 +17,7 @@ const validationCreate = [
         min: 5,
         max: 100
     }).withMessage('Debe tener como máximo 100 caracteres').bail(),
-    check('imagen').custom((value, {
+    check('image').custom((value, {
         req
     }) => {
         let file = req.file;

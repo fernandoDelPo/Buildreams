@@ -50,15 +50,6 @@ const controller = {
 
    store: (req, res) => {
 
-      //    const errors = validationResult(req);
-
-      //  console.log(errors.errors);
-
-      //  if (!errors.isEmpty()) {
-      //        return res.render('create-product-form', { errors: errors.mapped(), old: req.body })
-
-      //  }else{
-
       const resultValidation = validationResult(req);
 
       if (resultValidation.errors.length > 0) {
@@ -80,7 +71,7 @@ const controller = {
             id: products[products.length - 1].id + 1,
             ...req.body,
             imagen,
-            if(enOferta = 'Sin Descuento') {
+            if (enOferta = 'Sin Descuento') {
                enOferta = false
             }
 
@@ -89,12 +80,10 @@ const controller = {
 
          let productsNews = [...products, newProduct]
          fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
-         console.log(productsNews)
-         console.log('creaste un producto');
 
          res.redirect('/');
       }
-      //}
+
 
       let imagen
       if (req.file != undefined) {
@@ -110,71 +99,72 @@ const controller = {
       };
 
       let productsNews = products.map(product => {
+
          if (product.id == productToEdit.id) {
-            return product = { ...productToEdit };
+
+            return product = {
+               ...productToEdit
+            };
          }
+
          return product;
       })
 
       fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
       res.redirect('/');
    },
+
+
+   //-----------Get y post para crear producto------//
+   // Get -- traer vista--------------------------------//
    edit: (req, res) => {
       let idProduct = req.params.idProduct
       let productEdit = products.find(product => product.id == idProduct)
-      res.render('editProduct', { productEdit })
+      res.render('editProduct', {
+         productEdit
+      })
+   },
+   //Post ----------------------------------//
+   update: (req, res) => {
+
+      let id = req.params.id;
+      let productToEdit = products.find(product => product.id == id)
+
+      let imagen
+      if (req.file != undefined) {
+         imagen = req.file.filename
+      } else {
+         imagen = 'default-image.png'
+      }
+
+
+      productToEdit = {
+         id: productToEdit.id,
+         ...req.body,
+         imagen: imagen
+      }
+
+      let newProducts = products.map(product => {
+
+         if (product.id == productToEdit.id) {
+            return product = {
+               ...productToEdit
+            };
+         }
+         return product;
+      })
+
+      fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
+      res.redirect('/');
 
    },
 
-update: (req, res) => {
-
-   let id = req.params.id;
-   let productToEdit = products.find(product => product.id == id)
-
-   let imagen
-   if (req.file != undefined) {
-      imagen = req.file.filename
-   } else {
-      imagen = 'default-image.png'
-   }
-
-
-
-   productToEdit = {
-      id: productToEdit.id,
-      ...req.body,
-      imagen: imagen,
-
-   }
-
-
-
-   let newProducts = products.map(product => {
-
-      if (product.id == productToEdit.id) {
-
-         return product = {
-            ...productToEdit
-         };
-
-      }
-
-      return product;
-   })
-
-   console.log(newProducts)
-
-   fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-   res.redirect('/');
-
-},
+   // Eliminar un producto-------------------------------//
 
    destroy: (req, res) => {
 
       let id = req.params.id;
-
       let newProducts = products.filter(product => product.id != id)
-
       fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
 
       res.redirect('/');

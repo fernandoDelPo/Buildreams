@@ -64,6 +64,11 @@ form p {
     color: black;
 }
 
+.text-danger {
+    font-size: 12px;
+    color: var(--Red);
+}
+
 @media(min-width: 361px) {
     .login {
         margin: 0px 20%;
@@ -81,6 +86,9 @@ form p {
 
     .bloque{
         width: 70%;
+    }
+    .text-danger {
+        font-size: 18px;
     }
 
 }

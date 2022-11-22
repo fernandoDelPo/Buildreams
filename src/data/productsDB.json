@@ -118,5 +118,17 @@
   "enOferta": "Sin promoción",
   "categoria": "ladrillos",
   "imagen": "imagen-1668726474085.jpg"
+ },
+ {
+  "id": 12,
+  "nombre": "Hierro 18mm",
+  "descripcion": "Hierro para vigas y columnas",
+  "marca": "Techint",
+  "precio": "2500",
+  "stock": "420",
+  "color": "Acero",
+  "enOferta": "",
+  "categoria": "hierro-chapas",
+  "imagen": "imagen-1669123420493.jpg"
  }
 ]

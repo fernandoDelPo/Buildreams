@@ -17,9 +17,9 @@ module.exports = (req, res, next) => {
         res.locals.user = req.session.user;
         next();
         
-    } else if (req.cookies.remember) {     
+    } else if (req.cookies.rememberToken) {     
         
-        const userToken = usersLoginInfo.find(user => user.token == req.cookies.remember);
+        const userToken = usersLoginInfo.find(user => user.token == req.cookies.rememberToken);
         
         if (userToken) {       
             let user = users.find(user => user.id == userToken.id)
