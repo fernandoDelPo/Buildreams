@@ -233,6 +233,9 @@ ul.iconos li a {
     padding-left: 0px;
     justify-content: space-between;
 }
+.nav-link {
+    color: var(--Yellow);
+}
 
 .h3-navbar {
     color: var(--Yellow);

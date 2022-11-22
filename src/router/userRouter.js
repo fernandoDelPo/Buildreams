@@ -28,7 +28,9 @@ router.post('/login', userController.authenticate)
 
 router.get('/profile', authMiddleware, userController.profile);
 
-router.put('/profile/edit/:id', guestRoute, userController.editProfile)
+router.get('/edit/:id', guestRoute, userController.editProfile)
+
+router.put('/edit/:id', guestRoute, userController.UpdateProfile)
 
 router.get('/logout/', userController.logout);
 

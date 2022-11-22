@@ -21,7 +21,7 @@
 					<h1> Hola <%= user.nick %>!</h1>
 					<p><%= user.nombre %></p>
 					<p><%= user.email %></p>
-					<a href="/users/edit" class="button-edit">Modificar datos</a>
+					<a href="/users/edit/<%= user.id %>" class="button-edit">Modificar datos</a>
 					<form class="form is-inline" action="/users/<%= user.id %>?_method=DELETE" method="POST">
 						<button type="submit" class="button-delete ">Eliminar usuario</button>
 					</form>
