@@ -31,6 +31,7 @@ const controller = {
       let product = products.find(product => product.id == idproduct);
       res.render('productDetail', {
          product,
+         products,
          toThousand
       });
    },
