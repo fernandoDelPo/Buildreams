@@ -112,8 +112,11 @@
 }
 
 .recomendado img {
-    width: 120px;
     padding: 5px;
+}
+
+.imagen-detail2{
+    width: 120px;
 }
 
 .recomendado div {
@@ -192,7 +195,6 @@
     }
 
     .recomendado img {
-        width: 12%;
         padding: 5px;
     }
 
@@ -248,9 +250,5 @@
 
     }
 
-    /*Recomendado*/
-
-    .recomendado img{
-        width: 8%;
-    }
+    
 }

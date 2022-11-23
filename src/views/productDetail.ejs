@@ -50,14 +50,19 @@
             </div>
 
         </div>
+
+
+
+        
         <% products.forEach(product => { %>
         <div class="recomendado">
 
-            <p>tambien podria interesarte...</p>
+            <p>También podría interesarte...</p>
 
             <div class="miniproduto">
+                
 
-                <img src="/images/products/<%= product.imagen %>">
+                    <a href="/products/productDetail/<%= product.id %>"> <img src="/images/products/<%= product.imagen %>" class="imagen-detail2"> </a>
 
                 <div class="nombreprecio">
                     <p><%= product.nombre %></p>
