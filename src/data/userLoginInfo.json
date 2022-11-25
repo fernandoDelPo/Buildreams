@@ -1,14 +1,5 @@
 [
  {
-  "id": 3,
-  "nombre": "evelyn giampieri",
-  "nick": "eve",
-  "email": "eve.giampieri@gmail.com",
-  "country": "argentna",
-  "image": "default.png",
-  "category": "admin"
- },
- {
   "id": 2,
   "nombre": "Fernando Del Pozzi",
   "nick": "delpo60",
