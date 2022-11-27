@@ -16,13 +16,16 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `categorias`
+-- Table structure for table `category`
 --
+DROP DATABASE IF EXISTS `buildreams`;
+CREATE DATABASE `buildreams`;
+USE `buildreams`
 
-DROP TABLE IF EXISTS `categorias`;
+DROP TABLE IF EXISTS `category`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `categorias` (
+CREATE TABLE `category` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
@@ -30,50 +33,22 @@ CREATE TABLE `categorias` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `categorias`
+-- Dumping data for table `category`
 --
 
-LOCK TABLES `categorias` WRITE;
-/*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
-/*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
+LOCK TABLES `category` WRITE;
+/*!40000 ALTER TABLE `category` DISABLE KEYS */;
+/*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `cliente_productos`
+-- Table structure for table `products`
 --
 
-DROP TABLE IF EXISTS `cliente_productos`;
+DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cliente_productos` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `cliente_id` int(10) unsigned NOT NULL,
-  `producto_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `cliente_productos_FK` (`cliente_id`),
-  KEY `cliente_productos_FK_1` (`producto_id`),
-  CONSTRAINT `cliente_productos_FK` FOREIGN KEY (`cliente_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `cliente_productos_FK_1` FOREIGN KEY (`producto_id`) REFERENCES `productos` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `cliente_productos`
---
-
-LOCK TABLES `cliente_productos` WRITE;
-/*!40000 ALTER TABLE `cliente_productos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cliente_productos` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `productos`
---
-
-DROP TABLE IF EXISTS `productos`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `productos` (
+CREATE TABLE `products` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   `marca` varchar(100) NOT NULL,
@@ -81,23 +56,51 @@ CREATE TABLE `productos` (
   `stock` int(11) NOT NULL,
   `color` varchar(100) DEFAULT NULL,
   `enoferta` varchar(100) DEFAULT NULL,
-  `categoria_id` int(10) unsigned NOT NULL,
+  `category_id` int(10) unsigned NOT NULL,
   `descripcion` text DEFAULT NULL,
-  `image` varchar(100) NOT NULL,
+  `imagen` varchar(100) NOT NULL,
   `descuentos` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `productos_FK` (`categoria_id`),
-  CONSTRAINT `productos_FK` FOREIGN KEY (`categoria_id`) REFERENCES `categorias` (`id`)
+  KEY `productos_FK` (`category_id`),
+  CONSTRAINT `productos_FK` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `productos`
+-- Dumping data for table `products`
 --
 
-LOCK TABLES `productos` WRITE;
-/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
-/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+LOCK TABLES `products` WRITE;
+/*!40000 ALTER TABLE `products` DISABLE KEYS */;
+/*!40000 ALTER TABLE `products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_product`
+--
+
+DROP TABLE IF EXISTS `user_product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_product` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(10) unsigned NOT NULL,
+  `product_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cliente_productos_FK` (`user_id`),
+  KEY `cliente_productos_FK_1` (`product_id`),
+  CONSTRAINT `cliente_productos_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `cliente_productos_FK_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_product`
+--
+
+LOCK TABLES `user_product` WRITE;
+/*!40000 ALTER TABLE `user_product` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -113,9 +116,9 @@ CREATE TABLE `users` (
   `nick` varchar(100) NOT NULL,
   `country` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `categoria` varchar(100) NOT NULL,
+  `category` varchar(100) NOT NULL,
   `image` varchar(100) NOT NULL,
-  `password` varchar(100) DEFAULT NULL,
+  `password` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -142,4 +145,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-24 23:15:25
+-- Dump completed on 2022-11-27 18:50:27
