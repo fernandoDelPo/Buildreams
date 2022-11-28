@@ -1,23 +1,5 @@
 [
  {
-  "id": 3,
-  "nombre": "evelyn giampieri",
-  "nick": "eve",
-  "email": "eve.giampieri@gmail.com",
-  "country": "argentna",
-  "image": "default.png",
-  "category": "admin"
- },
- {
-  "id": 2,
-  "nombre": "Fernando Del Pozzi",
-  "nick": "delpo60",
-  "email": "fernandodelpozzi@gmail.com",
-  "country": "Argentina",
-  "image": "default.png",
-  "category": "admin"
- },
- {
   "id": 2,
   "nombre": "Fernando Del Pozzi",
   "nick": "delpo60",
@@ -25,7 +7,50 @@
   "country": "Argentina",
   "password": "$2a$10$nnX9bwK.i1ZnLEagjECLFuctXxQtslryIn2.IRId4XUjOCh4yTJ4q",
   "image": "default.png",
+  "category": "admin"
+ },
+ {
+  "id": 3,
+  "nombre": "Fernando Del Pozz",
+  "nick": "delpo",
+  "email": "fernandodelpozzi2@gmail.com",
+  "country": "Argentina",
+  "password": "$2a$10$j50i3EmudWcqQVb7zdAczuyjmkSKs7kW/RfKjVakYK.yvi5C8ix8m",
+  "image": "image-1669128769590.jpeg",
+  "category": "user",
+  "token": "LU23eWNlr9jAcS8CHxJkAouioiyi4jyk7yxJ0wP+6dDRtpob6SvUb5psftxZ8qD7zO+rKGz/ks9WM6n2N1+STw=="
+ },
+ {
+  "id": 3,
+  "nombre": "Fernando Del Pozz",
+  "nick": "delpo60",
+  "email": "fernandodelpozzi2@gmail.com",
+  "country": "Argentina",
+  "password": "$2a$10$nnX9bwK.i1ZnLEagjECLFuctXxQtslryIn2.IRId4XUjOCh4yTJ4q",
+  "image": "default.png",
   "category": "admin",
-  "token": "UBrEexu/NQ32tUMAfO8Z+jerkJJjNhGICi8AkENkJ7Qb8ITmCZNMgMLhsa2RuvtJ2bt0fHTpLCLd0nRVbsngdg=="
+  "token": "BAvdxt+1eNZdeIFssGIc18CEjq3+EyUQ50eXsTMhev+0m/RY/gF2JhVuvlR4bSOJpS9pqle0Hrf4SSlaSQ8skw=="
+ },
+ {
+  "id": 3,
+  "nombre": "Fernando Del Pozz",
+  "nick": "delpo60",
+  "email": "fernandodelpozzi2@gmail.com",
+  "country": "Argentina",
+  "password": "$2a$10$nnX9bwK.i1ZnLEagjECLFuctXxQtslryIn2.IRId4XUjOCh4yTJ4q",
+  "image": "default.png",
+  "category": "admin",
+  "token": "Rlk7C/gnFWUvaCTekkQXYIP6AIqYH3ipraS3gqCKDNd1xZAx989E22f50zsJ10fKZgvhJPBXnZuz9/PSPKro2g=="
+ },
+ {
+  "id": 3,
+  "nombre": "Fernando Del Pozzi",
+  "nick": "delpo61",
+  "email": "fernandodelpozzi2@gmail.com",
+  "country": "Somalia",
+  "image": "default.png",
+  "password": "$2a$10$nnX9bwK.i1ZnLEagjECLFuctXxQtslryIn2.IRId4XUjOCh4yTJ4q",
+  "category": "admin",
+  "token": "EZJXlNHZdKgW3MX08UjLac8VBpFhaDyOuLjY+n08ED16aVXOyRf8GxJJghOhUntI9DHEnFKT6sUMij97qIviBQ=="
  }
 ]

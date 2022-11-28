@@ -7,7 +7,8 @@ const userController = require('../controllers/usercontroller');
 const validations = require('../middlewares/authRegister');
 const guestRoute = require('../middlewares/guestRoute');
 const authMiddleware = require('../middlewares/authMiddleware');
-
+const authRegister = require('../middlewares/authRegister');
+const authEditProfile = require('../middlewares/authUserEditProfile')
 let storage = multer.diskStorage({
     destination:function(req,file,cb){
         cb(null, './public/images/avatars')
@@ -22,15 +23,15 @@ router.get('/register', guestRoute, userController.register);
 
 router.post('/', guestRoute, upload.single('image'),  validations,  userController.store);
 
-router.get('/login',guestRoute, userController.login)
+router.get('/login',guestRoute, userController.login);
 
-router.post('/login', userController.authenticate)
+router.post('/login', userController.authenticate);
 
 router.get('/profile', authMiddleware, userController.profile);
 
-router.get('/edit/:id', guestRoute, userController.editProfile)
+router.get('/edit/:id', userController.editProfile);
 
-router.put('/edit/:id', guestRoute, userController.UpdateProfile)
+router.patch('/edit/:id', userController.UpdateProfile);
 
 router.get('/logout/', userController.logout);
 

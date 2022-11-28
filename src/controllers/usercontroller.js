@@ -128,47 +128,97 @@ const userController = {
 
 	editProfile: (req, res) => {
 		let id = req.params.id
-		let UserEdit = users.find(user => user.id == id)
-		res.render('profile', {
-			UserEdit
+		let userToEdit = users.find(user => user.id == id)
+		res.render('editProfile', {
+			userToEdit
 		})
 	},
 
 	UpdateProfile: (req, res) => {
+		console.log(req.params.id)
+		console.log(req.body)
 		let id = req.params.id;
-		let UserEdit = users.find(user => user.id == id);
+		let userToEdit = users.find(user => user.id == id);
+		console.log(userToEdit)
 
-		let imagen
-		if (req.file != undefined) {
-			imagen = req.file.image - profile
-		} else {
-			imagen = 'default.png'
+		userToEdit = {
+			id: userToEdit.id,
+			nombre: req.body.nombre,
+			nick: req.body.nick,
+			email: userToEdit.email,
+			country: req.body.country,
+			image: userToEdit.image,
+			password: userToEdit.password,
+			category: userToEdit.category,
 		}
-
-		UserEdit = {
-			id: UserEdit.id,
-			...req.body,
-			imagen: imagen,
-		}
+		console.log(userToEdit)
 
 		let newUser = users.map(user => {
 
-			if (user.id == UserEdit.id) {
+			if (user.id == userToEdit.id) {
 
 				return user = {
-					...UserEdit
+					id: userToEdit.id,
+					nombre: userToEdit.nombre,
+					nick: userToEdit.nick,
+					email: userToEdit.email,
+					country: userToEdit.country,
+					image: userToEdit.image,
+					password: userToEdit.password,
+					category: userToEdit.category,
+
 				};
 
 			}
 
 			return user;
-		})
 
-		console.log(newUser)
+		})
+		console.log('Este es el nuevo usuario  ' + newUser)
 
 		fs.writeFileSync(userFilePath, JSON.stringify(newUser, null, ' '));
-		res.redirect('/');
+		res.redirect('/users/profile');
 	},
+
+	// UpdateProfile: (req, res) => {
+	// 	console.log(req.params.id)
+	// 	let id = req.params.id;
+	// 	let userToEdit = users.find(user => user.id == id);
+	// 	console.log(userToEdit)
+	// 	console.log(req.file.filename)
+
+	// 	let image
+	// 	if (req.file != undefined) {
+	// 		image = req.file.filename
+	// 	} else {
+	// 		image = userToEdit.image
+	// 	}
+
+	// 	userToEdit = {
+	// 		id: userToEdit.id,
+	// 		...req.body,
+	// 		image: image,
+	// 	}
+	// 	console.log(userToEdit)
+
+	// 	let newUser = users.map(user => {
+
+	// 		if (user.id == userToEdit.id) {
+
+	// 			return user = {
+	// 				...userToEdit
+	// 			};
+
+	// 		}
+
+	// 		return user;
+	// 		console.log(user)
+	// 	})
+
+
+	// 	fs.writeFileSync(userFilePath, JSON.stringify(newUser, null, ' '));
+	// 	res.redirect('/userProfile');
+	// },
 
 	logout: (req, res) => {
 		const token = usersLoginInfo.find(user => user.token = req.cookies.rememberToken);

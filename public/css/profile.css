@@ -58,6 +58,36 @@ h1 {
     border-radius: 3px;
     text-decoration: none;
 }
+.link-edit{
+    display: none;
+    margin-bottom: 10px;
+    
+}
+.desplegable {
+    display: contents;
+    flex-direction: column;
+    
+}
+
+.desplegable:hover .link-edit{
+    display: block;
+    
+
+}
+.boton-edit:hover{
+    color: var(--Green);
+    
+}
+.boton-edit{
+    background-color: var(--Gray-Opacity2);
+    border: none;
+    font-size: 20px;
+    color: var(--White);
+    padding: 5px 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
 
 .button-delete {
     margin: 5px;
@@ -67,6 +97,10 @@ h1 {
     color: var(--White);
     padding: 5px 10px;
     border-radius: 3px;
+}
+
+.button-delete:hover{
+    color: var(--Red);
 }
 
 
