@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = 'Categoria';
+    let alias = 'Categorias';
     let cols = {
         id: {
             type: dataTypes.INTEGER,
@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
     const Categoria = sequelize.define(alias, cols, config)
 
     Categoria.associate = (models) => {
-        Categoria.hasMany(models.Product, { // models.Movies -> Movie es el valor de alias en movie.js
+        Categoria.hasMany(models.Products, { // models.Movies -> Movie es el valor de alias en movie.js
             as: "products", // El nombre del modelo pero en plural
             foreignKey: "categoria_id"
         })

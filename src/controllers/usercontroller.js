@@ -15,9 +15,19 @@ const {
 	validationResult
 } = require('express-validator');
 
-// const User = require('../models/User');
+const db = require('../database/models');
 
 const userController = {
+	'list': (req, res) => {
+        db.Users.findAll()
+            .then(users => {
+                res.render('userList.ejs', {users})
+            })
+    },
+
+
+
+
 	register: (req, res) => {
 		res.render('register')
 

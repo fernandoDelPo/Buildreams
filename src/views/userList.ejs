@@ -1,0 +1,48 @@
+<%- include ('./partials/head.ejs')%>
+<link rel="stylesheet" href="/css/productDetail.css">
+<link rel="stylesheet" href="/css/register.css">
+<link rel="stylesheet" href="/css/productCart.css">
+
+<title>Detalle del producto</title>
+
+<%- include('partials/header')%>
+<main>
+
+
+
+<section>
+
+        
+        <% users.forEach(user => { %>
+        <div class="recomendado">
+
+            <p>También podría interesarte...</p>
+
+            <div class="miniproduto">
+                
+
+                    <a href="/products/productDetail/<%= user.id %>"> <img src="/images/avatars/<%= user.image %>" class="imagen-detail2"> </a>
+
+                <div class="nombreprecio">
+                    <p><%= user.nombre %></p>
+                    <div>
+                        </p>
+                        <p><%= user.nick%></p>
+                        <p><%= user.email%></p>
+                       
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <% }) %>
+
+</section>
+
+</main>
+<%- include('partials/footer')%>
+
+</body>
+
+</html>

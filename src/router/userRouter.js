@@ -19,6 +19,8 @@ let storage = multer.diskStorage({
 })
 let upload = multer({storage});
 
+router.get('/list', userController.list);
+
 router.get('/register', guestRoute, userController.register);
 
 router.post('/', guestRoute, upload.single('image'),  validations,  userController.store);
