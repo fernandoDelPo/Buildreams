@@ -82,6 +82,7 @@ const userController = {
 	login: (req, res) => {
 		res.render('login');
 	},
+	
 	authenticate: (req, res) => {
 		const {
 			email,

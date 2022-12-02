@@ -97,19 +97,19 @@
             <h4>Promoción:</h4>
             <div class="padre-control">
                 <div class="hijo-control">
-                    <select name="enOferta"
-                        class="form-select <%= locals.errors && errors.enOferta ? 'is-invalid' : null %>">
+                    <select name="descuento"
+                        class="form-select <%= locals.errors && errors.descuento ? 'is-invalid' : null %>">
                         <option value="">Elegí una opción</option>
-                        <%  let opciones = ['En oferta', 'Sin promoción']; %>
+                        <%  let opciones = ['0', '5', '10', '15', '20', '25', '30', '35', '40']; %>
                         <% for (const oneOp of opciones) { %>
                         <option value="<%= oneOp %>"
-                            <%= locals.oldData && (oneOp === oldData.enOferta) ? 'selected' : null %>>
+                            <%= locals.oldData && (oneOp === oldData.descuento) ? 'selected' : null %>>
                             <%= oneOp %> </option>
                         <% } %>
                     </select>
-                    <% if (locals.errors && errors.enOferta) { %>
+                    <% if (locals.errors && errors.descuento) { %>
                     <div class="text-danger">
-                        <%= errors.enOferta.msg %>
+                        <%= errors.descuento.msg %>
                     </div>
                     <% } %>
                 </div>
@@ -122,31 +122,31 @@
             <h4>Categoría:</h4>
             <div class="padre-control2">
                 <div class="hijo-control2">
-                    <input type="checkbox" name="categoria" id="herramientas" value="herramientas">
+                    <input type="checkbox" name="categoria_id" id="herramientas" value="0">
                     <label for="herramientas">Herramientas</label>
                 </div>
                 <div class="hijo-control2">
-                    <input type="checkbox" name="categoria" id="cementos-cal" value="cementos">
+                    <input type="checkbox" name="categoria_id" id="cementos-cal" value="1">
                     <label for="cementos-cal">Cementos/cal</label>
                 </div>
                 <div class="hijo-control2">
-                    <input type="checkbox" name="categoria" id="aberturas" value="aberturas">
+                    <input type="checkbox" name="categoria_id" id="aberturas" value="7">
                     <label for="aberturas">Aberturas</label>
                 </div>
                 <div class="hijo-control2">
-                    <input type="checkbox" name="categoria" id="hierro-chapas" value="hierro-chapas">
+                    <input type="checkbox" name="categoria_id" id="hierro-chapas" value="3">
                     <label for="hierro-chapas">Hierro/chapas</label>
                 </div>
                 <div class="hijo-control2">
-                    <input type="checkbox" name="categoria" id="ladrillos" value="ladrillos">
+                    <input type="checkbox" name="categoria_id" id="ladrillos" value="4">
                     <label for="ladrillos">Ladrillos</label>
                 </div>
                 <div class="hijo-control2">
-                    <input type="checkbox" name="categoria" id="agua-gas" value="agua-gas">
+                    <input type="checkbox" name="categoria_id" id="agua-gas" value="5">
                     <label for="agua-gas">Agua/gas</label>
                 </div>
                 <div class="hijo-control2">
-                    <input type="checkbox" name="categoria" id="instalaciones" value="instalaciones">
+                    <input type="checkbox" name="categoria_id" id="instalaciones" value="6">
                     <label for="instalaciones">Instalaciones</label>
                 </div>
 

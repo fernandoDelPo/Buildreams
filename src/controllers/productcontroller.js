@@ -4,6 +4,8 @@ const {
    validationResult
 } = require('express-validator');
 
+const db = require('../database/models');
+
 const productsFilePath = path.join(__dirname, '../data/productsDB.json');
 const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
@@ -17,16 +19,26 @@ const controller = {
 
    /* Raíz - Mostarar todos los productos*/
 
-   index: (req, res) => {
-      res.render('products', {
-         products,
-         toThousand
-      })
+   index: async(req, res) => {
+
+      // res.render('products', {
+      //    products,
+      //    toThousand
+      // })
+
+      try{
+         const products = db.Product.findAll()
+         return res.render('product', {products, toThousand})
+
+      } catch(error){
+         res.send(error)
+      }
+
    },
 
    /* Detalle - Detalle de un producto*/
 
-   productDetail: (req, res) => {
+   productDetail: async(req, res) => {
       let idproduct = req.params.id;
       let product = products.find(product => product.id == idproduct);
       res.render('productDetail', {
@@ -34,6 +46,15 @@ const controller = {
          products,
          toThousand
       });
+
+      // try{
+      //    const Id = req.params.id;
+      //    const producto = await db.Products.findByPk(Id,{include: {all: true}})
+
+      //    res.render('productDetail', {producto})
+      // } catch (error){
+      //    res.send(error)
+      // }
    },
 
 
@@ -51,124 +72,199 @@ const controller = {
 
    store: (req, res) => {
 
-      const resultValidation = validationResult(req);
+      // const resultValidation = validationResult(req);
 
-      if (resultValidation.errors.length > 0) {
-         console.log(resultValidation.errors)
-         return res.render('create-product-form', {
-            errors: resultValidation.mapped(),
-            oldData: req.body
-         });
-      } else {
+      // if (resultValidation.errors.length > 0) {
+      //    console.log(resultValidation.errors)
+      //    return res.render('create-product-form', {
+      //       errors: resultValidation.mapped(),
+      //       oldData: req.body
+      //    });
+      // } else {
 
-         let imagen
-         if (req.file != undefined) {
-            imagen = req.file.filename
-         } else {
-            imagen = 'default-image.png'
-         }
+      //    let imagen
+      //    if (req.file != undefined) {
+      //       imagen = req.file.filename
+      //    } else {
+      //       imagen = 'default-image.png'
+      //    }
 
-         let newProduct = {
-            id: products[products.length - 1].id + 1,
-            ...req.body,
-            imagen,
-            if (enOferta = 'Sin Descuento') {
-               enOferta = false
-            }
+      //    let newProduct = {
+      //       id: products[products.length - 1].id + 1,
+      //       ...req.body,
+      //       imagen,
+      //       if (enOferta = 'Sin Descuento') {
+      //          enOferta = false
+      //       }
 
-         };
-         console.log(req.body);
+      //    };
+      //    console.log(req.body);
 
-         let productsNews = [...products, newProduct]
-         fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
+      //    let productsNews = [...products, newProduct]
+      //    fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
 
-         res.redirect('/');
-      }
+      //    res.redirect('/');
+      // }
 
+      // let newProduct = {
+      //    id: newProduct.id,
+      //    ...req.body,
+      //    imagen
+      // };
 
-      let imagen
+      // let productsNews = products.map(product => {
+
+      //    if (product.id == productToEdit.id) {
+
+      //       return product = {
+      //          ...productToEdit
+      //       };
+      //    }
+
+      //    return product;
+      // })
+
+      // fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
+      // res.redirect('/');
+
+      console.log(req.body)
+
+      let imagenNew
       if (req.file != undefined) {
-         imagen = req.file.filename
+         imagenNew = req.file.filename
       } else {
-         imagen = 'default-image.png'
+         imagenNew = 'default-image.png'
       }
 
-      let newProduct = {
-         id: newProduct.id,
-         ...req.body,
-         imagen
-      };
+      console.log(req.body)
 
-      let productsNews = products.map(product => {
-
-         if (product.id == productToEdit.id) {
-
-            return product = {
-               ...productToEdit
-            };
-         }
-
-         return product;
+      db.Products.create({
+         nombre: req.body.nombre,
+         marca: req.body.marca,
+         descripcion: req.body.descripcion,
+         precio: req.body.precio,
+         stock: req.body.stock,
+         color: req.body.color,
+         enoferta: req.body.enOferta,
+         categoria_id: req.body.categoria_id,
+         imagen: imagenNew,
+         descuento: req.body.descuento
       })
+      .then(()=> {
+         return res.redirect('/')})            
+      .catch(error => res.send(error))
 
-      fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
-      res.redirect('/');
+
+
    },
 
 
-   //-----------Get y post para crear producto------//
+   //-----------Get y post para editar producto------//
    // Get -- traer vista--------------------------------//
-   edit: (req, res) => {
-      let idProduct = req.params.idProduct
-      let productEdit = products.find(product => product.id == idProduct)
-      res.render('editProduct', {
-         productEdit
-      })
+   edit: async(req, res) => {
+
+      // let idProduct = req.params.idProduct
+      // let productEdit = products.find(product => product.id == idProduct)
+      // res.render('editProduct', {
+      //    productEdit
+      // })
+
+      try{  
+
+         let Id = req.params.id;
+         let Producto = db.Products.findByPk(Id, {include: {all: true}})
+
+         res.render('editProduct', {Producto}) 
+
+      } catch(error){
+         res.send(error)
+      }
+      
    },
    //Post ----------------------------------//
    update: (req, res) => {
 
-      let id = req.params.id;
-      let productToEdit = products.find(product => product.id == id)
+      // let id = req.params.id;
+      // let productToEdit = products.find(product => product.id == id)
 
-      let imagen
+      // let imagen
+      // if (req.file != undefined) {
+      //    imagen = req.file.filename
+      // } else {
+      //    imagen = 'default-image.png'
+      // }
+
+
+      // productToEdit = {
+      //    id: productToEdit.id,
+      //    ...req.body,
+      //    imagen: imagen
+      // }
+
+      // let newProducts = products.map(product => {
+
+      //    if (product.id == productToEdit.id) {
+      //       return product = {
+      //          ...productToEdit
+      //       };
+      //    }
+      //    return product;
+      // })
+
+      // fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
+      // res.redirect('/');
+
+      let imagenNew
       if (req.file != undefined) {
-         imagen = req.file.filename
+         imagenNew = req.file.filename
       } else {
-         imagen = 'default-image.png'
+         imagenNew = 'default-image.png'
       }
 
+      let IdE = req.params.id;
 
-      productToEdit = {
-         id: productToEdit.id,
-         ...req.body,
-         imagen: imagen
-      }
-
-      let newProducts = products.map(product => {
-
-         if (product.id == productToEdit.id) {
-            return product = {
-               ...productToEdit
-            };
-         }
-         return product;
+      db.Products.update({
+         nombre: req.body.nombre,
+         marca: req.body.marca,
+         descripcion: req.body.descripcion,
+         precio: req.body.precio,
+         stock: req.body.stock,
+         color: req.body.color,
+         descuento: req.body.descuento,
+         category_id: null,
+         imagen: imagenNew
+      },
+      {
+         where: {id: IdE}
       })
-
-      fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-      res.redirect('/');
+      .then(()=> {
+         return res.redirect('/')})            
+      .catch(error => res.send(error))
 
    },
 
    // Eliminar un producto-------------------------------//
 
-   destroy: (req, res) => {
+   destroy: async(req, res) => {
 
-      let id = req.params.id;
-      let newProducts = products.filter(product => product.id != id)
-      fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
+      // let id = req.params.id;
+      // let newProducts = products.filter(product => product.id != id)
+      // fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
 
-      res.redirect('/');
+      // res.redirect('/');
+
+      console.log('1')
+
+      try{
+
+         let IdD = req.params.id;
+         await db.Products.destroy({where: {id: IdD}, force: true})
+         return res.redirect('/')
+
+      } catch(error){
+         res.send(error)
+      }
+
    }
 }
 module.exports = controller;
