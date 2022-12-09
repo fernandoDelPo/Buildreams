@@ -1,25 +1,18 @@
-const fs = require('fs');
-const path = require('path');
-const productsFilePath = path.join(__dirname, '../data/productsDB.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 
+const db = require('../database/models');
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 const mainController = {
    home: (req, res) => {
+         db.Products.findAll()
+            .then(products => {
+               res.render('index', {
+                  products,
+                  toThousand
+               })
+            })
+      }
+   }
 
-      res.render('index', {
-         products
-      });
-
-      // try{
-      //    const products = db.Product.findAll()
-      //    return res.render('index', {products})
-
-      // } catch(error){
-      //    res.send(error)
-      // }
-   },
-
-}
 
 module.exports = mainController;

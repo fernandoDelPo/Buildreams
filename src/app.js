@@ -3,7 +3,7 @@ const session = require('express-session');
 const path = require('path');
 const methodOverride= require('method-override');
 const cookies = require('cookie-parser');
-const auth = require('./middlewares/auth');
+const auth = require('./middlewares/auth/userLogMiddleware');
 
 const app = express();
 

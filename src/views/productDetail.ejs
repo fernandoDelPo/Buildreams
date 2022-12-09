@@ -14,7 +14,7 @@
 
     <div class="pagina">
 
-        <div class="ruta">Home/Construccion/Cementos</div>
+        <div class="ruta"> Detalle del producto </div>
 
         <div class="producto">
 
@@ -38,46 +38,19 @@
 
                     <button>agregar al carrito</button>
                     <a href="/products/productCart"><i class="fa fa-heart fa-2x"></i></a>
-
+                    <% if (locals.isLogged) { %>
                     <form method="POST" action="/products/delete/<%= product.id %>?_method=DELETE">
                     <button class="boton-eliminar-producto" type="submit">Eliminar producto</button></a>
                     </form>
                     
                     <a href="/products/editProduct/<%= product.id %>">  
                     <button class="boton-modificar-producto" type="button">Modificar producto</button></a>
+                    <% } %>
                 </div>
 
             </div>
 
         </div>
-
-
-
-        
-        <% products.forEach(product => { %>
-        <div class="recomendado">
-
-            <p>También podría interesarte...</p>
-
-            <div class="miniproduto">
-                
-
-                    <a href="/products/productDetail/<%= product.id %>"> <img src="/images/products/<%= product.imagen %>" class="imagen-detail2"> </a>
-
-                <div class="nombreprecio">
-                    <p><%= product.nombre %></p>
-                    <div>
-                        </p>
-                        <p>$<%= product.precio%></p>
-                        <p>C/U</p>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-        <% }) %>
-    </div>
 
 </section>
 

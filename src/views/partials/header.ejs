@@ -16,12 +16,12 @@
                 </form>
             </div>
 
-            <% if (locals.user) { %>
+            <% if (locals.isLogged) { %>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
-                    <img src="/images/avatars/<%= locals.user.image || '404.png' %>" class="image-profile2" width="50">
-                    Hola!  <%= locals.user.nick%>
+                    <img src="/images/avatars/<%= locals.userLogged.image || '404.png' %>" class="image-profile2" width="50">
+                    Hola  <%= locals.userLogged.nick%>!
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/users/profile">Ver perfil</a>
@@ -46,10 +46,10 @@
         <nav class="main-navbar">
             <ul class="left-navbar">
                 <li><a href="#">Contáctanos</a></li>
-                <li><a href="/products/productCart">Todos los productos</a></li>
+                <li><a href="/products/listar">Todos los productos</a></li>
 
             </ul>
-            <% if (!locals.user) { %>
+            <% if (!locals.isLogged) { %>
             <ul class="rigth-navbar">
                 <li><a href="/users/login">Acceso</a></li>
                 <li><a href="/users/register">Registrarse</a></li>
@@ -57,7 +57,7 @@
             </ul>
             <% } else { %>
             </ul class="rigth-navbar">
-            <% if (user.category == "admin") { %>
+            <% if (userLogged.category == "admin") { %>
                 <li><a href="/products/createProduct">Añadir productos</a></li>
                 <% } %>
 

@@ -1,15 +1,12 @@
-const fs = require('fs');
-const path = require('path');
+
 const {
    validationResult
 } = require('express-validator');
 
 const db = require('../database/models');
 
-const productsFilePath = path.join(__dirname, '../data/productsDB.json');
-const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
-
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
 
 const controller = {
 
@@ -17,44 +14,38 @@ const controller = {
       res.render('productCart', {})
    },
 
-   /* Raíz - Mostarar todos los productos*/
 
-   index: async(req, res) => {
+   /*  Mostar todos los productos*/
 
-      // res.render('products', {
-      //    products,
-      //    toThousand
-      // })
-
-      try{
-         const products = db.Product.findAll()
-         return res.render('product', {products, toThousand})
-
-      } catch(error){
-         res.send(error)
+   listAll: async (req, res) => {
+      try {
+         await db.Products.findAll()
+            .then(products => {
+               res.render('productsList', {
+                  products,
+                  toThousand
+               })
+            })
+      } catch (error) {
+         res.send(error);
       }
-
    },
+
 
    /* Detalle - Detalle de un producto*/
 
-   productDetail: async(req, res) => {
-      let idproduct = req.params.id;
-      let product = products.find(product => product.id == idproduct);
-      res.render('productDetail', {
-         product,
-         products,
-         toThousand
-      });
-
-      // try{
-      //    const Id = req.params.id;
-      //    const producto = await db.Products.findByPk(Id,{include: {all: true}})
-
-      //    res.render('productDetail', {producto})
-      // } catch (error){
-      //    res.send(error)
-      // }
+   productDetail: async (req, res) => {
+      try {
+         await db.Products.findByPk(req.params.id)
+            .then((product) => {
+               res.render('productDetail', {
+                  product,
+                  toThousand
+               })
+            })
+      } catch (error) {
+         res.send(error);
+      }
    },
 
 
@@ -68,200 +59,172 @@ const controller = {
       console.log(req.cookies.color);
    },
 
+
+
    /* Create -  Método para almacenar */
 
    store: (req, res) => {
 
-      // const resultValidation = validationResult(req);
+      const resultValidation = validationResult(req);
 
-      // if (resultValidation.errors.length > 0) {
-      //    console.log(resultValidation.errors)
-      //    return res.render('create-product-form', {
-      //       errors: resultValidation.mapped(),
-      //       oldData: req.body
-      //    });
-      // } else {
-
-      //    let imagen
-      //    if (req.file != undefined) {
-      //       imagen = req.file.filename
-      //    } else {
-      //       imagen = 'default-image.png'
-      //    }
-
-      //    let newProduct = {
-      //       id: products[products.length - 1].id + 1,
-      //       ...req.body,
-      //       imagen,
-      //       if (enOferta = 'Sin Descuento') {
-      //          enOferta = false
-      //       }
-
-      //    };
-      //    console.log(req.body);
-
-      //    let productsNews = [...products, newProduct]
-      //    fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
-
-      //    res.redirect('/');
-      // }
-
-      // let newProduct = {
-      //    id: newProduct.id,
-      //    ...req.body,
-      //    imagen
-      // };
-
-      // let productsNews = products.map(product => {
-
-      //    if (product.id == productToEdit.id) {
-
-      //       return product = {
-      //          ...productToEdit
-      //       };
-      //    }
-
-      //    return product;
-      // })
-
-      // fs.writeFileSync(productsFilePath, JSON.stringify(productsNews, null, ' '));
-      // res.redirect('/');
-
-      console.log(req.body)
-
-      let imagenNew
-      if (req.file != undefined) {
-         imagenNew = req.file.filename
-      } else {
-         imagenNew = 'default-image.png'
+      if (resultValidation.errors.length > 0) {
+         console.log(resultValidation.errors)
+         return res.render('create-product-form', {
+            errors: resultValidation.mapped(),
+            oldData: req.body
+         });
       }
 
-      console.log(req.body)
+      db.Products.findOne({
 
-      db.Products.create({
-         nombre: req.body.nombre,
-         marca: req.body.marca,
-         descripcion: req.body.descripcion,
-         precio: req.body.precio,
-         stock: req.body.stock,
-         color: req.body.color,
-         enoferta: req.body.enOferta,
-         categoria_id: req.body.categoria_id,
-         imagen: imagenNew,
-         descuento: req.body.descuento
-      })
-      .then(()=> {
-         return res.redirect('/')})            
-      .catch(error => res.send(error))
+            where: {
+               nombre: req.body.nombre
+            }
+
+         })
+         .then((productdDB) => {
+            if (productdDB) {
+               return res.render('create-product-form', {
+                  errors: {
+                     nombre: {
+                        msg: "Este producto ya está registrado",
+                     },
+                  },
+                  oldData: req.body,
+               });
+            } else {
+               let imagenNew
+               if (req.file != undefined) {
+                  imagenNew = req.file.filename
+               } else {
+                  imagenNew = 'default-image.png'
+               }
+
+               console.log(req.body)
+
+               let descuentoNew;
+               if (req.body.descuento != '') {
+                  descuentoNew = req.body.descuento
+               } else {
+                  descuentoNew = 0
+               };
+
+               let categoryNew;
+               if (req.body.category != '') {
+                  categoryNew = req.body.category
+               } else {
+                  categoryNew = 'Otros'
+               };
 
 
+               db.Products.create({
+                     nombre: req.body.nombre,
+                     marca: req.body.marca,
+                     descripcion: req.body.descripcion,
+                     precio: req.body.precio,
+                     stock: req.body.stock,
+                     color: req.body.color,
+                     categoria_id: req.body.categoria_id,
+                     imagen: imagenNew,
+                     descuento: descuentoNew,
+                     enOferta: descuentoNew > 0 ? 1 : 0,
 
+                  })
+                  .then(() => {
+                     return res.redirect('/')
+                  })
+                  .catch((error) => {
+                     console.log(error);
+                  });
+            }
+         })
    },
+
 
 
    //-----------Get y post para editar producto------//
    // Get -- traer vista--------------------------------//
-   edit: async(req, res) => {
+   edit: async (req, res) => {
 
-      // let idProduct = req.params.idProduct
-      // let productEdit = products.find(product => product.id == idProduct)
-      // res.render('editProduct', {
-      //    productEdit
-      // })
-
-      try{  
+      try {
 
          let Id = req.params.id;
-         let Producto = db.Products.findByPk(Id, {include: {all: true}})
+         let productToEdit = await db.Products.findByPk(Id, {
+            include: {
+               all: true
+            }
+         })
 
-         res.render('editProduct', {Producto}) 
+         res.render('editProduct', {
+            productToEdit
+         })
 
-      } catch(error){
+      } catch (error) {
          res.send(error)
       }
-      
+
    },
+   
+
    //Post ----------------------------------//
-   update: (req, res) => {
 
-      // let id = req.params.id;
-      // let productToEdit = products.find(product => product.id == id)
+   update: async (req, res) => {
+      try {
 
-      // let imagen
-      // if (req.file != undefined) {
-      //    imagen = req.file.filename
-      // } else {
-      //    imagen = 'default-image.png'
-      // }
+         const resultValidation = validationResult(req);
+
+         let product = db.Products.findByPk(req.params.id);
+         if (resultValidation.errors.length > 0) {
+            return res.render("editProduct", {
+               errors: resultValidation.mapped(),
+               oldData: req.body,
+            });
+         }
 
 
-      // productToEdit = {
-      //    id: productToEdit.id,
-      //    ...req.body,
-      //    imagen: imagen
-      // }
-
-      // let newProducts = products.map(product => {
-
-      //    if (product.id == productToEdit.id) {
-      //       return product = {
-      //          ...productToEdit
-      //       };
-      //    }
-      //    return product;
-      // })
-
-      // fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-      // res.redirect('/');
-
-      let imagenNew
-      if (req.file != undefined) {
-         imagenNew = req.file.filename
-      } else {
-         imagenNew = 'default-image.png'
+         await db.Products.update({
+            nombre: req.body.productName || product.productName,
+            descripcion: req.body.price || product.price,
+            marca: req.body.brand || product.brand,
+            precio: req.body.description || product.description,
+            stock: req.body.description || product.description,
+            categoria_id: req.body.categoria_id || product.categoria_id,
+            color: req.body.color || product.color,
+            descuento: req.body.descuento || product.descuento,
+            enOferta: req.body.enOferta || product.enOferta,
+            imagen: req.file == undefined ? product.imgen : req.file.filename,
+         }, {
+            where: {
+               id: req.params.id,
+            },
+         });
+         return res.redirect("/products/productDetail/" + req.params.id);
+      } catch (error) {
+         res.send(error)
       }
 
-      let IdE = req.params.id;
-
-      db.Products.update({
-         nombre: req.body.nombre,
-         marca: req.body.marca,
-         descripcion: req.body.descripcion,
-         precio: req.body.precio,
-         stock: req.body.stock,
-         color: req.body.color,
-         descuento: req.body.descuento,
-         category_id: null,
-         imagen: imagenNew
-      },
-      {
-         where: {id: IdE}
-      })
-      .then(()=> {
-         return res.redirect('/')})            
-      .catch(error => res.send(error))
-
    },
+
 
    // Eliminar un producto-------------------------------//
 
-   destroy: async(req, res) => {
+   destroy: async (req, res) => {
 
-      // let id = req.params.id;
-      // let newProducts = products.filter(product => product.id != id)
-      // fs.writeFileSync(productsFilePath, JSON.stringify(newProducts, null, ' '));
-
-      // res.redirect('/');
 
       console.log('1')
 
-      try{
+      try {
 
          let IdD = req.params.id;
-         await db.Products.destroy({where: {id: IdD}, force: true})
+         await db.Products.destroy({
+            where: {
+               id: IdD
+            },
+            force: true
+         })
          return res.redirect('/')
 
-      } catch(error){
+      } catch (error) {
          res.send(error)
       }
 

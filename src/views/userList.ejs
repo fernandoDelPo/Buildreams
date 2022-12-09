@@ -16,7 +16,7 @@
         <% users.forEach(user => { %>
         <div class="recomendado">
 
-            <p>También podría interesarte...</p>
+            <p>Tú perfil</p>
 
             <div class="miniproduto">
                 
@@ -24,11 +24,12 @@
                     <a href="/products/productDetail/<%= user.id %>"> <img src="/images/avatars/<%= user.image %>" class="imagen-detail2"> </a>
 
                 <div class="nombreprecio">
-                    <p><%= user.nombre %></p>
+                    <p><%= user.nick%> </p>
                     <div>
                         </p>
-                        <p><%= user.nick%></p>
-                        <p><%= user.email%></p>
+                        <p>PAÍS: <%= user.country%></p>
+                        <p>NOMBRE: <%= user.nombre %></p>
+                        <p>CORREO: <%= user.email%></p>
                        
                     </div>
                 </div>

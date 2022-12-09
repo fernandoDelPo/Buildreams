@@ -23,26 +23,23 @@
 					<p><%= user.email %></p>
 					<p><%= user.country %></p>
 
+
 					<div class="desplegable">
-						<button class="boton-edit">Modificar Perfil </button>
-						<div class="link-edit">
-							<a href="/users/edit/<%= user.id %>" class="button-edit">Modificá tus datos</a>
-
-							<a href="/users/edit/<%= user.id %>" class="button-edit">Modificá tu contraseña</a>
-
-							<a href="/users/edit/<%= user.id %>" class="button-edit">Cambiá tu imagen de perfil</a>
-						</div>
-
+						 <a href="/users/edit/<%= user.id %>"<button class="boton-edit">Modificar Perfil </button> </a> 
 					</div>
+					<div class="desplegable">
+						<a href="/users/edit2/<%= user.id %>"<button class="boton-edit">Modificar contraseña </button> </a> 
+				   </div>
 
-
-
-					<form class="form is-inline" action="/users/<%= user.id %>?_method=DELETE" method="POST">
-						<button type="submit" class="button-delete ">Eliminar usuario</button>
-					</form>
 				</div>
+
+
+				<form class="form is-inline" action="/users/delete/<%= user.id %>?_method=DELETE" method="POST">
+					<button type="submit" class="button-delete ">Eliminar usuario</button>
+				</form>
 			</div>
-		</section>
+	</div>
+	</section>
 	</div>
 </main>
 

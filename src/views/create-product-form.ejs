@@ -79,11 +79,16 @@
             </label>
         </div>
 
+
         <div class="control-formulario">
-            <label for="color" class="input-label"> Color:
-                <input type="text" name="color" id="color"
-                    class="form-control <%= locals.errors && errors.color ? 'is-invalid' : null %>"
-                    value="<%= locals.oldData ? oldData.color : null %>">
+            <label for="color" class="input-label"> Color
+                <select id="color" name='color' class='form-select spacing <%= locals.errors && errors.color ? 'is-invalid' : null  %> '>
+                    <option value=''>Selecciona un color</option>
+                    <% let colores = ["Blanco", "Negro", "Gris Oscuro", "Gris claro", "Plata", "Acero", "Azul", "Verde", "Rojo", "Naranja", "Amarillo", "Rosado", "Violeta", "Marrón", "Celeste", "Otros"] %>
+                    <% for( const oneColor of colores ) { %>
+                    <option value='<%= oneColor %>' <%= locals.oldData && (oneColor == oldData.color) ? 'selected' : null %>> <%= oneColor  %> </option>
+                    <% } %>
+                  </select>
                 <% if (locals.errors && errors.color) { %>
                 <div class="text-danger">
                     <%= errors.color.msg %>
@@ -93,16 +98,17 @@
         </div>
 
 
+
         <div class="control-formulario">
             <h4>Promoción:</h4>
             <div class="padre-control">
                 <div class="hijo-control">
                     <select name="descuento"
                         class="form-select <%= locals.errors && errors.descuento ? 'is-invalid' : null %>">
-                        <option value="">Elegí una opción</option>
-                        <%  let opciones = ['0', '5', '10', '15', '20', '25', '30', '35', '40']; %>
+                        <option value=''>Elegí una opción</option>
+                        <%  let opciones = [0, 5, 10, 15, 20, 25, 30, 35, 40]; %>
                         <% for (const oneOp of opciones) { %>
-                        <option value="<%= oneOp %>"
+                        <option value='<%= oneOp %>'
                             <%= locals.oldData && (oneOp === oldData.descuento) ? 'selected' : null %>>
                             <%= oneOp %> </option>
                         <% } %>
@@ -117,42 +123,24 @@
         </div>
 
 
-
         <div class="control-formulario">
-            <h4>Categoría:</h4>
-            <div class="padre-control2">
-                <div class="hijo-control2">
-                    <input type="checkbox" name="categoria_id" id="herramientas" value="0">
-                    <label for="herramientas">Herramientas</label>
+            <label for="categoria_id" class="input-label"> Categoría
+                <select id="categoria_id" name='categoria_id' class='form-select spacing <%= locals.errors && errors.categoria_id ? 'is-invalid' : null  %> '>
+                    <option value=''>Selecciona una categoría</option>
+                    <% let categorias = ['Herramientas', "Cementos/Cal", "Aberturas", "Hierros/Chapas", "Ladrillos", "Agua/Gas", "Instalaciones", "Pinturas", "Otros" ] %>
+                    <% for( let i = 0; i < categorias.length; i++ ) {  %>
+                    <option value='<%= i + 1 %>' <%= locals.oldData && (categorias == oldData.categoria_id) ? 'selected' : null %>> <%= categorias[i] %> </option>
+                    <% } %>
+                  </select>
+                <% if (locals.errors && errors.categoria_id) { %>
+                <div class="text-danger">
+                    <%= errors.categoria_id.msg %>
                 </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="categoria_id" id="cementos-cal" value="1">
-                    <label for="cementos-cal">Cementos/cal</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="categoria_id" id="aberturas" value="7">
-                    <label for="aberturas">Aberturas</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="categoria_id" id="hierro-chapas" value="3">
-                    <label for="hierro-chapas">Hierro/chapas</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="categoria_id" id="ladrillos" value="4">
-                    <label for="ladrillos">Ladrillos</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="categoria_id" id="agua-gas" value="5">
-                    <label for="agua-gas">Agua/gas</label>
-                </div>
-                <div class="hijo-control2">
-                    <input type="checkbox" name="categoria_id" id="instalaciones" value="6">
-                    <label for="instalaciones">Instalaciones</label>
-                </div>
-
-            </div>
+                <% } %>
+            </label>
         </div>
 
+      
 
         <div class="control-formulario">
             <h4 class="image-h4">Selecciona una imagen para el producto:</h4>

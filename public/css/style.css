@@ -63,6 +63,7 @@ main {
 
 }
 
+
 .container-menu {
     width: 100%;
 }
@@ -176,6 +177,7 @@ ul.iconos li a {
     align-items: center;
     align-content: flex-end;
 }
+
 
 .main-navbar ul {
     list-style: none;

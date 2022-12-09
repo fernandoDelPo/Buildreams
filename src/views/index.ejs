@@ -7,40 +7,17 @@
     <%-include('./partials/carrusel-menu.ejs')%>
 
 
-
-    <section class="lista-productos">
-
-        <h4 class="titulares">Productos descatacados del mes</h4>
-
-        <div class="contenedor-articulos">
-            <% products.forEach(product => { %>
-            <article class="articulos">
-                <a href="/products/productDetail/<%= product.id %>"><img class="imagen-producto"
-                        src="./images/products/<%= product.imagen%>" alt="imagen del producto"></a>
-                <div class="contenedor">
-                    <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
-                    <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                    <p class="precios"><%=product.precio %> </p>
-                    <h4 class="nombre"><%= product.nombre  %> </h4>
-                    <p class="descripcion"><%= product.marca %> </p>
-                </div>
-            </article>
-            <% }) %>
-
-    </section>
-
-    <h5 class="subtitulo">Haciendo click acá encontras más productos destacados </h5>
-
+   
     <section class="lista-productos">
         <br>
-        <h4 class="titulares">Ofertas</h4>
+        <h4 class="titulares">¡Aprovechá las ofertas de fin de año!</h4>
 
         <div class="contenedor-articulos">
 
 
 
             <% products.forEach(product => { %>
-            <% if (product.enOferta == "En oferta") { %>
+            <% if (product.enOferta == 1) { %>
             <article class="articulos">
                 <img class="imagen-producto" src="./images/products/<%= product.imagen%>" alt="imagen del producto">
                 <div class="contenedor">

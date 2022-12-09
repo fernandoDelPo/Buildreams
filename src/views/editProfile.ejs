@@ -8,16 +8,17 @@
 <main>
 
     <main class="main-form">
-        <form   method="POST" action="/users/edit/<%=userToEdit.id %>?_method=PATCH" class="create-form">
+        <form method="POST" action="/users/edit/<%=userToEdit.id%>?_method=PUT" class="create-form"
+            enctype="multipart/form-data">
 
             <div class="control-formulario">
-                <h4>Completa los datos de inscripción:</h4>
+                <h4>Edita tu perfil:</h4>
             </div>
             <div class="control-formulario">
                 <label for="nombre" class="input-label"> Nombre y apellido
                     <input type="text" name="nombre" id="nombre"
                         class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
-                        value="<%= userToEdit.nombre%>">
+                        value="<%= locals.oldData ? oldData.nombre : userToEdit.nombre %>">
                     <% if (locals.errors && errors.nombre) { %>
                     <div class="text-danger">
                         <%= errors.nombre.msg %>
@@ -26,11 +27,13 @@
                 </label>
             </div>
 
+             
+
             <div class="control-formulario">
-                <label for="nick" class="input-label"> Alias o Nick
+                <label for="nick" class="input-label"> Alias o Nickname
                     <input type="text" name="nick" id="nick"
                         class="form-control <%= locals.errors && errors.nick ? 'is-invalid' : null %>"
-                        value="<%= userToEdit.nick %>">
+                        value="<%= locals.oldData ? oldData.nick : userToEdit.nick %>">
                     <% if (locals.errors && errors.nick) { %>
                     <div class="text-danger">
                         <%= errors.nick.msg %>
@@ -41,9 +44,16 @@
 
             <div class="control-formulario">
                 <label for="country" class="input-label"> País
-                    <input type="text" name="country" id="country"
-                        class="form-control <%= locals.errors && errors.country ? 'is-invalid' : null %>"
-                        value="<%= userToEdit.country %>">
+                    <select id="country" name='country'
+                        class='form-select spacing <%= locals.errors && errors.country ? 'is-invalid' : null %> '>
+                        <option value='<%= locals.oldData ? oldData.country : userToEdit.country %>'>Selecciona un país</option>
+                        <% let countries = ["Afganistán","Albania","Alemania","Andorra","Angola","Antigua y Barbuda","Arabia Saudita","Argelia","Argentina","Armenia","Australia","Austria","Azerbaiyán","Bahamas","Bangladés","Barbados","Baréin","Bélgica","Belice","Benín","Bielorrusia","Birmania","Bolivia","Bosnia y Herzegovina","Botsuana","Brasil","Brunéi","Bulgaria","Burkina Faso","Burundi","Bután","Cabo Verde","Camboya","Camerún","Canadá","Catar","Chad","Chile","China","Chipre","Ciudad del Vaticano","Colombia","Comoras","Corea del Norte","Corea del Sur","Costa de Marfil","Costa Rica","Croacia","Cuba","Dinamarca","Dominica","Ecuador","Egipto","El Salvador","Emiratos Árabes Unidos","Eritrea","Eslovaquia","Eslovenia","España","Estados Unidos","Estonia","Etiopía","Filipinas","Finlandia","Fiyi","Francia","Gabón","Gambia","Georgia","Ghana","Granada","Grecia","Guatemala","Guyana","Guinea","Guinea ecuatorial","Guinea-Bisáu","Haití","Honduras","Hungría","India","Indonesia","Irak","Irán","Irlanda","Islandia","Islas Marshall","Islas Salomón","Israel","Italia","Jamaica","Japón","Jordania","Kazajistán","Kenia","Kirguistán","Kiribati","Kuwait","Laos","Lesoto","Letonia","Líbano","Liberia","Libia","Liechtenstein","Lituania","Luxemburgo","Madagascar","Malasia","Malaui","Maldivas","Malí","Malta","Marruecos","Mauricio","Mauritania","México","Micronesia","Moldavia","Mónaco","Mongolia","Montenegro","Mozambique","Namibia","Nauru","Nepal","Nicaragua","Níger","Nigeria","Noruega","Nueva Zelanda","Omán","Países Bajos","Pakistán","Palaos","Palestina","Panamá","Papúa Nueva Guinea","Paraguay","Perú","Polonia","Portugal","Reino Unido","República Centroafricana","República Checa","República de Macedonia","República del Congo","República Democrática del Congo","República Dominicana","República Sudafricana","Ruanda","Rumanía","Rusia","Samoa","San Cristóbal y Nieves","San Marino","San Vicente y las Granadinas","Santa Lucía","Santo Tomé y Príncipe","Senegal","Serbia","Seychelles","Sierra Leona","Singapur","Siria","Somalia","Sri Lanka","Suazilandia","Sudán","Sudán del Sur","Suecia","Suiza","Surinam","Tailandia","Tanzania","Tayikistán","Timor Oriental","Togo","Tonga","Trinidad y Tobago","Túnez","Turkmenistán","Turquía","Tuvalu","Ucrania","Uganda","Uruguay","Uzbekistán","Vanuatu","Venezuela","Vietnam","Yemen","Yibuti","Zambia","Zimbabue"] %>
+                        <% for( const oneCountry of countries ) { %>
+                        <option value='<%= oneCountry %>'
+                            <%= locals.oldData && (oneCountry == oldData.country) ? 'selected' : null %>>
+                            <%= oneCountry  %> </option>
+                        <% } %>
+                    </select>
                     <% if (locals.errors && errors.country) { %>
                     <div class="text-danger">
                         <%= errors.country.msg %>
@@ -51,13 +61,26 @@
                     <% } %>
                 </label>
             </div>
-            
-              
-                <br>
-                <br>
-                <div class="control-formulario">
-                    <button type="submit" class="button-form" id="button-submit">Enviar</button>
-                </div>
+
+            <div class="control-formulario">
+                <h4 class="image-h4">Selecciona una imagen para tu perfil:</h4>
+                <label for="image" class="label-image-profile">
+                    <input type="file" name="image" id="image"
+                        class="form-control <%= locals.errors && errors.image ? 'is-invalid' : null %>">
+                    <% if (locals.errors && errors.image) { %>
+                    <div class="text-danger">
+                        <%= errors.image.msg %>
+                    </div>
+                    <% } %>>
+                </label>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="control-formulario">
+                <button type="submit" class="button-form" id="button-submit">Enviar</button>
+            </div>
 
         </form>
     </main>

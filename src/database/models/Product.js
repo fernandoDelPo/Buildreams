@@ -31,6 +31,10 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING,
             allowNull: false,
         },
+        enOferta:{
+            type: dataTypes.TINYINT(1),
+            allowNull: false,
+        },
         categoria_id: {
             type: dataTypes.INTEGER,
             unique: true,
@@ -56,8 +60,8 @@ module.exports = (sequelize, dataTypes) => {
     const Product = sequelize.define(alias, cols, config)
 
     Product.associate = (models) => {
-        Product.belongsTo(models.Categorias, { 
-            as: "categorias",
+        Product.belongsTo(models.Category, { 
+            as: "category",
             foreignKey: "categoria_id"
         })
 

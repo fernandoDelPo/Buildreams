@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/css/register.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/editProduct.css">
+<link rel="stylesheet" href="/css/create-product.css">
 
 
 <title>Editar producto</title>
@@ -10,135 +11,174 @@
 <%- include('./partials/header')%>
 
 
-        <main class="main-form" id="edit">
+<main class="main-form" id="edit">
 
-            <form action="/products/editProduct/<%= productEdit.id %>?_method=PATCH" method="POST" class="create-form" enctype="multipart/form-data">
+    <form action="/products/editProduct/<%= productToEdit.id %>?_method=PATCH" method="POST" class="create-form" enctype="multipart/form-data">
 
-                <div class="control-formulario">
-                    <h4>Modifica el producto:</h4>
+        <div class="control-formulario">
+            <h4>Modifica el producto:</h4>
+        </div>
+
+        <div class="control-formulario">
+            <label for="nombre" class="input-label"> Nombre:
+                <input type="text" name="nombre" id="nombre"
+                    class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.nombre : productToEdit.nombre %>">
+                <% if (locals.errors && errors.nombre) { %>
+                <div class="text-danger">
+                    <%= errors.nombre.msg %>
                 </div>
-
-
-                <div class="control-formulario">
-                    <label for="nombre" class="input-label">
-                        <input type="text" name="nombre" id="nombre" placeholder="Nombre del producto"
-                            value='<%=productEdit.nombre%>' class="control" required>
-                        <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite
-                            solo los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                    </label>
+                <% } %>
+            </label>
+        </div>
+        <div class="control-formulario">
+            <label for="descripcion" class="input-label"> Descripción:
+                <input type="text" name="descripcion" id="descripcion"
+                    class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.descripcion : productToEdit.descripcion %>">
+                <% if (locals.errors && errors.descripcion) { %>
+                <div class="text-danger">
+                    <%= errors.descripcion.msg %>
                 </div>
+                <% } %>
+            </label>
+        </div>
 
-                <div class="control-formulario">
-                    <label for="descripcion" class="input-label">
-                        <input type="text" name="descripcion" id="descripcion"
-                            placeholder="Descripcion del producto" value='<%=productEdit.descripcion%>' class="control" required>
-                        <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite
-                            solo
-                            los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                    </label>
+        <div class="control-formulario">
+            <label for="marca" class="input-label"> Marca:
+                <input type="text" name="marca" id="marca"
+                    class="form-control <%= locals.errors && errors.marca ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.marca : productToEdit.marca %>">
+                <% if (locals.errors && errors.marca) { %>
+                <div class="text-danger">
+                    <%= errors.marca.msg %>
                 </div>
+                <% } %>
+            </label>
+        </div>
 
-                <div class="control-formulario">
-                    <label for="marca" class="input-label">
-                        <input type="text" name="marca" id="marca" placeholder="Marca del producto"
-                            value='<%=productEdit.marca%>' class="control" required>
-                        <div class="msg-error">Podrá contener de 6 a 12 letras mayúsculas, minúsculas, números. Admite
-                            solo
-                            los caracteres ! ? - @ <i class="fa-solid fa-circle-exclamation" id="icon-danger"></i></div>
-                    </label>
+        <div class="control-formulario">
+            <label for="precio" class="input-label"> Precio:
+                <input type="number" name="precio" id="precio"
+                    class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.precio : productToEdit.precio %>">
+                <% if (locals.errors && errors.precio) { %>
+                <div class="text-danger">
+                    <%= errors.precio.msg %>
                 </div>
+                <% } %>
+            </label>
+        </div>
 
-                <div class="control-formulario">
-                    <label for="precio" class="input-label">
-                        <input type="number" name="precio" id="precio"
-                            placeholder="Precio del producto" value='<%=productEdit.precio%>' class="control" required>
-                        <div class="msg-error">Podrá contener números. <i class="fa-solid fa-circle-exclamation"
-                                id="icon-danger"></i></div>
-                    </label>
+        <div class="control-formulario">
+            <label for="stock" class="input-label"> Stock:
+                <input type="stock" name="stock" id="stock"
+                    class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
+                    value="<%= locals.oldData ? oldData.stock : productToEdit.stock %>">
+                <% if (locals.errors && errors.stock) { %>
+                <div class="text-danger">
+                    <%= errors.stock.msg %>
                 </div>
+                <% } %>
+            </label>
+        </div>
 
-                <div class="control-formulario">
-                    <label for="stock" class="input-label">
-                        <input type="stock" name="stock" id="stock" placeholder="Stock del producto"
-                            value='<%=productEdit.stock%>' class="control" required>
-                        <div class="msg-error">Podrá contener números<i class="fa-solid fa-circle-exclamation"
-                                id="icon-danger"></i></div>
-                    </label>
+
+        <div class="control-formulario">
+            <label for="color" class="input-label"> Color
+                <select id="color" name='color'
+                    class='form-select spacing <%= locals.errors && errors.color ? 'is-invalid' : null  %> '>
+                    <option value=''>Selecciona un color</option>
+                    <% let colores = ["Blanco", "Negro", "Gris Oscuro", "Gris claro", "Plata", "Acero", "Azul", "Verde", "Rojo", "Naranja", "Amarillo", "Rosado", "Violeta", "Marrón", "Celeste", "Otros"] %>
+                    <% for( const oneColor of colores ) { %>
+                    <option value='<%= oneColor %>'
+                        <%= locals.oldData && (oneColor == oldData.color) ? 'selected' : productToEdit.color %>>
+                        <%= oneColor  %> </option>
+                    <% } %>
+                </select>
+                <% if (locals.errors && errors.color) { %>
+                <div class="text-danger">
+                    <%= errors.color.msg %>
                 </div>
+                <% } %>
+            </label>
+        </div>
 
 
-                <div class="control-formulario">
-                    <h4>Perfil de oferta:</h4>
-                    <div class="padre-control">
-                        <div class="hijo-control">
-                            <label class="label-control" for="enOferta">Con descuento
-                                <input type="radio" name="enOferta" id="enOferta" required>
-                                <div class="msg-error">¿El producto tiene descuento?</div>
-                            </label>
-                        </div>
-                        <div class="hijo-control">
 
-                            <label class="label-control" for="enOferta">Sin descuento
-                                <input type="radio" name="enOferta" id="sinOferta">
-                            </label>
-                        </div>
+        <div class="control-formulario">
+            <h4>Promoción:</h4>
+            <div class="padre-control">
+                <div class="hijo-control">
+                    <select name="descuento"
+                        class="form-select <%= locals.errors && errors.descuento ? 'is-invalid' : null %>">
+                        <option value=''>Elegí una opción</option>
+                        <%  let opciones = [0, 5, 10, 15, 20, 25, 30, 35, 40]; %>
+                        <% for (const oneOp of opciones) { %>
+                        <option value='<%= oneOp %>'
+                            <%= locals.oldData && (oneOp === oldData.descuento) ? 'selected' : null %>>
+                            <%= oneOp %> </option>
+                        <% } %>
+                    </select>
+                    <% if (locals.errors && errors.descuento) { %>
+                    <div class="text-danger">
+                        <%= errors.descuento.msg %>
                     </div>
+                    <% } %>
                 </div>
+            </div>
+        </div>
 
-                <div class="control-formulario">
-                    <h4>Categoría:</h4>
-                    <div class="padre-control2">
-                        <div class="hijo-control2">
-                            <input type="checkbox" name="categoria" id="herramientas">
-                            <label for="herramientas">Herramientas</label>
-                        </div>
-                        <div class="hijo-control2">
-                            <input type="checkbox" name="categoria" id="cementos-cal">
-                            <label for="cementos-cal">Cementos/cal</label>
-                        </div>
-                        <div class="hijo-control2">
-                            <input type="checkbox" name="categoria" id="aberturas">
-                            <label for="aberturas">Aberturas</label>
-                        </div>
-                        <div class="hijo-control2">
-                            <input type="checkbox" name="categoria" id="hierro-chapas">
-                            <label for="hierro-chapas">Hierro/chapas</label>
-                        </div>
-                        <div class="hijo-control2">
-                            <input type="checkbox" name="categoria" id="ladrillos">
-                            <label for="ladrillos">Ladrillos</label>
-                        </div>
-                        <div class="hijo-control2">
-                            <input type="checkbox" name="categoria" id="agua-gas">
-                            <label for="agua-gas">Agua/gas</label>
-                        </div>
-                        <div class="hijo-control2">
-                            <input type="checkbox" name="categoria" id="instalaciones">
-                            <label for="instalaciones">Instalaciones</label>
-                        </div>
 
-                    </div>
+        <div class="control-formulario">
+            <label for="categoria_id" class="input-label"> Categoría
+                <select id="categoria_id" name='categoria_id'
+                    class='form-select spacing <%= locals.errors && errors.categoria_id ? 'is-invalid' : null  %> '>
+                    <option value=''>Selecciona una categoría</option>
+                    <% let categorias = ['Herramientas', "Cementos/Cal", "Aberturas", "Hierros/Chapas", "Ladrillos", "Agua/Gas", "Instalaciones", "Pinturas", "Otros" ] %>
+                    <% for( let i = 0; i < categorias.length; i++ ) {  %>
+                    <option value='<%= i + 1 %>'
+                        <%= locals.oldData && (categorias == oldData.categoria_id) ? 'selected' : null %>>
+                        <%= categorias[i] %> </option>
+                    <% } %>
+                </select>
+                <% if (locals.errors && errors.categoria_id) { %>
+                <div class="text-danger">
+                    <%= errors.categoria_id.msg %>
                 </div>
-                <div class="control-formulario">
-                    <h4 class="image-h4">Selecciona una imagen para el producto:</h4>
-                    <label for="image-profile" class="label-image-profile">
-                        <input type="file" name="image-profile" id="image-profile" accept=".jpg, .png">
-                    </label>
+                <% } %>
+            </label>
+        </div>
+
+
+
+        <div class="control-formulario">
+            <h4 class="image-h4">Selecciona una imagen para el producto:</h4>
+            <label for="image-product" class="label-image-product">
+                <input type="file" name="imagen" id="image-product"
+                    class="form-control <%= locals.errors && errors.imagen ? 'is-invalid' : null %>">
+                <% if (locals.errors && errors.imagen) { %>
+                <div class="text-danger">
+                    <%= errors.imagen.msg %>
                 </div>
-
-                <br>
-                <div class="control-formulario">
-                    <button type="reset" class="button-form">Limpiar</button>
-                    <button type="submit" class="button-form"> Guardar producto </button>
-                </div>
-            </form>
-        </main>
-
-        <%- include('partials/footer')%>
-
-        <%-include('./partials/script-bootstrap.ejs') %>
+                <% } %>>
+            </label>
+        </div>
 
 
-    </body>
+        <br>
+        <div class="control-formulario">
+            <button type="reset" class="button-form">Limpiar</button>
+            <button type="submit" class="button-form"> Guardar producto </button>
+        </div>
+    </form>
+</main>
+
+<%- include('partials/footer')%>
+
+<%-include('./partials/script-bootstrap.ejs') %>
+
+
+</body>
 
 </html>
