@@ -28,7 +28,7 @@ CREATE TABLE `category` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `nombre` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -63,7 +63,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`id`),
   KEY `productos_FK` (`categoria_id`),
   CONSTRAINT `productos_FK` FOREIGN KEY (`categoria_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -76,33 +76,7 @@ INSERT INTO `products` VALUES (1,'PLASTICOR 40KG','Loma Negra',2100,1000,'Otros'
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `user_product`
---
 
-DROP TABLE IF EXISTS `user_product`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user_product` (
-  `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int unsigned NOT NULL,
-  `product_id` int unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `cliente_productos_FK` (`user_id`),
-  KEY `cliente_productos_FK_1` (`product_id`),
-  CONSTRAINT `cliente_productos_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
-  CONSTRAINT `cliente_productos_FK_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_product`
---
-
-LOCK TABLES `user_product` WRITE;
-/*!40000 ALTER TABLE `user_product` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_product` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `users`
@@ -121,7 +95,7 @@ CREATE TABLE `users` (
   `image` varchar(100) NOT NULL,
   `password` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,6 +106,34 @@ LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` VALUES (1,'Fernando Del Pozzi','delpo','Argentina','fernandodelpozzi@gmail.com','admin','image-1670290998657.jpeg','$2a$10$YfBa0RyxHoLcicoCWxJcL.bjNgcYLC1nqtfz5Z17m1xEFICpnXJvG'),(2,'Eveyn Gianpieri','Evelyn','Alemania','evelyngiampieri@mail.com','admin','image-1670516520212.jpg','$2a$10$Xkynr/xFz3dwekS2vSPCAuqMccIXX2Fsgv5sIXB5Z1rpn2m432c26'),(3,'Cristian Bolzon','Cristian','Argentina','cristianbolzon@mail.com','admin','image-1670516587020.jpg','$2a$10$2GVHvF0IP1k65W6o1yzTC.5jtR1CK3b8d4JaTj14OTBQ8316mD6me'),(4,'Matías Muñoz','Matías','Argentina','matiasmunoz@mail.com','admin','image-1670516679489.jpg','$2a$10$ZodYvl1/tU2TUHo/kcpkKunKDIot3oWdOiGN4Z/yh5MlpeOvvdoDS');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `user_product`
+--
+
+DROP TABLE IF EXISTS `user_product`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user_product` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int unsigned NOT NULL,
+  `product_id` int unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `cliente_productos_FK` (`user_id`),
+  KEY `cliente_productos_FK_1` (`product_id`),
+  CONSTRAINT `cliente_productos_FK` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
+  CONSTRAINT `cliente_productos_FK_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_product`
+--
+
+LOCK TABLES `user_product` WRITE;
+/*!40000 ALTER TABLE `user_product` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
