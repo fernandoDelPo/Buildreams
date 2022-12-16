@@ -17,19 +17,39 @@ const controller = {
 
    /*  Mostar todos los productos*/
 
+   // listAll: async (req, res) => {
+   //    try {
+   //       await db.Products.findAll()
+   //          .then(products => {
+   //             res.render('productsList', {
+   //                products,
+   //                toThousand
+   //             })
+   //          })
+   //    } catch (error) {
+   //       res.send(error);
+   //    }
+   // },
+
    listAll: async (req, res) => {
-      try {
-         await db.Products.findAll()
-            .then(products => {
-               res.render('productsList', {
-                  products,
-                  toThousand
-               })
-            })
-      } catch (error) {
-         res.send(error);
-      }
+
+		try {
+			
+			const products = await db.Products.findAll({
+				include: [{association:'category'}]
+			})
+         const category = await db.Category.findAll({
+				include: [{association:'products'}]
+			})
+		
+
+			return res.render('productsList',{ products,toThousand, category })
+		} catch (error) {
+			return res.send(error)
+			
+		}
    },
+
 
 
    /* Detalle - Detalle de un producto*/
@@ -102,19 +122,6 @@ const controller = {
 
                console.log(req.body)
 
-               let descuentoNew;
-               if (req.body.descuento != '') {
-                  descuentoNew = req.body.descuento
-               } else {
-                  descuentoNew = 0
-               };
-
-               let categoryNew;
-               if (req.body.category != '') {
-                  categoryNew = req.body.category
-               } else {
-                  categoryNew = 'Otros'
-               };
 
 
                db.Products.create({
@@ -126,8 +133,8 @@ const controller = {
                      color: req.body.color,
                      categoria_id: req.body.categoria_id,
                      imagen: imagenNew,
-                     descuento: descuentoNew,
-                     enOferta: descuentoNew > 0 ? 1 : 0,
+                     descuento: req.body.descuento,
+                     enOferta: req.body.descuento > 0 ? 1 : 0,
 
                   })
                   .then(() => {
@@ -182,16 +189,20 @@ const controller = {
          }
 
 
+         console.log(req.body)
+
+         let oferta = req.body.descuento > 0 ? 1 : 0 
+
          await db.Products.update({
-            nombre: req.body.productName || product.productName,
-            descripcion: req.body.price || product.price,
-            marca: req.body.brand || product.brand,
-            precio: req.body.description || product.description,
-            stock: req.body.description || product.description,
+            nombre: req.body.nombre || product.nombre,
+            descripcion: req.body.descripcion || product.descripcion,
+            marca: req.body.marca || product.marca,
+            precio: req.body.precio || product.precio,
+            stock: req.body.stock || product.stock,
             categoria_id: req.body.categoria_id || product.categoria_id,
             color: req.body.color || product.color,
             descuento: req.body.descuento || product.descuento,
-            enOferta: req.body.enOferta || product.enOferta,
+            enOferta: oferta,
             imagen: req.file == undefined ? product.imgen : req.file.filename,
          }, {
             where: {

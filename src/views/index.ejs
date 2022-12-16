@@ -19,14 +19,15 @@
             <% products.forEach(product => { %>
             <% if (product.enOferta == 1) { %>
             <article class="articulos">
-                <img class="imagen-producto" src="./images/products/<%= product.imagen%>" alt="imagen del producto">
+                <a href="/products/productDetail/<%= product.id %>"><img class="imagen-producto" src="./images/products/<%= product.imagen%>" alt="imagen del producto"></a>
                 <div class="contenedor">
                     <p class="agregar"><i class="fa-solid fa-basket-shopping" id="icon-canasta"></i></p>
                     <i class="fa-solid fa-truck-fast" style="color: #b3640b;" id="icon-truck"></i>
-                    <p class="precios"><%=product.precio %></p>
+                    <p class="precios">$ <%=product.precio %></p>
+                    <p class="precios" id="off"><%=product.descuento %>% off !!! </p>
                     <h4 class="nombre"><%= product.nombre  %></h4>
                     <p class="descripcion"><%= product.marca %> </p>
-
+                    <p class="descripcion"><%= product.category.nombre %> </p>
                 </div>
             </article>
             <% } %>

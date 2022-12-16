@@ -40,3 +40,16 @@ Concordamos en avisar con la debida anticipación sobre los problemas que se nos
 Cristian subirá en breve el registro de usuarios para que Matías pueda realizar el login.
 Una vez resuelto el sprint 5, pasaremos a distribuir las tareas del sprint 6. 
 Asimismo, acordamos modificar el header para que sea visualmente más concreto. 
+
+--------------------------------------------------------------------------------------------------------
+
+Quinta reunión weekly: 1 de diciembre.
+
+Procedimos a verificar el avance en las tareas de cada compañero, con el fin de solucionar errores que se presentaron hasta el momento.
+
+--------------------------------------------------------------------------------------------------------
+
+Quinta reunión weekly: 13 de diciembre.
+
+Nos reunimos para que a todos nos funcione el proyecto vinculado a la Base de Datos. Además hablamos de la posibilidad de modificar algunas vistas como la de productDetail.
+

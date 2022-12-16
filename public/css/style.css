@@ -375,6 +375,10 @@ img.imagen {
     margin-bottom: 0%;
     flex: 30%;
 }
+#off{
+    color: var(--Green);
+    font-weight: bolder;
+}
 
 .descripcion {
     opacity: 0;

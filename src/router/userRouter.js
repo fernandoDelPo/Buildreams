@@ -35,7 +35,7 @@ router.post('/login',  validatedLog, userController.authenticate);
 router.get('/profile', authMiddleware, userController.profile);
 
 router.get('/edit/:id', userController.editProfile);
-router.put('/edit/:id',  upload.single('image'), authEditProfile, userController.UpdateProfile);
+router.put('/edit/:id', upload.single('image'), authEditProfile, userController.UpdateProfile);
 
 router.get('/edit2/:id', userController.editProfile2);
 router.patch('/edit2/:id', userController.UpdatePassword);

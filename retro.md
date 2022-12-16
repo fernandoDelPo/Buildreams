@@ -17,3 +17,6 @@ Cabe aclarar que este grupo tiene una amplia vision ya que, se incorporan los co
 
 Retrospectiva del 5to sprint: 
 La realización de esta etapa fue incompleta debido a que parte de los integrantes se han ausentado o no hay logrado completar sus tareas ya designadas. Por lo tanto, se va a realizar una nueva reunión para reafirmar las responsabilidades y obligaciones, entendiendo que el trabajo en equipo es fundamental para la realización de este proyecto. 
+
+Retrospectiva del 6to sprint: 
+En este sprint nos procuramos cumplir con las tareas asignadas a tiempo para que de existir errores o problemas, disponer del tiempo necesario para resolverlos. Finalizamos el sprint a tiempo y dentro de los requerimientos del mismo.  

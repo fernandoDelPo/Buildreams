@@ -16,7 +16,7 @@
                 </form>
             </div>
 
-            <% if (locals.isLogged) { %>
+            <% if (locals.isLogged && locals.userLogged.category == "user") { %>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -35,6 +35,31 @@
                     <a class="dropdown-item" href="/users/logout">Salir</a>
                 </ul>
             </li>
+            <% } else if (locals.isLogged && locals.userLogged.category == "admin"){ %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="dropUser" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="/images/avatars/<%= locals.userLogged.image || '404.png' %>" class="image-profile2" width="50">
+                        Hola  <%= locals.userLogged.nick%>!
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/users/profile">Ver perfil</a>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <a class="dropdown-item" href="/products/productCart">Carrito de compras</a>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <a class="dropdown-item" href="/users/list">Todos los usuarios</a>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                        <a class="dropdown-item" href="/users/logout">Salir</a>
+                    </ul>
+                </li>
+
+                
             <% } else { %>
 
             <div class="h3-navbar">

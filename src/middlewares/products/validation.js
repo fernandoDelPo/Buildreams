@@ -18,23 +18,23 @@ const validationCreate = [
         min: 5,
         max: 300,
     }).withMessage('Debe tener entre 5 y 250 caracteres').bail(),
-    check('image').custom((value, {
-        req
-    }) => {
-        let file = req.file;
-        let acceptedExtensions = ['.jpg', '.png', '.gif'];
+    // check('imagen').custom((value, {
+    //     req
+    // }) => {
+    //     let file = req.file;
+    //     let acceptedExtensions = ['.jpg', '.png', '.gif'];
 
-        if (!file) {
-            throw new Error('Tienes que subir una imagen');
-        } else {
-            let fileExtension = path.extname(file.originalname);
-            if (!acceptedExtensions.includes(fileExtension)) {
-                throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
-            }
-        }
+    //     if (!file) {
+    //         throw new Error('Tienes que subir una imagen');
+    //     } else {
+    //         let fileExtension = path.extname(file.originalname);
+    //         if (!acceptedExtensions.includes(fileExtension)) {
+    //             throw new Error(`Las extensiones de archivo permitidas son ${acceptedExtensions.join(', ')}`);
+    //         }
+    //     }
 
-        return true;
-    })
+    //     return true;
+    // })
 ]
 
 module.exports = validationCreate

@@ -6,7 +6,7 @@ module.exports = [
 	body('nombre').notEmpty().withMessage('Tienes que escribir un nombre').bail()
     .isLength({ min: 2 })
     .withMessage('Tu nombre debe tener al menos dos caracteres')
-	.matches(/^[A-Z]+$/i).withMessage('Tu nombre sólo puede contener letras'),
+	.matches('^[A-ZÁÉÍÓÚÑ ]+$', 'i').withMessage('Tu nombre sólo puede contener letras'),
 	body('nick').notEmpty().withMessage('Tienes que escribir un nickname o alias'),
 	body('email')
 	.notEmpty().withMessage('Tienes que escribir un correo electrónico')

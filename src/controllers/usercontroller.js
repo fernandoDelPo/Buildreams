@@ -1,4 +1,3 @@
-
 const bcrypt = require('bcryptjs');
 const cookie = require('cookie-parser');
 const session = require("express-session");
@@ -28,67 +27,67 @@ const userController = {
 	},
 
 	store: async (req, res) => {
-		try{
+		try {
 			const resultValidation = validationResult(req);
 
-		if (resultValidation.errors.length > 0) {
-			return res.render('register', {
-				errors: resultValidation.mapped(),
-				oldData: req.body
-			});
-		}
+			if (resultValidation.errors.length > 0) {
+				return res.render('register', {
+					errors: resultValidation.mapped(),
+					oldData: req.body
+				});
+			}
 
-		await db.Users.findOne({
+			await db.Users.findOne({
 
-				where: {
-					email: req.body.email
-				}
+					where: {
+						email: req.body.email
+					}
 
-			})
-			.then((userDB) => {
-				if (userDB) {
-					return res.render('register', {
-						errors: {
-							email: {
-								msg: "Este email ya está registrado",
+				})
+				.then((userDB) => {
+					if (userDB) {
+						return res.render('register', {
+							errors: {
+								email: {
+									msg: "Este email ya está registrado",
+								},
 							},
-						},
-						oldData: req.body,
-					});
-
-				} else if (req.body.password != req.body.rePassword) {
-					return res.render('register', {
-						errors: {
-							password: {
-								msg: "Las contraseñas no coinciden",
-							}
-						},
-						oldData: req.body,
-					})
-				} else {
-					db.Users.create({
-							nombre: req.body.nombre,
-							nick: req.body.nick,
-							country: req.body.country,
-							email: req.body.email,
-							password: bcrypt.hashSync(req.body.password, 10),
-							category: 'user',
-							image: req.file ?.filename || "default.png",
-						})
-						.then(() => {
-							return res.redirect("./users/login");
-						})
-						.catch((error) => {
-							console.log(error);
+							oldData: req.body,
 						});
-				}
 
-			});
+					} else if (req.body.password != req.body.rePassword) {
+						return res.render('register', {
+							errors: {
+								password: {
+									msg: "Las contraseñas no coinciden",
+								}
+							},
+							oldData: req.body,
+						})
+					} else {
+						db.Users.create({
+								nombre: req.body.nombre,
+								nick: req.body.nick,
+								country: req.body.country,
+								email: req.body.email,
+								password: bcrypt.hashSync(req.body.password, 10),
+								category: 'user',
+								image: req.file ?.filename || "default.png",
+							})
+							.then(() => {
+								return res.redirect("./users/login");
+							})
+							.catch((error) => {
+								console.log(error);
+							});
+					}
+
+				});
 
 		} catch (error) {
 			res.send(error)
 		}
-	
+
 	},
 
 
@@ -172,38 +171,45 @@ const userController = {
 			});
 	},
 
-	
+
 	UpdateProfile: (req, res) => {
+		
 		const resultValidation = validationResult(req);
 		let userToEdit = db.Users.findByPk(req.params.id)
+		console.log(resultValidation.errors)
 		if (resultValidation.errors.length > 0) {
+
 			return res.render('editProfile', {
 				errors: resultValidation.mapped(),
 				oldData: req.body,
 				userToEdit
+			} ,
+			req.body = null);
+		
+			
+		} else {
+			console.log(req.body);
+			db.Users.findByPk(req.params.id).then((userEdit) => {
+				db.Users.update({
+						nombre: req.body.nombre || userEdit.nombre,
+						nick: req.body.nick || userEdit.nick,
+						country: req.body.country || userEdit.country,
+						email: userEdit.email,
+						category: userEdit.category,
+						password: userEdit.password,
+						image: req.file == undefined ? userEdit.image : req.file.filename,
+					}, {
+						where: {
+							id: req.params.id
+						},
+					})
+					.then(() => {
+						return res.redirect('/users/profile');
+					})
+					.catch((error) => res.send(error));
 			});
 		}
-		console.log(req.body);
-		 db.Users.findByPk(req.params.id).then((userEdit) => {
-			db.Users.update({
-					nombre: req.body.nombre || userEdit.nombre,
-					nick: req.body.nick || userEdit.nick,
-					country: req.body.country || userEdit.country,
-					email: req.body.email || userEdit.email,
-					password: userEdit.password,
-					image: req.file == undefined ? userEdit.image : req.file.filename,
-				}, {
-					where: {
-						id: req.params.id
-					},
-				})
-				.then(() => {
-					return res.redirect('/users/profile');
-				})
-				.catch((error) => res.send(error));
-		});
 
-	
 	},
 
 	editProfile2: (req, res) => {
@@ -264,18 +270,18 @@ const userController = {
 
 	delete: function (req, res) {
 		db.Users.destroy({
-		  where: { 
-			id: req.params.id 
-		}
-		}) 
-		  .then(() => {
-			req.session.destroy();
-			res.clearCookie("remember");
-			
-			return res.redirect("/");
-		  })
-		  .catch((error) => res.send(error));
-	  },
+				where: {
+					id: req.params.id
+				}
+			})
+			.then(() => {
+				req.session.destroy();
+				res.clearCookie("remember");
+
+				return res.redirect("/");
+			})
+			.catch((error) => res.send(error));
+	},
 
 }
 

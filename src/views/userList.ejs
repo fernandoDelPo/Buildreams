@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="/css/productDetail.css">
 <link rel="stylesheet" href="/css/register.css">
 <link rel="stylesheet" href="/css/productCart.css">
+<link rel="stylesheet" href="/css/profile.css">
 
 <title>Detalle del producto</title>
 
@@ -34,6 +35,13 @@
                     </div>
                 </div>
             </div>
+            <% if (user.id == userLogged.id) { %>
+                <div class="desplegable">
+                    <a href="/users/edit/<%= user.id %>"<button  class="boton-edit">Modificar Perfil </button> </a> 
+               </div>
+             
+            <% } %>
+            
 
 
         </div>

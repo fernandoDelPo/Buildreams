@@ -127,7 +127,7 @@
             <label for="categoria_id" class="input-label"> Categoría
                 <select id="categoria_id" name='categoria_id' class='form-select spacing <%= locals.errors && errors.categoria_id ? 'is-invalid' : null  %> '>
                     <option value=''>Selecciona una categoría</option>
-                    <% let categorias = ['Herramientas', "Cementos/Cal", "Aberturas", "Hierros/Chapas", "Ladrillos", "Agua/Gas", "Instalaciones", "Pinturas", "Otros" ] %>
+                    <% let categorias = ["Herramientas", "Cementos/Cal", "Aberturas", "Hierros/Chapas", "Ladrillos", "Agua/Gas", "Instalaciones", "Pinturas", "Otros" ] %>
                     <% for( let i = 0; i < categorias.length; i++ ) {  %>
                     <option value='<%= i + 1 %>' <%= locals.oldData && (categorias == oldData.categoria_id) ? 'selected' : null %>> <%= categorias[i] %> </option>
                     <% } %>
