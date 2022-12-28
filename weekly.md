@@ -43,13 +43,15 @@ Asimismo, acordamos modificar el header para que sea visualmente más concreto.
 
 --------------------------------------------------------------------------------------------------------
 
-Quinta reunión weekly: 1 de diciembre.
+Sexta reunión weekly: 1 de diciembre.
 
 Procedimos a verificar el avance en las tareas de cada compañero, con el fin de solucionar errores que se presentaron hasta el momento.
 
 --------------------------------------------------------------------------------------------------------
 
-Quinta reunión weekly: 13 de diciembre.
+Septima reunión weekly: 13 de diciembre.
 
 Nos reunimos para que a todos nos funcione el proyecto vinculado a la Base de Datos. Además hablamos de la posibilidad de modificar algunas vistas como la de productDetail.
 
+Octava reunión weekly: 27 de diciembre. 
+Nos reunimos a traves de meet para conversar sobre la entrega del 7mo sprint. Se decidió subdivir las tareas con el fin de que todos aportemos al proyecto de forma equitativa. Las validaciones del front se van a realizan en 4 plantillas; Matias se encargará del login, Evelyn  del registro de usuario, Fernando de la modificacion del producto y Cristian de la creación del producto. Además, se decretó que el dia viernes 30 de Diciembre se debian subir todas las tareas realizadas con el fin de poder observar y modificar los codigos en caso de que hubieran errores.
