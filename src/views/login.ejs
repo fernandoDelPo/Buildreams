@@ -16,16 +16,12 @@
 
             <div class="bloque">
                 <h4 class="titulosinicio">Clientes Registrados</h4>
-                <% if (locals.errors && errors.email) { %>
-
-                <p class="text-danger">Las credenciales son inválidas</p>
-                <p class="text-danger">Verifique su email o contraseña</p>
-
-                <% } else { %>
-
+                
                 <p>Si tiene una cuenta, inicie sesion con su e-mail y contraseña</p>
 
-                <% } %>
+                <div class="errores">
+                    <ul></ul>
+                </div>
 
 
 
