@@ -57,6 +57,22 @@
     color: var(--Red);
 }
 
+.titulo-errores{
+    color: var(--Red);
+}
+.is-valid {
+    color: var(--Green)
+}
+.is-invalid {
+    color: var(--Red);
+}
+.alert-warning {
+    font-size: 15px;
+    color: var(--Red);
+    background-color: var(--Light-Gray);
+    text-align: left;
+    border-radius: 10px;
+}
 
 @media (min-width: 481px) {
 

@@ -1,20 +1,17 @@
 <%-include('./partials/head') %>
-
 <link rel="stylesheet" href="/css/register.css">
 <link rel="stylesheet" href="/css/style.css">
 <link rel="stylesheet" href="/css/editProduct.css">
 <link rel="stylesheet" href="/css/create-product.css">
 <title>Crear producto</title>
-
 <%- include('partials/header')%>
-
 <main class="main-form">
     <form action="/products" method="POST" class="create-form" id="create-product-form" enctype="multipart/form-data">
         <div class="control-formulario">
             <h4>Crea un nuevo producto:</h4>
         </div>
-
-
+        <h4 class="titulo"></h4>
+        <ul class="errores"></ul>
         <div class="control-formulario">
             <label for="nombre" class="input-label"> Nombre:
                 <input type="text" name="nombre" id="nombre"
@@ -39,7 +36,6 @@
                 <% } %>
             </label>
         </div>
-
         <div class="control-formulario">
             <label for="marca" class="input-label"> Marca:
                 <input type="text" name="marca" id="marca"
@@ -52,7 +48,6 @@
                 <% } %>
             </label>
         </div>
-
         <div class="control-formulario">
             <label for="precio" class="input-label"> Precio:
                 <input type="number" name="precio" id="precio"
@@ -65,7 +60,6 @@
                 <% } %>
             </label>
         </div>
-
         <div class="control-formulario">
             <label for="stock" class="input-label"> Stock:
                 <input type="stock" name="stock" id="stock"
@@ -78,8 +72,6 @@
                 <% } %>
             </label>
         </div>
-
-
         <div class="control-formulario">
             <label for="color" class="input-label"> Color
                 <select id="color" name='color' class='form-select spacing <%= locals.errors && errors.color ? 'is-invalid' : null  %> '>
@@ -96,9 +88,6 @@
                 <% } %>
             </label>
         </div>
-
-
-
         <div class="control-formulario">
             <h4>Promoción:</h4>
             <div class="padre-control">
@@ -121,8 +110,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="control-formulario">
             <label for="categoria_id" class="input-label"> Categoría
                 <select id="categoria_id" name='categoria_id' class='form-select spacing <%= locals.errors && errors.categoria_id ? 'is-invalid' : null  %> '>
@@ -139,9 +126,6 @@
                 <% } %>
             </label>
         </div>
-
-      
-
         <div class="control-formulario">
             <h4 class="image-h4">Selecciona una imagen para el producto:</h4>
             <label for="image-product" class="label-image-product">
@@ -154,7 +138,6 @@
                 <% } %>>
             </label>
         </div>
-
         <br>
         <div class="control-formulario">
             <button type="reset" class="button-form">Limpiar</button>
@@ -162,12 +145,34 @@
         </div>
     </form>
 </main>
-
+<script src="/js/StoreProduct.js"></script>
 <%- include('partials/footer')%>
-
 <%-include('./partials/script-bootstrap') %>
 
-
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
