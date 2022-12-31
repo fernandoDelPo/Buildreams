@@ -1,6 +1,4 @@
 window.onload = function(){
-    let titulo = document.querySelector('.register');
-    titulo.classList.add('Registrarse');
 
 //------DESDE AQUÍ CONTINUE CON LAS VALIDACIONES DEL FORMULARIO -------//   
     form.addEventListener('submit', (e) => {
@@ -18,59 +16,59 @@ window.onload = function(){
         let repassword = document.querySelector('#repassword')
         
         if (nombre.value == '') {
-            errors.push('Debes completar el campo.');
-            nombre.classList.add('es inválido');
+            errors.alert('Debes completar el campo.');
+            nombre.classList.add('is-invalid');
         } else {
-            nombre.classList.add('es válido');
-            nombre.classList.remove('es inválido');
+            nombre.classList.add('is-valid');
+            nombre.classList.remove('is-invalid');
             form.nick.focus();
         };
         if (nick.value == '') {
-            errors.push('El nick no puede estar vacío');
-            nick.classList.add('es inválido');
+            errors.alert('El nick no puede estar vacío');
+            nick.classList.add('is-invalid');
         } else {
-            nick.classList.add('es válido');
-            nick.classList.remove('es inválido');
+            nick.classList.add('is-valid');
+            nick.classList.remove('is-invalid');
             form.email.focus();
         };
         if (email.value == '') {
-            errors.push('El campo enail no puede estar vacío');
-            email.classList.add('es inválido');
+            errors.alert('El campo enail no puede estar vacío');
+            email.classList.add('is-invalid');
         } else {
-            email.classList.add('es válido');
-            email.classList.remove('es inválido');
+            email.classList.add('is-valid');
+            email.classList.remove('is-invalid');
             form.country.focus();
         };
         if (country.value == "") {
-            errors.push('El campo país no puede estar vacio');
-            country.classList.add('es inválido');
+            errors.alert('El campo país no puede estar vacio');
+            country.classList.add('is-invalid');
         } else {
-            country.classList.add('es válido');
-            country.classList.remove('es inválido');
+            country.classList.add('is-valid');
+            country.classList.remove('is-invalid');
             form.image.focus();
         };
         if (image.value == "") {
-            errors.push('Se debe colocar una imagen');
-            image.classList.add('es invalido');
+            errors.alert('Se debe colocar una imagen');
+            image.classList.add('is-invalid');
         } else {
-            image.classList.add('es valido');
-            image.classList.remove('es invalido');
+            image.classList.add('is-valid');
+            image.classList.remove('is-invalid');
             form.password.focus();
         };
         if (password.value == '') {
-            errors.push('El campo titulo no puede estar vacío');
-            password.classList.add('es inválido');
+            errors.alert('El campo titulo no puede estar vacío');
+            password.classList.add('is-invalid');
         } else {
-            password.classList.add('es válido');
-            password.classList.remove('es inválido');
+            password.classList.add('is-valid');
+            password.classList.remove('is-invalid');
             form.repassword.focus();
         };
         if (repassword.value == '') {
-            errors.push('El campo titulo no puede estar vacío');
-            repassword.classList.add('es válido');
+            errors.alert('El campo titulo no puede estar vacío');
+            repassword.classList.add('is-valid');
         } else {
-            repassword.classList.add('es válido');
-            repassword.classList.remove('es inválido');
+            repassword.classList.add('is-valid');
+            repassword.classList.remove('is-invalid');
         };
           //Aquí controlo que es lo que debo hacer si hay o no errores en el formulario
 
