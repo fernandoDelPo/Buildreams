@@ -1,6 +1,7 @@
 <%- include ('./partials/head.ejs')%>
 <link rel="stylesheet" href="/css/register.css">
 
+
 <title>Crear cuenta</title>
 
 <%- include('partials/header')%>
@@ -8,10 +9,13 @@
 
     <main class="main-form">
 
-        <form method="POST" action="/users" class="create-form" enctype="multipart/form-data">
+        <form method="POST" id="register" action="/users" class="create-form" enctype="multipart/form-data">
 
             <div class="control-formulario">
-                <h4 class="register">Completa los datos de inscripción:</h4>
+                <h4 class="registro">Completa los datos de inscripción:</h4>
+            </div> 
+            <div class="errores">
+                <ul></ul>
             </div>
             <div class="control-formulario">
                 <label for="nombre" class="input-label"> Nombre y apellido
@@ -117,7 +121,7 @@
 
     <%- include('partials/footer')%>
     <%-include('./partials/script-bootstrap')%>
-    <script src="/public/js/RegisterValidation.js"></script>
+    <script src="/js/RegisterValidation.js"></script>
     
     </body>
     </html>

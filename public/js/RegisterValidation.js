@@ -1,10 +1,8 @@
-window.onload = function(){
-
-//------DESDE AQUÍ CONTINUE CON LAS VALIDACIONES DEL FORMULARIO -------//   
+window.onload = function () {
+    let form = document.querySelector('#register');
     form.addEventListener('submit', (e) => {
-        let form = document.querySelector('.create-form');
         form.nombre.focus();
-        
+
         let errors = [];
 
         let nombre = document.querySelector('#nombre');
@@ -13,10 +11,10 @@ window.onload = function(){
         let country = document.querySelector('#country');
         let image = document.querySelector('#image');
         let password = document.querySelector('#password');
-        let repassword = document.querySelector('#repassword')
-        
-        if (nombre.value == '') {
-            errors.alert('Debes completar el campo.');
+        let repassword = document.querySelector('#rePassword')
+
+        if (nombre.value == '' || nombre.length < 2) {
+            errors.push('Debes completar el nombre campo y debe tener más de 2 caracteres');
             nombre.classList.add('is-invalid');
         } else {
             nombre.classList.add('is-valid');
@@ -24,7 +22,7 @@ window.onload = function(){
             form.nick.focus();
         };
         if (nick.value == '') {
-            errors.alert('El nick no puede estar vacío');
+            errors.push('El nick o alias no puede estar vacío');
             nick.classList.add('is-invalid');
         } else {
             nick.classList.add('is-valid');
@@ -32,7 +30,7 @@ window.onload = function(){
             form.email.focus();
         };
         if (email.value == '') {
-            errors.alert('El campo enail no puede estar vacío');
+            errors.push('El campo email no puede estar vacío');
             email.classList.add('is-invalid');
         } else {
             email.classList.add('is-valid');
@@ -40,7 +38,7 @@ window.onload = function(){
             form.country.focus();
         };
         if (country.value == "") {
-            errors.alert('El campo país no puede estar vacio');
+            errors.push('Debes seleccionar un país ya que no puede estar vacio');
             country.classList.add('is-invalid');
         } else {
             country.classList.add('is-valid');
@@ -48,7 +46,7 @@ window.onload = function(){
             form.image.focus();
         };
         if (image.value == "") {
-            errors.alert('Se debe colocar una imagen');
+            errors.push('Debes colorar una imagen de perfil');
             image.classList.add('is-invalid');
         } else {
             image.classList.add('is-valid');
@@ -56,7 +54,7 @@ window.onload = function(){
             form.password.focus();
         };
         if (password.value == '') {
-            errors.alert('El campo titulo no puede estar vacío');
+            errors.push('Debes escribir una contraseña');
             password.classList.add('is-invalid');
         } else {
             password.classList.add('is-valid');
@@ -64,25 +62,29 @@ window.onload = function(){
             form.repassword.focus();
         };
         if (repassword.value == '') {
-            errors.alert('El campo titulo no puede estar vacío');
+            errors.push('Debes volver a escribir la contraseña');
             repassword.classList.add('is-valid');
         } else {
             repassword.classList.add('is-valid');
             repassword.classList.remove('is-invalid');
         };
-          //Aquí controlo que es lo que debo hacer si hay o no errores en el formulario
+        //Aquí controlo que es lo que debo hacer si hay o no errores en el formulario
 
         if (errors.length > 0) {
             e.preventDefault();
-            let ulErrors = document.querySelector('.errores');
-            ulErrors.classList.add('alert-warning');
+
+            let ulErrors = document.querySelector('div.errores ul');
+
+            ulErrors.classList.add('push-warning');
+
             ulErrors.innerHTML = '';
             for (let i = 0; i < errors.length; i++) {
                 ulErrors.innerHTML += `<li >  ${errors[i]} </li>`;
             };
-        }else{
-            alert('La validación fué exitosa')
+        } else {
+
             form.submit();
         }
-        })
+
+    })
 }

@@ -24,7 +24,8 @@ window.onload = function(){
             let ulErrors = document.querySelector('div.errores ul');
 
             ulErrors.classList.add('alert-warning');
-
+            
+            ulErrors.innerHTML = '';
             for (let i = 0; i < errors.length; i++) {
                 ulErrors.innerHTML += `<li>  ${errors[i]} </li>`;
             };

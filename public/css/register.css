@@ -299,7 +299,21 @@ button:active {
     background-color: var(--Light-Gray);
     text-align: left;
     border-radius: 10px;
-  }
+}
+.push-warning{
+    color:var(--Red);
+    margin-top: 5px;
+    font-size: 12px;
+    font-style: normal;
+}
+.mostrar{
+    display: block;
+    text-align: left;
+    font-weight: lighter;
+}
+.ocultar{
+    display: none;
+}
 
 @media (min-width: 481px) {
     .header-form {
