@@ -1,7 +1,10 @@
 window.onload = function(){
 
+    let form = document.querySelector('#login');
+
     form.addEventListener('submit', (e) =>{
-        let form = document.querySelector('.login-form');
+        
+        form.email.focus();
 
         let errors = [];
 

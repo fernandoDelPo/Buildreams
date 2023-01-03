@@ -25,7 +25,7 @@
 
 
 
-                <form action="/users/login" method="POST">
+                <form action="/users/login" method="POST" id="login">
 
                     <label for="email" class="input-label"> Email
                         <input type="email" name="email" id="e-mail"
@@ -86,6 +86,7 @@
 
 <%- include('partials/footer')%>
 <%-include('partials/script-bootstrap')%>
+<script src="/js/LoginValidation.js"></script>
 
 </body>
 
