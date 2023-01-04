@@ -17,7 +17,6 @@ Cabe aclarar que este grupo tiene una amplia vision ya que, se incorporan los co
 
 Retrospectiva del 5to sprint: 
 La realización de esta etapa fue incompleta debido a que parte de los integrantes se han ausentado o no hay logrado completar sus tareas ya designadas. Por lo tanto, se va a realizar una nueva reunión para reafirmar las responsabilidades y obligaciones, entendiendo que el trabajo en equipo es fundamental para la realización de este proyecto. 
-<<<<<<< HEAD
 
 Retrospectiva del 6to sprint: 
 En este sprint nos procuramos cumplir con las tareas asignadas a tiempo para que de existir errores o problemas, disponer del tiempo necesario para resolverlos. Finalizamos el sprint a tiempo y dentro de los requerimientos del mismo.  
@@ -28,4 +27,7 @@ Retrospectiva del 6to Sprint:
 Logramos completar todas las tareas ya que hemos dividido las mismas con el fin de que todos puedan participar en esta entrega. 
 Se han realizado mini encuentros entre los miembros trabajando de a parejas para completar el trabajo y lograr completar las especificaciones. 
 Creemos que hemos llegado a un punto en dónde trabajamos de forma audaz y rápida cuando nos dividimos en parejas. Además, sumamos un grupo de wsp para evitar que surjan nuevos inconvenientes en la comunicación 
->>>>>>> 5702c358ce308e6b33709625dd5275c82996df30
+
+Retroespectiva del 7mo sprint:
+Se ha logrado realizar y completar todas las tareas para esta entrega, ya que una parte del trabajo lo habíamos realizado en otro sprint, por lo que el resto se pudo realizar en una semana. Seguimos implementando la modalidad de tareas en parejas, y se ha establecido que el lider natural de este grupo es Fernando debido a que es solidario con los demás y ayuda a todos ya sea en la explicación y en la resolución de problemas. 
+En cuanto a la comunicación, es importante destacar que el grupo se sigue comunicando a traves del wsp por lo que hay una relación fluida y constante en cuanto a los cambios y actualizaciones. 
