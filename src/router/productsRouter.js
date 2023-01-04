@@ -30,7 +30,7 @@ router.post('/', upload.single('imagen'), validations, productController.store);
 
 /*** Editar producto */
 router.get('/editProduct/:id', productController.edit); 
-router.patch('/editProduct/:id', upload.single('imagen'), productController.update); 
+router.patch('/editProduct/:id', upload.single('imagen'), validations, productController.update); 
 
 // /*** Eliminar un producto */
 

@@ -1,3 +1,5 @@
+
+const path = require('path');
 const {
 	body
 } = require('express-validator');
@@ -22,5 +24,22 @@ module.exports = [
 	.matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/, )
 	.withMessage("Debe contener al menos un número, mayúsculas y minúsculas, mínimo 8 o más caracteres"),
 	body('country').notEmpty().withMessage('Tienes que elegir un país'),
+
+	body('image').custom((value, { req }) => {
+		let file = req.file;
+		let extensiones = ['.jpg', '.jpeg', '.png', '.gif'];
+  
+	  if (!file) {
+		// throw new Error("Tienes que subir una imagen")
+	  } else {
+		let imageExt = path.extname(file.originalname)
+		if (!extensiones.includes(imageExt)) {
+		  throw new Error(
+			`Las extensiones permitidas son:  ${extensiones.join(',')}`,
+		  )
+		}
+	  }
+	  return true
+	}),
 
 ];

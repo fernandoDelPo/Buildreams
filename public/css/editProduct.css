@@ -1,18 +1,72 @@
+:root {
+    --Yellow: #fcf300;
+    --Orange: #b3640b;
+    --Blue: #03264C;
+    --Light-Blue: #1259c3;
+    --Dark-Gray: #1e1e1e;
+    --Dark-Gray2: #2c2c2c;
+    --Light-Gray: #ebebeb;
+    --Shadow-Gray: rgb(100, 100, 100);
+    --Gray-Opacity: rgb(0, 0, 0, 0.5);
+    --Green: #39b54a;
+    --White: #ffffff;
+    --Red: #ff0000;
+    --Blue2: #0022AA;
+}
+
+.titulo-errores{
+    color: var(--Red);
+}
+.is-valid {
+    color: var(--Green)
+}
+
+.is-invalid {
+    color: var(--Red);
+}
+
+.alert-warning {
+    font-size: 15px;
+    color: var(--Red);
+    background-color: var(--Light-Gray);
+    text-align: left;
+    border-radius: 10px;
+    font-weight: bold;
+    
+}
+
+.mostrar {
+    display: block;
+    text-align: left;
+    font-weight: lighter;
+}
+
+.mensaje-error{
+    color:var(--Red);
+    margin-top: 5px;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.ocultar {
+    display: none;
+}
 
 
-#edit{
+
+#edit {
     padding-top: 250px;
 }
 
 @media (min-width: 481px) {
 
-   #edit{
+    #edit {
         padding-top: 210px;
     }
 }
 
 @media (min-width: 670px) {
-     #edit {
+    #edit {
         padding-top: 200px;
     }
 }

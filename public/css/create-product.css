@@ -57,6 +57,7 @@
     color: var(--Red);
 }
 
+
 .titulo-errores{
     color: var(--Red);
 }
@@ -72,6 +73,14 @@
     background-color: var(--Light-Gray);
     text-align: left;
     border-radius: 10px;
+}
+.create-form{
+    margin-top: 130px;
+}
+
+
+.form-error{
+        margin-top: 150PX;
 }
 
 @media (min-width: 481px) {

@@ -96,6 +96,45 @@
     border-radius: 3px;
 }
 
+.titulo-errores{
+    color: var(--Red);
+}
+.is-valid {
+    color: var(--Green)
+}
+
+.is-invalid {
+    color: var(--Red);
+}
+
+.alert-warning {
+    font-size: 15px;
+    color: var(--Red);
+    background-color: var(--Light-Gray);
+    text-align: left;
+    border-radius: 10px;
+    font-weight: bold;
+    
+}
+
+.mostrar {
+    display: block;
+    text-align: left;
+    font-weight: lighter;
+}
+
+.mensaje-error{
+    color:var(--Red);
+    margin-top: 5px;
+    font-size: 12px;
+    font-style: normal;
+}
+
+.ocultar {
+    display: none;
+}
+
+
 .padre-control {
     display: flex;
     align-items: center;

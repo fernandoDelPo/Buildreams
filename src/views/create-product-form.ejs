@@ -6,17 +6,19 @@
 <title>Crear producto</title>
 <%- include('partials/header')%>
 <main class="main-form">
-    <form action="/products" method="POST" class="create-form" id="create-product-form" enctype="multipart/form-data">
+    <form action="/products" method="POST" class="create-form" id="form-create-product" enctype="multipart/form-data">
         <div class="control-formulario">
             <h4>Crea un nuevo producto:</h4>
         </div>
         <h4 class="titulo"></h4>
         <ul class="errores"></ul>
+
         <div class="control-formulario">
             <label for="nombre" class="input-label"> Nombre:
                 <input type="text" name="nombre" id="nombre"
                     class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.nombre : null %>">
+                <p id="errorNombre" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.nombre) { %>
                 <div class="text-danger">
                     <%= errors.nombre.msg %>
@@ -29,6 +31,7 @@
                 <input type="text" name="descripcion" id="descripcion"
                     class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.descripcion : null %>">
+                <p id="errorDescripcion" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.descripcion) { %>
                 <div class="text-danger">
                     <%= errors.descripcion.msg %>
@@ -41,6 +44,7 @@
                 <input type="text" name="marca" id="marca"
                     class="form-control <%= locals.errors && errors.marca ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.marca : null %>">
+                <p id="errorMarca" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.marca) { %>
                 <div class="text-danger">
                     <%= errors.marca.msg %>
@@ -53,6 +57,7 @@
                 <input type="number" name="precio" id="precio"
                     class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.precio : null %>">
+                <p id="errorPrecio" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.precio) { %>
                 <div class="text-danger">
                     <%= errors.precio.msg %>
@@ -65,6 +70,7 @@
                 <input type="stock" name="stock" id="stock"
                     class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.stock : null %>">
+                <p id="errorStock" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.stock) { %>
                 <div class="text-danger">
                     <%= errors.stock.msg %>
@@ -74,13 +80,17 @@
         </div>
         <div class="control-formulario">
             <label for="color" class="input-label"> Color
-                <select id="color" name='color' class='form-select spacing <%= locals.errors && errors.color ? 'is-invalid' : null  %> '>
+                <select id="color" name='color'
+                    class='form-select spacing <%= locals.errors && errors.color ? 'is-invalid' : null  %> '>
                     <option value=''>Selecciona un color</option>
                     <% let colores = ["Blanco", "Negro", "Gris Oscuro", "Gris claro", "Plata", "Acero", "Azul", "Verde", "Rojo", "Naranja", "Amarillo", "Rosado", "Violeta", "Marrón", "Celeste", "Otros"] %>
                     <% for( const oneColor of colores ) { %>
-                    <option value='<%= oneColor %>' <%= locals.oldData && (oneColor == oldData.color) ? 'selected' : null %>> <%= oneColor  %> </option>
+                    <option value='<%= oneColor %>'
+                        <%= locals.oldData && (oneColor == oldData.color) ? 'selected' : null %>> <%= oneColor  %>
+                    </option>
                     <% } %>
-                  </select>
+                </select>
+                <p id="errorColor" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.color) { %>
                 <div class="text-danger">
                     <%= errors.color.msg %>
@@ -92,7 +102,7 @@
             <h4>Promoción:</h4>
             <div class="padre-control">
                 <div class="hijo-control">
-                    <select name="descuento"
+                    <select id="descuento" name="descuento"
                         class="form-select <%= locals.errors && errors.descuento ? 'is-invalid' : null %>">
                         <option value=''>Elegí una opción</option>
                         <%  let opciones = [0, 5, 10, 15, 20, 25, 30, 35, 40]; %>
@@ -102,6 +112,7 @@
                             <%= oneOp %> </option>
                         <% } %>
                     </select>
+                    <p id="errorDescuento" class="mensaje-error ocultar"></p>
                     <% if (locals.errors && errors.descuento) { %>
                     <div class="text-danger">
                         <%= errors.descuento.msg %>
@@ -112,13 +123,17 @@
         </div>
         <div class="control-formulario">
             <label for="categoria_id" class="input-label"> Categoría
-                <select id="categoria_id" name='categoria_id' class='form-select spacing <%= locals.errors && errors.categoria_id ? 'is-invalid' : null  %> '>
+                <select id="categoria_id" name='categoria_id'
+                    class='form-select spacing <%= locals.errors && errors.categoria_id ? 'is-invalid' : null  %> '>
                     <option value=''>Selecciona una categoría</option>
                     <% let categorias = ["Herramientas", "Cementos/Cal", "Aberturas", "Hierros/Chapas", "Ladrillos", "Agua/Gas", "Instalaciones", "Pinturas", "Otros" ] %>
                     <% for( let i = 0; i < categorias.length; i++ ) {  %>
-                    <option value='<%= i + 1 %>' <%= locals.oldData && (categorias == oldData.categoria_id) ? 'selected' : null %>> <%= categorias[i] %> </option>
+                    <option value='<%= i + 1 %>'
+                        <%= locals.oldData && (categorias == oldData.categoria_id) ? 'selected' : null %>>
+                        <%= categorias[i] %> </option>
                     <% } %>
-                  </select>
+                </select>
+                <p id="errorCategoria" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.categoria_id) { %>
                 <div class="text-danger">
                     <%= errors.categoria_id.msg %>
@@ -131,12 +146,13 @@
             <label for="image-product" class="label-image-product">
                 <input type="file" name="imagen" id="image-product"
                     class="form-control <%= locals.errors && errors.imagen ? 'is-invalid' : null %>">
-                <% if (locals.errors && errors.imagen) { %>
+            </label>
+            <% if (locals.errors && errors.imagen) { %>
                 <div class="text-danger">
                     <%= errors.imagen.msg %>
                 </div>
                 <% } %>>
-            </label>
+            <p id="errorImage" class="mensaje-error ocultar"></p>
         </div>
         <br>
         <div class="control-formulario">
@@ -145,34 +161,12 @@
         </div>
     </form>
 </main>
-<script src="/js/StoreProduct.js"></script>
+
 <%- include('partials/footer')%>
 <%-include('./partials/script-bootstrap') %>
 
+<script src="/js/StoreProduct.js"></script>
+
 </body>
+
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

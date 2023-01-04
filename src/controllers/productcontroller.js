@@ -120,9 +120,6 @@ const controller = {
                   imagenNew = 'default-image.png'
                }
 
-               console.log(req.body)
-
-
 
                db.Products.create({
                      nombre: req.body.nombre,
@@ -180,9 +177,10 @@ const controller = {
 
          const resultValidation = validationResult(req);
 
-         let product = db.Products.findByPk(req.params.id);
+         let productToEdit = db.Products.findByPk(req.params.id);
          if (resultValidation.errors.length > 0) {
             return res.render("editProduct", {
+               productToEdit,
                errors: resultValidation.mapped(),
                oldData: req.body,
             });
@@ -194,16 +192,16 @@ const controller = {
          let oferta = req.body.descuento > 0 ? 1 : 0 
 
          await db.Products.update({
-            nombre: req.body.nombre || product.nombre,
-            descripcion: req.body.descripcion || product.descripcion,
-            marca: req.body.marca || product.marca,
-            precio: req.body.precio || product.precio,
-            stock: req.body.stock || product.stock,
-            categoria_id: req.body.categoria_id || product.categoria_id,
-            color: req.body.color || product.color,
-            descuento: req.body.descuento || product.descuento,
+            nombre: req.body.nombre || productToEdit.nombre,
+            descripcion: req.body.descripcion || productToEdit.descripcion,
+            marca: req.body.marca || productToEdit.marca,
+            precio: req.body.precio || productToEdit.precio,
+            stock: req.body.stock || productToEdit.stock,
+            categoria_id: req.body.categoria_id || productToEdit.categoria_id,
+            color: req.body.color || productToEdit.color,
+            descuento: req.body.descuento || productToEdit.descuento,
             enOferta: oferta,
-            imagen: req.file == undefined ? product.imgen : req.file.filename,
+            imagen: req.file == undefined ? productToEdit.imagen : req.file.filename,
          }, {
             where: {
                id: req.params.id,

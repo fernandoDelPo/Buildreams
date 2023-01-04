@@ -13,17 +13,21 @@
 
 <main class="main-form" id="edit">
 
-    <form action="/products/editProduct/<%= productToEdit.id %>?_method=PATCH" method="POST" class="create-form" enctype="multipart/form-data">
+    <form action="/products/editProduct/<%= productToEdit.id %>?_method=PATCH" method="POST" class="create-form"
+        id="form-update-product" enctype="multipart/form-data">
 
         <div class="control-formulario">
             <h4>Modifica el producto:</h4>
         </div>
+        <h4 class="titulo"> </h4>
+        <ul class="errores"></ul>
 
         <div class="control-formulario">
             <label for="nombre" class="input-label"> Nombre:
                 <input type="text" name="nombre" id="nombre"
                     class="form-control <%= locals.errors && errors.nombre ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.nombre : productToEdit.nombre %>">
+                <p id="errorNombre" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.nombre) { %>
                 <div class="text-danger">
                     <%= errors.nombre.msg %>
@@ -36,6 +40,7 @@
                 <input type="text" name="descripcion" id="descripcion"
                     class="form-control <%= locals.errors && errors.descripcion ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.descripcion : productToEdit.descripcion %>">
+                <p id="errorDescripcion" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.descripcion) { %>
                 <div class="text-danger">
                     <%= errors.descripcion.msg %>
@@ -49,6 +54,7 @@
                 <input type="text" name="marca" id="marca"
                     class="form-control <%= locals.errors && errors.marca ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.marca : productToEdit.marca %>">
+                <p id="errorMarca" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.marca) { %>
                 <div class="text-danger">
                     <%= errors.marca.msg %>
@@ -62,6 +68,7 @@
                 <input type="number" name="precio" id="precio"
                     class="form-control <%= locals.errors && errors.precio ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.precio : productToEdit.precio %>">
+                <p id="errorPrecio" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.precio) { %>
                 <div class="text-danger">
                     <%= errors.precio.msg %>
@@ -75,6 +82,7 @@
                 <input type="stock" name="stock" id="stock"
                     class="form-control <%= locals.errors && errors.stock ? 'is-invalid' : null %>"
                     value="<%= locals.oldData ? oldData.stock : productToEdit.stock %>">
+                <p id="errorStock" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.stock) { %>
                 <div class="text-danger">
                     <%= errors.stock.msg %>
@@ -96,6 +104,7 @@
                         <%= oneColor  %> </option>
                     <% } %>
                 </select>
+                <p id="errorColor" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.color) { %>
                 <div class="text-danger">
                     <%= errors.color.msg %>
@@ -110,7 +119,7 @@
             <h4>Promoción:</h4>
             <div class="padre-control">
                 <div class="hijo-control">
-                    <select name="descuento"
+                    <select id="descuento" name="descuento"
                         class="form-select <%= locals.errors && errors.descuento ? 'is-invalid' : null %>">
                         <option value=''>Elegí una opción</option>
                         <%  let opciones = [0, 5, 10, 15, 20, 25, 30, 35, 40]; %>
@@ -120,6 +129,7 @@
                             <%= oneOp %> </option>
                         <% } %>
                     </select>
+                    <p id="errorDescuento" class="mensaje-error ocultar"></p>
                     <% if (locals.errors && errors.descuento) { %>
                     <div class="text-danger">
                         <%= errors.descuento.msg %>
@@ -142,6 +152,7 @@
                         <%= categorias[i] %> </option>
                     <% } %>
                 </select>
+                <p id="errorCategoria" class="mensaje-error ocultar"></p>
                 <% if (locals.errors && errors.categoria_id) { %>
                 <div class="text-danger">
                     <%= errors.categoria_id.msg %>
@@ -155,7 +166,7 @@
         <div class="control-formulario">
             <h4 class="image-h4">Selecciona una imagen para el producto:</h4>
             <label for="image-product" class="label-image-product">
-                <input type="file" name="imagen" id="image-product"
+                <input accept=".png, .jpeg, .jpg, .gif"  type="file" name="imagen" id="image-product"
                     class="form-control <%= locals.errors && errors.imagen ? 'is-invalid' : null %>">
                 <% if (locals.errors && errors.imagen) { %>
                 <div class="text-danger">
@@ -163,6 +174,7 @@
                 </div>
                 <% } %>>
             </label>
+            <p id="errorImage" class="mensaje-error ocultar"></p>
         </div>
 
 
@@ -174,10 +186,11 @@
     </form>
 </main>
 
+
 <%- include('partials/footer')%>
 
 <%-include('./partials/script-bootstrap.ejs') %>
-
+<script src="/js/UpdateProducts.js"></script>
 
 </body>
 

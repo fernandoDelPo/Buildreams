@@ -1,6 +1,6 @@
 window.onload = function () {
 
-    let form = document.querySelector('#form-create-product');
+    let form = document.querySelector('#form-update-product');
     let titulo = document.querySelector('.titulo')
 
 
@@ -204,6 +204,7 @@ window.onload = function () {
             listaErrores.innerHTML = '';
             titulo.classList.add('titulo-errores')
             titulo.innerHTML = 'Verifica los errores:'
+            
             for (let i = 0; i < errors.length; i++) {
                 listaErrores.innerHTML += `<li >  ${errors[i]} </li>`;
             };
@@ -218,13 +219,3 @@ window.onload = function () {
 
 
 }
-
-
-
-
-
-
-
-
-
-

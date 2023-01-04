@@ -3,6 +3,22 @@ main {
     margin: 0 auto;
 }
 
+:root {
+    --Yellow: #fcf300;
+    --Orange: #b3640b;
+    --Blue: #03264C;
+    --Light-Blue: #1259c3;
+    --Dark-Gray: #1e1e1e;
+    --Dark-Gray2: #2c2c2c;
+    --Light-Gray: #ebebeb;
+    --Shadow-Gray: rgb(100, 100, 100);
+    --Gray-Opacity: rgb(0, 0, 0, 0.5);
+    --Green: #39b54a;
+    --White: #ffffff;
+    --Red: #ff0000;
+    --Blue2: #0022AA;
+}
+
 h1 {
     margin: 10px;
     font-size: 30px;
@@ -20,11 +36,18 @@ h1 {
     flex-direction: column;
 }
 
+.errores-log{
+    margin: auto;
+    width: 90%;
+    padding: 5px;
+
+}
+
 .bloque {
     justify-content: center;
     text-align: center;
     margin: 10px;
-    background-color: #2c2c2cfa;
+    background-color:var(--Dark-Gray2);
     color: white;
     padding: 10px;
 }
@@ -42,7 +65,7 @@ a {
 }
 
 main p {
-    background-color: #3b3b3bfa;
+    background-color: var(--Dark-Gray2);
     margin-bottom: 8px;
 }
 
@@ -55,6 +78,10 @@ main form {
 
 form p {
     margin: 8px;
+}
+
+#remember{
+    margin: 10px;
 }
 
 .botoninicio {

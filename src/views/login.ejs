@@ -1,5 +1,6 @@
 <%- include('partials/head')%>
-
+<link rel="stylesheet" href="/css/editProduct.css">
+<link rel="stylesheet" href="/css/create-product.css">
 <link rel="stylesheet" href="/css/login.css">
 <title>LogIn</title>
 
@@ -15,22 +16,24 @@
         <div class="login">
 
             <div class="bloque">
-                <h4 class="titulosinicio">Clientes Registrados</h4>
+                <h4 class="titulosinicio">Bienvenido a Buildreams</h4>
                 
                 <p>Si tiene una cuenta, inicie sesion con su e-mail y contraseña</p>
 
-                <div class="errores">
+                <h4 class="titulo"> </h4>
+                <div id="errores" class="errores-log">
                     <ul></ul>
                 </div>
 
 
 
-                <form action="/users/login" method="POST">
+                <form id="login-form" action="/users/login" method="POST">
 
                     <label for="email" class="input-label"> Email
-                        <input type="email" name="email" id="e-mail"
+                        <input type="text" name="email" id="e-mail"
                             class="form-control"
                             value="<%= locals.oldData ? oldData.email : null %>">
+                            <p id="errorEmail" class="mensaje-error ocultar"></p>
                         <% if (locals.errors && errors.email) { %>
                         <div class="text-danger">
                             <%= errors.email.msg %>
@@ -40,6 +43,7 @@
 
                     <label for="password" class="input-label"> Contraseña
                         <input type="password" name="password" id="password" class="form-control">
+                        <p id="errorPassword" class="mensaje-error ocultar"></p>
                         <% if (locals.errors && errors.password) { %>
                         <div class="text-danger">
                             <%= errors.password.msg %>
@@ -86,7 +90,7 @@
 
 <%- include('partials/footer')%>
 <%-include('partials/script-bootstrap')%>
-
+<script src="/js/LoginValidation.js"></script>
 </body>
 
 </html>
