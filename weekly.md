@@ -52,7 +52,9 @@ Procedimos a verificar el avance en las tareas de cada compañero, con el fin de
 Septima reunión weekly: 13 de diciembre.
 
 Nos reunimos para que a todos nos funcione el proyecto vinculado a la Base de Datos. Además hablamos de la posibilidad de modificar algunas vistas como la de productDetail.
---------------------------------------------------------------------------------------------------------
+
+-------------------------------------------------------------------------------------------------------
+
 Octava reunión weekly: 27 de diciembre. 
 Nos reunimos a traves de meet para conversar sobre la entrega del 7mo sprint. Se decidió subdivir las tareas con el fin de que todos aportemos al proyecto de forma equitativa. Las validaciones del front se van a realizan en 4 plantillas; Matias se encargará del login, Evelyn  del registro de usuario, Fernando de la modificacion del producto y Cristian de la creación del producto. Además, se decretó que el dia viernes 30 de Diciembre se debian subir todas las tareas realizadas con el fin de poder observar y modificar los codigos en caso de que hubieran errores.
 
@@ -62,4 +64,13 @@ Novena reunión weekly: 2 de Enero del 2023
 Fernando ha realizado la validación del login debido a que matías se encontraba de viaje por lo que se le imposibilitaba realizar la tarea.
 Se reunieron Fernando y Cristian para poder terminar la validación de los productos, ya que un compañero se encontraba atravesando un situacion dificil y se le dificultaba poder realizar esta tarea. 
 Además se reunieron Fernando y Evelyn para arreglar la validacion en el registro ya que no se visualizaba en la pagina, por lo que se tuvo que agregar diversos comandos, por lo que se ha solucionado el conflicto. 
+
 --------------------------------------------------------------------------------------------------------
+
+Decima reunuin weekly: 11 de Enero del 2023
+
+Nos reunimos via meet para conversar sobre la ultima entrega. Se procedió a leer todas las indicaciones y se decidió crear una estructura para que funcione el react. Además, se evacuaron diversas dudas en cuanto a como programar o codear por lo que, se conversó sobre como vamos a realizar cada funcionalidad. 
+Finalmente, hemos decidido realizar el sprint utilizando el horario de clase para que todos podamos participar y aprender en colaboración. 
+
+
+
