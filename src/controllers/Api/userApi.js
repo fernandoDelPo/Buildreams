@@ -6,7 +6,7 @@ const db = require("../../database/models");
 const userApi = {
   allUsers: (req, res) => {
     db.Users.findAll({
-      attributes: ["id", "fullName", "email"],
+      attributes: ["id", "nombre", "nick", "email"],
     })
       .then((users) => {
         for (let i = 0; i < users.length; i++) {
@@ -28,15 +28,15 @@ const userApi = {
   },
 
   profile: (req, res) => {
-    db.User.findByPk(parseInt(req.params.id, 10))
+    db.Users.findByPk(parseInt(req.params.id, 10))
       .then((user) => {
         let response = {
           id: user.id,
-          name: user.fullName,
-          username: user.userName,
+          nombre: user.nombre,
+          nick: user.nick,
           email: user.email,
           country: user.country,
-          avatar: `http://localhost:${process.env.PORT}/images/avatars/${user.avatar}`,
+          image: `http://localhost:${process.env.PORT}/images/avatars/${user.image}`,
         };
         res.status(200).json(response);
       })
