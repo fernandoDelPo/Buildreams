@@ -3,7 +3,7 @@ import image from '../assets/images/buildreams.png';
 import { Route, Link, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import ContentWrapper from './ContentWrapper';
-import CategoryInDb from './CategoryInDb';
+import CategoriaInDb from './CategoriaInDb';
 import LastProductInDb from './LastProductInDb';
 import ContentRowProducts from './ContentRowProducts';
 import Error404 from './Error404';
@@ -110,7 +110,7 @@ function SideBar() {
 
             <Routes>
                 <Route exat path='/' element={<ContentWrapper />} />
-                <Route path='/CategoryInDb' element={<CategoryInDb />} />
+                <Route path='/CategoryInDb' element={<CategoriaInDb />} />
                 <Route path='/LastProductInDb' element={<LastProductInDb />} />
                 <Route path='/ContentRowProducts' element={<ContentRowProducts products={products} users={users} />} />
                 <Route path='/table' element={<Product />} />

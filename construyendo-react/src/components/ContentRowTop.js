@@ -1,5 +1,5 @@
 import React from 'react';
-import GenresInDb from './GenresInDb';
+import CategoriaInDb from './CategoriaInDb';
 import ContentRowProducts from './ContentRowProducts';
 import LastProductInDb from './LastProductInDb';
 function ContentRowTop(){
@@ -11,21 +11,21 @@ function ContentRowTop(){
 						<h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
 					</div>
 				
-					{/*<!-- Content Row Movies-->*/}
+					{/*<!-- Content Row Product-->*/}
 					<ContentRowProducts />
-					{/*<!-- End movies in Data Base -->*/}
+					{/*<!-- End Product in Data Base -->*/}
 					
 	
-					{/*<!-- Content Row Last Movie in Data Base -->*/}
+					{/*<!-- Content Row Last Product in Data Base -->*/}
 					<div className="row">
-						{/*<!-- Last Movie in DB -->*/}
+						{/*<!-- Last Product in DB -->*/}
 						<LastProductInDb />
-						{/*<!-- End content row last movie in Data Base -->*/}
+						{/*<!-- End content row last Product in Data Base -->*/}
 
-						{/*<!-- Genres in DB -->*/}
-						<GenresInDb />
+						{/*<!-- Categorias in DB -->*/}
+						<CategoriaInDb />
 
-						{/*<!--End Genres In Db-->*/}		
+						{/*<!--End Categorias In Db-->*/}		
 					</div>
 				</div>
 				{/*<!--End Content Row Top-->*/}

@@ -42,7 +42,7 @@ class Movie extends Component{
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Titulo</th>
+                                    <th>Nombrre</th>
                                     <th>Calificación</th>
                                     <th>Premios</th>
                                     <th>Duración</th>

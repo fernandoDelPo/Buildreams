@@ -1,5 +1,5 @@
 import React ,{ useEffect } from 'react';
-import Genre  from './Genre';
+import Genre  from './Categoria';
 import { useState } from 'react';
 
 function GenresInDb() {

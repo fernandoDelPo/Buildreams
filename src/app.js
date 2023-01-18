@@ -32,13 +32,15 @@ const mainRouter = require('./router/mainRouter');
 const productsRouter = require('./router/productsRouter');
 const userRouter = require('./router/userRouter');
 const productsApiRouter = require("./router/Api/productsApi.routes");
-const usersApiRouter = require("./router/Api/usersApi.routes")
+const usersApiRouter = require("./router/Api/usersApi.routes");
+const categoriasApiRouter = require ('./router/Api/categoriasApi.routes');
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', userRouter);
 app.use("/api/users", usersApiRouter);
 app.use("/api/products", productsApiRouter);
+app.use("/api/categorias", categoriasApiRouter);
 
 
 

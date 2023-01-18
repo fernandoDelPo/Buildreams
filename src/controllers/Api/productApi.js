@@ -5,7 +5,7 @@ const productApi = {
   list: (req, res) => {
     db.Products.findAll()
       .then((products) => {
-        let countHerramientas = 0;
+        var countHerramientas = 0;
         let countCementosCal = 0;
         let countAberturas = 0;
         let countHierroChapa = 0;
@@ -14,30 +14,30 @@ const productApi = {
         let countInstalaciones = 0;
         let countPinturas = 0;
         let countOtros = 0;
-        
+
         /* Contador de productos por categoria */
         for (let i = 1; i < products.length; i++) {
           if (products[i].category_id == 1) {
             countHerramientas += 1;
-          } else if (products[i].category_id == 2){
+          } else if (products[i].category_id == 2) {
             countCementosCal += 1;
-          } else if (products[i].category_id == 3){
+          } else if (products[i].category_id == 3) {
             countAberturas += 1;
-          } else if (products[i].category_id == 4){
+          } else if (products[i].category_id == 4) {
             countHierroChapa += 1;
-          } else if (products[i].category_id == 5){
+          } else if (products[i].category_id == 5) {
             countLadrillos += 1;
-          } else if (products[i].category_id == 6){
+          } else if (products[i].category_id == 6) {
             countAguaGas += 1;
-          } else if (products[i].category_id == 7){
+          } else if (products[i].category_id == 7) {
             countInstalaciones += 1;
-          } else if (products[i].category_id == 8){
+          } else if (products[i].category_id == 8) {
             countPinturas += 1;
           } else {
             countOtros += 1;
           }
         }
-        
+
         for (let i = 0; i < products.length; i++) {
           products[i].setDataValue(
             "detail",
@@ -45,7 +45,7 @@ const productApi = {
           );
         }
 
-        
+
         for (let i = 0; i < products.length; i++) {
           products[i].setDataValue(
             "pathImg",
@@ -53,35 +53,54 @@ const productApi = {
           );
         }
 
+        var enOferta = 0;
+        products.forEach(product => {
+          if (product.enOferta == 1) {
+            enOferta += 1;
+          }
+        });
+
+
         let response = {
+          products: products,
+          countHerramientas: countHerramientas,
+          countCementosCal: countCementosCal,
+          countAberturas: countAberturas,
+          countHierroChapa: countHierroChapa,
+          countLadrillos: countLadrillos,
+          countAguaGas: countAguaGas,
+          countInstalaciones: countInstalaciones,
+          countPinturas: countPinturas,
+          countOtros: countOtros,
+          oferta: enOferta,
           count: products.length,
           countByCategory: [{
-              herramientas: countHerramientas,
-            },
-            {
+            herramientas: countHerramientas,
+          },
+          {
             cementos: countCementosCal,
-            },
-            {
+          },
+          {
             aberturas: countAberturas,
-            },
-            {
+          },
+          {
             hierrosChapas: countHierroChapa,
-            },
-            {
+          },
+          {
             ladrillos: countLadrillos,
-            },
-            {
+          },
+          {
             aguaGas: countAguaGas,
-            },
-            {
+          },
+          {
             instalaciones: countInstalaciones,
-            },
-            {
+          },
+          {
             pinturas: countPinturas,
-            },
-            {
-              otros: countOtros,
-            },
+          },
+          {
+            otros: countOtros,
+          },
           ],
           data: products,
           status: 200,
@@ -129,10 +148,10 @@ const productApi = {
 
   delete: (req, res) => {
     db.Product.destroy({
-        where: {
-          id: parseInt(req.params.id, 10)
-        },
-      })
+      where: {
+        id: parseInt(req.params.id, 10)
+      },
+    })
       .then(() => {
         return res.json("Product Deleted");
       })
@@ -143,12 +162,12 @@ const productApi = {
 
   search: (req, res) => {
     db.Product.findAll({
-        where: {
-          productName: {
-            [Op.like]: "%" + req.query.keyword + "%"
-          },
+      where: {
+        productName: {
+          [Op.like]: "%" + req.query.keyword + "%"
         },
-      })
+      },
+    })
       .then((products) => {
         if (products.length > 0) {
           /* Imprime url de la foto para consumir */

@@ -3,25 +3,24 @@
 import React, {Component} from 'react';
 
 //Importar nuestro componente
-import MovieList from './MovieList';
+import ProductList from './ProductList';
 
-class Movie extends Component{
+class Product extends Component{
     constructor(){
         super()
         this.state ={
-            movies : []
+            products : []
         }
     }
     //Compomentes Ciclo de vida - Montar - Actualizar - Desmontar
     //Montaje
     componentDidMount(){
-        fetch('/api/movies')
+        fetch('/api/products')
         .then(respuesta =>{
             return respuesta.json()
         })
-        .then(movies =>{
-            //console.log(movies)
-            this.setState({movies: movies.data})
+        .then(products =>{
+            this.setState({products: products.data})
         })
         .catch(error => console.log(error))
 
@@ -31,8 +30,8 @@ class Movie extends Component{
     render(){
         return (
             <React.Fragment>
-            {/*<!-- MOVIES LIST -->*/}
-            <h1 className="h3 mb-2 text-gray-800 ">All the movies in the Database</h1>
+            {/*<!-- Products LIST -->*/}
+            <h1 className="h3 mb-2 text-gray-800 ">Todos los productos en la Base de Datos</h1>
             
             {/*<!-- DataTales Example -->*/}
             <div className="card shadow mb-4">
@@ -42,26 +41,26 @@ class Movie extends Component{
                             <thead>
                                 <tr>
                                     <th>Id</th>
-                                    <th>Titulo</th>
-                                    <th>Calificación</th>
-                                    <th>Premios</th>
-                                    <th>Duración</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Color</th>
+                                    <th>Stock</th>
                                 </tr>
                             </thead>
                             <tfoot>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Titulo</th>
-                                    <th>Calificación</th>
-                                    <th>Premios</th>
-                                    <th>Duración</th>
+                                <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Precio</th>
+                                    <th>Color</th>
+                                    <th>Stock</th>
                                 </tr>
                             </tfoot>
                             <tbody>
                                 {
                                     //console.log(this.state.movies)
-                                    this.state.movies.map((movie,index)=>{
-                                        return <MovieList  {...movie} key={index}  />
+                                    this.state.products.map((product,index)=>{
+                                        return <ProductList  {...product} key={index}  />
                                     })
                                 }
                             </tbody>
@@ -74,4 +73,4 @@ class Movie extends Component{
     )
     }
 }
-export default Movie;
+export default Product;

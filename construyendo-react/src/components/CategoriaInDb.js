@@ -1,27 +1,24 @@
 import React ,{ useEffect } from 'react';
-import Genre  from './Genre';
+import Categoria  from './Categoria';
 import { useState } from 'react';
 
-function GenresInDb() {
+function CategoriaInDb() {
 
-    const [ genresList, SetGenresList ]= useState([])  
+    const [ categoryList, SetCategoriasList ]= useState([])  
 
    useEffect( () => {
-    fetch('/api/genres')
+    fetch('http://localhost:3030/api/categorias')
             .then( respuesta => {
                 return respuesta.json()
             })
-            .then(genres => {
+            .then(categorias => {
                 
-                SetGenresList(genres.data)
+                SetCategoriasList(categorias.data)
                 
             })
 
 
    }, [])
-
-
-    
 
 
         return (
@@ -30,13 +27,13 @@ function GenresInDb() {
                     <div className="col-lg-6 mb-4">						
                         <div className="card shadow mb-4">
                             <div className="card-header py-3">
-                                <h6    className="m-0 font-weight-bold text-gray-800">Genres in Data Base</h6>
+                                <h6    className="m-0 font-weight-bold text-gray-800">Categorías de productos en DB</h6>
                             </div>
                             <div className="card-body fondoCaja">
                                 <div className="row">
                                     {
-                                        genresList.map((genre,index)=>{
-                                            return  <Genre  {...genre}  key={index} />
+                                        categoryList.map((category, index)=>{
+                                            return  <Categoria  {...category}  key={index} />
                                         })
                                     }
                                 </div>
@@ -50,4 +47,4 @@ function GenresInDb() {
     }
 
 
-export default GenresInDb;
+export default CategoriaInDb;

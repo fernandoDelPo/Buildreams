@@ -20,7 +20,6 @@ class User extends Component{
             return respuesta.json()
         })
         .then(user =>{
-            //console.log(users)
             this.setState({users: user.data})
         })
         .catch(error => console.log(error))
