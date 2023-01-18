@@ -1,9 +1,11 @@
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
+const cors = require("cors");
 const methodOverride= require('method-override');
 const cookies = require('cookie-parser');
 const auth = require('./middlewares/auth/userLogMiddleware');
+
 
 const app = express();
 
@@ -21,6 +23,7 @@ app.use(session({
 app.use(cookies());
 app.use(methodOverride('_method'))
 app.use(auth);
+app.use(cors());
 
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
@@ -28,10 +31,15 @@ app.set('view engine', 'ejs');
 const mainRouter = require('./router/mainRouter');
 const productsRouter = require('./router/productsRouter');
 const userRouter = require('./router/userRouter');
+const productsApiRouter = require("./router/Api/productsApi.routes");
+const usersApiRouter = require("./router/Api/usersApi.routes")
 
 app.use('/', mainRouter);
 app.use('/products', productsRouter);
 app.use('/users', userRouter);
+app.use("/api/users", usersApiRouter);
+app.use("/api/products", productsApiRouter);
+
 
 
 

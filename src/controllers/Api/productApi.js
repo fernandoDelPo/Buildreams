@@ -2,43 +2,85 @@ let db = require("../../database/models");
 const Op = db.Sequelize.Op;
 
 const productApi = {
-  products: (req, res) => {
+  list: (req, res) => {
     db.Products.findAll()
       .then((products) => {
-        let countTotal = 0;
-        let countByCategory = 1;
+        let countHerramientas = 0;
+        let countCementosCal = 0;
+        let countAberturas = 0;
+        let countHierroChapa = 0;
+        let countLadrillos = 0;
+        let countAguaGas = 0;
+        let countInstalaciones = 0;
+        let countPinturas = 0;
+        let countOtros = 0;
+        
         /* Contador de productos por categoria */
         for (let i = 1; i < products.length; i++) {
-          if (products[i].category == "Women´s") {
-            countByCategory += 1;
+          if (products[i].category_id == 1) {
+            countHerramientas += 1;
+          } else if (products[i].category_id == 2){
+            countCementosCal += 1;
+          } else if (products[i].category_id == 3){
+            countAberturas += 1;
+          } else if (products[i].category_id == 4){
+            countHierroChapa += 1;
+          } else if (products[i].category_id == 5){
+            countLadrillos += 1;
+          } else if (products[i].category_id == 6){
+            countAguaGas += 1;
+          } else if (products[i].category_id == 7){
+            countInstalaciones += 1;
+          } else if (products[i].category_id == 8){
+            countPinturas += 1;
           } else {
-            countTotal += 1;
+            countOtros += 1;
           }
         }
-        /* Imprime campo detail en producto con url api */
+        
         for (let i = 0; i < products.length; i++) {
           products[i].setDataValue(
             "detail",
-            `http://localhost:${process.env.PORT}/api/products/${products[i].id}`
+            `http://localhost:3030/api/products/${products[i].id}`
           );
         }
 
-        /* Imprime url de la foto para consumir */
+        
         for (let i = 0; i < products.length; i++) {
           products[i].setDataValue(
             "pathImg",
-            `http://localhost:${process.env.PORT}/images/shoes-img/${products[i].productName}/${products[i].img}`
+            `http://localhost:3030/images/products/${products[i].imagen}`
           );
         }
 
         let response = {
           count: products.length,
-          countByCategory: [
-            {
-              men: countMens,
+          countByCategory: [{
+              herramientas: countHerramientas,
             },
             {
-              women: countWomens,
+            cementos: countCementosCal,
+            },
+            {
+            aberturas: countAberturas,
+            },
+            {
+            hierrosChapas: countHierroChapa,
+            },
+            {
+            ladrillos: countLadrillos,
+            },
+            {
+            aguaGas: countAguaGas,
+            },
+            {
+            instalaciones: countInstalaciones,
+            },
+            {
+            pinturas: countPinturas,
+            },
+            {
+              otros: countOtros,
             },
           ],
           data: products,
@@ -51,7 +93,7 @@ const productApi = {
   },
 
   productDetail: (req, res) => {
-    db.Product.findByPk(req.params.id)
+    db.Products.findByPk(req.params.id)
       .then(function (productSelected) {
         let response = {
           id: productSelected.id,
@@ -61,7 +103,7 @@ const productApi = {
           color: productSelected.color,
           price: productSelected.price,
           size: productSelected.size,
-          pathImg: `http://localhost:${process.env.PORT}/images/shoes-img/${productSelected.productName}/${productSelected.img}`,
+          pathImg: `http://localhost:3030/images/shoes-img/${productSelected.imgen}`,
           status: 200,
         };
 
@@ -87,8 +129,10 @@ const productApi = {
 
   delete: (req, res) => {
     db.Product.destroy({
-      where: { id: parseInt(req.params.id, 10) },
-    })
+        where: {
+          id: parseInt(req.params.id, 10)
+        },
+      })
       .then(() => {
         return res.json("Product Deleted");
       })
@@ -99,17 +143,19 @@ const productApi = {
 
   search: (req, res) => {
     db.Product.findAll({
-      where: {
-        productName: { [Op.like]: "%" + req.query.keyword + "%" },
-      },
-    })
+        where: {
+          productName: {
+            [Op.like]: "%" + req.query.keyword + "%"
+          },
+        },
+      })
       .then((products) => {
         if (products.length > 0) {
           /* Imprime url de la foto para consumir */
           for (let i = 0; i < products.length; i++) {
             products[i].setDataValue(
               "pathImg",
-              `http://localhost:${process.env.PORT}/images/shoes-img/${products[i].productName}/${products[i].img}`
+              `http://localhost:3030/images/shoes-img/${products[i].img}`
             );
           }
           res.status(200).json({
@@ -129,14 +175,17 @@ const productApi = {
   },
 
   checkout: async function (req, res) {
-    let order = await db.Order.create(
-      {
-        ...req.body,
-        userId: req.session.userLogged.id,
-      },
-      { include: db.Order.OrderItems }
-    );
-    res.json({ ok: true, status: 200, order: order });
+    let order = await db.Order.create({
+      ...req.body,
+      userId: req.session.userLogged.id,
+    }, {
+      include: db.Order.OrderItems
+    });
+    res.json({
+      ok: true,
+      status: 200,
+      order: order
+    });
   },
 };
 

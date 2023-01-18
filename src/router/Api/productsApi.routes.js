@@ -7,7 +7,7 @@ const router = express.Router();
 const productApi = require("../../controllers/Api/productApi");
 
 // Todos los productos http://localhost:3020/api/products
-router.get("/", productApi.products);
+router.get("/", productApi.list);
 
 // Buscar producto http://localhost:3020/api/products/search?keyword=nike
 router.get("/search", productApi.search);
