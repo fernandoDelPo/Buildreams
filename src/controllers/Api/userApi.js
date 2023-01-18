@@ -6,7 +6,7 @@ const db = require("../../database/models");
 const userApi = {
   allUsers: (req, res) => {
     db.Users.findAll({
-      attributes: ["id", "nombre", "nick", "email"],
+      attributes: ["id", "nombre", "nick", "email", "image"],
     })
       .then((users) => {
         for (let i = 0; i < users.length; i++) {
@@ -16,8 +16,16 @@ const userApi = {
           );
         }
 
+        let countAdmin = 0;
+        users.forEach(user => {
+          if (user.category == "admin"){
+            countAdmin += 1;
+          }
+        });
+
         let response = {
           count: users.length,
+          countAdmin: countAdmin,
           users: users,
           status: 200,
         };

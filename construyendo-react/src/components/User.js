@@ -19,8 +19,8 @@ class User extends Component{
         .then(respuesta =>{
             return respuesta.json()
         })
-        .then(user =>{
-            this.setState({users: user.data})
+        .then(users =>{
+            this.setState({users: users.data})
         })
         .catch(error => console.log(error))
 
@@ -44,7 +44,8 @@ class User extends Component{
                                     <th>Nombre</th>
                                     <th>Nick</th>
                                     <th>Email</th>
-                                    <th>Images</th>
+                                    <th>country</th>
+                                    <th>Imagen</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -53,6 +54,7 @@ class User extends Component{
                                     <th>Nombre</th>
                                     <th>Nick</th>
                                     <th>Email</th>
+                                    <th>country</th>
                                     <th>Imagen</th>
                                 </tr>
                             </tfoot>

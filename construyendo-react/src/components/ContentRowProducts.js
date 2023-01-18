@@ -9,6 +9,7 @@ function ContentRowProducts() {
 
     const [products, setProducts] = useState([])
 
+    const [users, setUsers] = useState([])
 
 
     const getProducts = () => {
@@ -20,6 +21,18 @@ function ContentRowProducts() {
     useEffect(() => {
         getProducts()
     }, [])
+
+    const getUsers = () => {
+
+        fetch('http://localhost:3030/api/users')
+            .then((response) => response.json())
+            .then((data) => setUsers(data))
+    }
+    useEffect(() => {
+        getUsers()
+    }, [])
+
+
 
 
     let productInDataBase = {
@@ -39,14 +52,14 @@ function ContentRowProducts() {
     let amount = {
         color: "success",
         titulo: "Cantidad de Usuarios",
-        valor: 7,
+        valor: users.count,
         icono: "fas fa-award",
     }
 
     let user = {
         color: "warning",
         titulo: "Usuarios Administradores",
-        valor: 4,
+        valor: users.countAdmin,
         icono: "fas fa-user",
     }
 
@@ -61,8 +74,8 @@ function ContentRowProducts() {
             {/*<!-- Content Row -->*/}
             <div className="row">
                 {
-                    cardProps.map((producto, index) => {
-                        return <SmallCard  {...producto} key={index} />
+                    cardProps.map((product, index) => {
+                        return <SmallCard  {...product} key={index} />
                     })
                 }
             </div>

@@ -8,6 +8,7 @@ function UserList(props){
                 <td>{props.nombre}</td>
                 <td>{props.nick}</td>
                 <td>{props.email}</td>
+                <td>{props.country}</td>
                 <td>{props.image}</td>
             </tr>
         </React.Fragment>
