@@ -45,7 +45,7 @@ class User extends Component{
                                     <th>Nick</th>
                                     <th>Email</th>
                                     <th>Country</th>
-                                    <th>Imagen</th>
+                                    
                                 </tr>
                             </thead>
                             <tfoot>
@@ -54,8 +54,7 @@ class User extends Component{
                                     <th>Nombre</th>
                                     <th>Nick</th>
                                     <th>Email</th>
-                                    <th>Country</th>
-                                    <th>Imagen</th>
+                                    <th>Country</th>                              
                                 </tr>
                             </tfoot>
                             <tbody>
