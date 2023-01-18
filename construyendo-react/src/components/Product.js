@@ -49,7 +49,7 @@ class Product extends Component{
                             </thead>
                             <tfoot>
                                 <tr>
-                                <th>Id</th>
+                                    <th>Id</th>
                                     <th>Nombre</th>
                                     <th>Precio</th>
                                     <th>Color</th>

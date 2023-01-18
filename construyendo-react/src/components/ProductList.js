@@ -1,16 +1,16 @@
 import React from 'react';
 
-function MovieList(props){
+function ProductList(props){
     return (
         <React.Fragment>
             <tr>
                 <td>{props.id}</td>
-                <td>{props.title}</td>
-                <td>{props.rating}</td>
-                <td>{props.awards}</td>
-                <td>{props.length}</td>
+                <td>{props.nombre}</td>
+                <td>{props.precio}</td>
+                <td>{props.color}</td>
+                <td>{props.stock}</td>
             </tr>
         </React.Fragment>
     )
 }
-export default MovieList;
+export default ProductList;
