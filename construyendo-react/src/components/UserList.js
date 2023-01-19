@@ -1,6 +1,6 @@
 import React from 'react';
 
-function UserList({props}){
+function UserList(props){
     return (
         <React.Fragment>
             <tr>

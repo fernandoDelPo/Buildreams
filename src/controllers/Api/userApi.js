@@ -26,7 +26,7 @@ const userApi = {
         let response = {
           count: users.length,
           countAdmin: countAdmin,
-          users: users,
+          data: users,
           status: 200,
         };
 

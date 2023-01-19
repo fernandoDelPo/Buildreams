@@ -61,8 +61,8 @@ function ContentRowProducts() {
             {/*<!-- Content Row -->*/}
             <div className="row">
                 {
-                    cardProps.map((product, user, index) => {
-                        return <SmallCard  {...product} {...user} key={index} />
+                    cardProps.map((product, index) => {
+                        return <SmallCard  {...product} key={index} />
                     })
                 }
             </div>

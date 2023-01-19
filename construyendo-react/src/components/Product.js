@@ -15,7 +15,7 @@ class Product extends Component{
     //Compomentes Ciclo de vida - Montar - Actualizar - Desmontar
     //Montaje
     componentDidMount(){
-        fetch('/api/products')
+        fetch('http://localhost:3030/api/products')
         .then(respuesta =>{
             return respuesta.json()
         })
