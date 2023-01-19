@@ -13,7 +13,6 @@ import User from './User'
 function SideBar() {
     let [products, setProducts] = useState([])
 
-
     let getProducts = async () => {
         await fetch('http://localhost:3030/api/products')
             .then((response) => response.json())

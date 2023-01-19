@@ -2,15 +2,10 @@ import React from 'react';
 import SmallCard from './SmallCard';
 import { useEffect, useState } from 'react';
 
-
-
 function ContentRowProducts() {
 
-
     const [products, setProducts] = useState([])
-
     const [users, setUsers] = useState([])
-
 
     const getProducts = () => {
 
@@ -32,9 +27,19 @@ function ContentRowProducts() {
         getUsers()
     }, [])
 
+    let amount = {
+        color: "success",
+        titulo: "Cantidad de Usuarios",
+        valor: users.count,
+        icono: "fas fa-award",
+    }
 
-
-
+    let user = {
+        color: "warning",
+        titulo: "Usuarios Administradores",
+        valor: users.countAdmin,
+        icono: "fas fa-user",
+    }
     let productInDataBase = {
         color: "primary",
         titulo: "Cantidad de Productos",
@@ -49,24 +54,6 @@ function ContentRowProducts() {
         icono: "fas fa-film",
     }
 
-    let amount = {
-        color: "success",
-        titulo: "Cantidad de Usuarios",
-        valor: users.count,
-        icono: "fas fa-award",
-    }
-
-    let user = {
-        color: "warning",
-        titulo: "Usuarios Administradores",
-        valor: users.countAdmin,
-        icono: "fas fa-user",
-    }
-
-
-
-
-
     let cardProps = [productInDataBase, productosEnOferta, amount, user];
 
     return (
@@ -74,8 +61,8 @@ function ContentRowProducts() {
             {/*<!-- Content Row -->*/}
             <div className="row">
                 {
-                    cardProps.map((product, index) => {
-                        return <SmallCard  {...product} key={index} />
+                    cardProps.map((product, user, index) => {
+                        return <SmallCard  {...product} {...user} key={index} />
                     })
                 }
             </div>

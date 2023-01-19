@@ -1,6 +1,6 @@
 import React from 'react';
 
-function UserList(props){
+function UserList({props}){
     return (
         <React.Fragment>
             <tr>
@@ -9,7 +9,6 @@ function UserList(props){
                 <td>{props.nick}</td>
                 <td>{props.email}</td>
                 <td>{props.country}</td>
-                <td>{props.image}</td>
             </tr>
         </React.Fragment>
     )

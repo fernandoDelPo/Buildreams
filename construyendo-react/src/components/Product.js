@@ -60,7 +60,7 @@ class Product extends Component{
                                 {
                                     //console.log(this.state.movies)
                                     this.state.products.map((product,index)=>{
-                                        return <ProductList  {...product} key={index}  />
+                                        return <ProductList {...product} key={index}  />
                                     })
                                 }
                             </tbody>
