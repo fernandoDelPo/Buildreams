@@ -115,13 +115,18 @@ const productApi = {
     db.Products.findByPk(req.params.id)
       .then(function (productSelected) {
         let response = {
-          id: productSelected.id,
-          productName: productSelected.productName,
-          brand: productSelected.brand,
-          description: productSelected.description,
+          id: productSelected.id,    
+          nombre: productSelected.nombre,
+          marca: productSelected.marca,
+          precio: productSelected.precio,
+          stock: productSelected.stock,
           color: productSelected.color,
-          price: productSelected.price,
-          size: productSelected.size,
+          enOferta: productSelected.enOferta,
+          stock: productSelected.stock,
+          categoria_id: productSelected.categoria_id,
+          descripcion: productSelected.descripcion,
+          imagen: productSelected.imagen,
+          descuento: productSelected.descuento,
           pathImg: `http://localhost:3030/images/shoes-img/${productSelected.imgen}`,
           status: 200,
         };
