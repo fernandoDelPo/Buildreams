@@ -2,13 +2,9 @@ import React from 'react';
 import SmallCard from './SmallCard';
 import { useEffect, useState } from 'react';
 
-
-
 function ContentRowProducts() {
 
-
     const [products, setProducts] = useState([])
-
 
 
     const getProducts = () => {
@@ -49,7 +45,7 @@ function ContentRowProducts() {
         icono: "fas fa-piggy-bank",
         colorIcon: "text-info",
     }
-
+ 
     let amount = {
         color: "success",
         titulo: "Cantidad de Usuarios",
@@ -65,11 +61,7 @@ function ContentRowProducts() {
         icono: "fas fa-user-shield",
         colorIcon: "text-warning",
     }
-
-
-
-
-
+   
     let cardProps = [productInDataBase, productosEnOferta, amount, user];
 
     return (

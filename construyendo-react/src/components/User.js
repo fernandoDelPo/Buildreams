@@ -1,7 +1,6 @@
 //Trabajando con componentes de estado - Clases
 //Apis  - Eventos
 import React, {Component} from 'react';
-
 //Importar nuestro componente
 import UserList from './UserList';
 
@@ -23,16 +22,12 @@ class User extends Component{
             this.setState({users: user.data})
         })
         .catch(error => console.log(error))
-
     }
-
-
     render(){
         return (
             <React.Fragment>
             {/*<!-- User LIST -->*/}
             <h1 className="h3 mb-2 text-gray-800 ">Todos los usuarios en la Base de Datos</h1>
-            
             {/*<!-- DataTales Example -->*/}
             <div className="card shadow mb-4">
                 <div className="card-body">
@@ -68,7 +63,6 @@ class User extends Component{
                     </div>
                 </div>
         </div>
-
     </React.Fragment>
     )
     }
