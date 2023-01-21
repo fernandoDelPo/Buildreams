@@ -8,15 +8,15 @@ function LastProductInDb() {
        const getProducts = () => {
          fetch('http://localhost:3030/api/products') 
            .then((response) => response.json())
-           .then((products) => setProducts(products.data))
+           .then((data) => setProducts(data))
        }
        useEffect(() => {
          getProducts()
        }, [])
 
      /* Ultimo producto agregado */
-     let lastProductInDb = products[products.length - 1]
-     
+     let lastProductInDb = products.lastProductInDb
+     console.log(lastProductInDb);
 
      return(
         <div className="col-lg-6 mb-4">

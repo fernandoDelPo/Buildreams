@@ -15,7 +15,7 @@ class User extends Component{
     //Compomentes Ciclo de vida - Montar - Actualizar - Desmontar
     //Montaje
     componentDidMount(){
-        fetch('/api/users')
+        fetch('http://localhost:3030/api/users')
         .then(respuesta =>{
             return respuesta.json()
         })
@@ -44,7 +44,7 @@ class User extends Component{
                                     <th>Nombre</th>
                                     <th>Nick</th>
                                     <th>Email</th>
-                                    <th>Images</th>
+                                    <th>País</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -53,7 +53,7 @@ class User extends Component{
                                     <th>Nombre</th>
                                     <th>Nick</th>
                                     <th>Email</th>
-                                    <th>Imagen</th>
+                                    <th>País</th>
                                 </tr>
                             </tfoot>
                             <tbody>

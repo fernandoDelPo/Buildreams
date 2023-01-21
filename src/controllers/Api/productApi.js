@@ -1,42 +1,38 @@
+const { sequelize } = require("../../database/models"); //se requiere sequelize para operaciones con raw queries
 let db = require("../../database/models");
 const Op = db.Sequelize.Op;
+const QueryTypes = db.Sequelize.QueryTypes;
 
 const productApi = {
-  list: (req, res) => {
-    db.Products.findAll()
-      .then((products) => {
-        var countHerramientas = 0;
-        let countCementosCal = 0;
-        let countAberturas = 0;
-        let countHierroChapa = 0;
-        let countLadrillos = 0;
-        let countAguaGas = 0;
-        let countInstalaciones = 0;
-        let countPinturas = 0;
-        let countOtros = 0;
 
-        /* Contador de productos por categoria */
-        for (let i = 1; i < products.length; i++) {
-          if (products[i].category_id == 1) {
-            countHerramientas += 1;
-          } else if (products[i].category_id == 2) {
-            countCementosCal += 1;
-          } else if (products[i].category_id == 3) {
-            countAberturas += 1;
-          } else if (products[i].category_id == 4) {
-            countHierroChapa += 1;
-          } else if (products[i].category_id == 5) {
-            countLadrillos += 1;
-          } else if (products[i].category_id == 6) {
-            countAguaGas += 1;
-          } else if (products[i].category_id == 7) {
-            countInstalaciones += 1;
-          } else if (products[i].category_id == 8) {
-            countPinturas += 1;
-          } else {
-            countOtros += 1;
+  list: async (req, res) => {
+    //listado de productos | el cb debe ser asíncrono para usar raw queries
+    let page = 0;
+    let limit = 8;
+    req.query.page ? (page = Number(req.query.page) * 8) : (limit = undefined);
+    const countBy = await sequelize.query(
+      "SELECT Category.nombre, COUNT(Products.categoria_id) AS quantity FROM `Category` INNER JOIN `Products` ON Category.id = Products.categoria_id GROUP BY Category.nombre",
+      {
+        type: QueryTypes.SELECT,
+      }
+    );
+    db.Products.findAll({
+      include: ['category'],
+      offset: page,
+      limit: limit,
+    })
+      .then((products) => {
+        products.forEach(producto => {
+          producto.dataValues.detail = `http://localhost:3030/api/products/${producto.dataValues.id}`
+        });
+
+        var enOferta = 0;
+        products.forEach(product => {
+          if (product.enOferta == 1) {
+            enOferta += 1;
           }
-        }
+        });
+        let lastProductInDb = products[products.length - 1]
 
         for (let i = 0; i < products.length; i++) {
           products[i].setDataValue(
@@ -53,63 +49,24 @@ const productApi = {
           );
         }
 
-        var enOferta = 0;
-        products.forEach(product => {
-          if (product.enOferta == 1) {
-            enOferta += 1;
-          }
-        });
-
-
-        let response = {
-          products: products,
-          countHerramientas: countHerramientas,
-          countCementosCal: countCementosCal,
-          countAberturas: countAberturas,
-          countHierroChapa: countHierroChapa,
-          countLadrillos: countLadrillos,
-          countAguaGas: countAguaGas,
-          countInstalaciones: countInstalaciones,
-          countPinturas: countPinturas,
-          countOtros: countOtros,
-          oferta: enOferta,
-          count: products.length,
-          countByCategory: [{
-            herramientas: countHerramientas,
-          },
-          {
-            cementos: countCementosCal,
-          },
-          {
-            aberturas: countAberturas,
-          },
-          {
-            hierrosChapas: countHierroChapa,
-          },
-          {
-            ladrillos: countLadrillos,
-          },
-          {
-            aguaGas: countAguaGas,
-          },
-          {
-            instalaciones: countInstalaciones,
-          },
-          {
-            pinturas: countPinturas,
-          },
-          {
-            otros: countOtros,
-          },
-          ],
-          data: products,
+        // Creo un array que contendrá a cada usuario
+        // let datos = [];
+        // dataSet(products, datos);
+        //se pasan los datos finales al objeto para la respuesta
+        return res.json({
           status: 200,
-        };
-
-        res.status(200).json(response);
+          lastProductInDb: lastProductInDb,
+          enOferta: enOferta,
+          count: products.length,
+          countByCategory: countBy, //se usa la consulta de la raw query
+          products: products,
+        });
       })
-      .catch((error) => res.json(error));
+      .catch((error) => res.send(error));
   },
+
+
+
 
   productDetail: (req, res) => {
     db.Products.findByPk(req.params.id)

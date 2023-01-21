@@ -21,33 +21,49 @@ function ContentRowProducts() {
         getProducts()
     }, [])
 
+    const [users, setUsers] = useState([])
+
+    const getUsers = () => {
+
+        fetch('http://localhost:3030/api/users')
+            .then((response) => response.json())
+            .then((data) => setUsers(data))
+    }
+    useEffect(() => {
+        getUsers()
+    }, [])
+
 
     let productInDataBase = {
         color: "primary",
         titulo: "Cantidad de Productos",
         valor: products.count || 0,
-        icono: "fas fa-film",
+        icono: "fas fa-boxes",
+        colorIcon: "text-primary",
     }
 
     let productosEnOferta = {
         color: "info",
         titulo: "Cantidad de productos en oferta",
-        valor: products.oferta || 0,
-        icono: "fas fa-film",
+        valor: products.enOferta || 0,
+        icono: "fas fa-piggy-bank",
+        colorIcon: "text-info",
     }
 
     let amount = {
         color: "success",
         titulo: "Cantidad de Usuarios",
-        valor: 7,
-        icono: "fas fa-award",
+        valor: users.count || 0,
+        icono: "fas fa-users",
+        colorIcon: "text-success",
     }
 
     let user = {
         color: "warning",
         titulo: "Usuarios Administradores",
-        valor: 4,
-        icono: "fas fa-user",
+        valor: users.admin || 0,
+        icono: "fas fa-user-shield",
+        colorIcon: "text-warning",
     }
 
 
@@ -61,7 +77,7 @@ function ContentRowProducts() {
             {/*<!-- Content Row -->*/}
             <div className="row">
                 {
-                    cardProps.map((producto, index) => {
+                    cardProps.map((producto, user, index) => {
                         return <SmallCard  {...producto} key={index} />
                     })
                 }

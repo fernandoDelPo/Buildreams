@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/fernandoDelPo/grupo_11_ConstruyendoSue-os#readme",
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

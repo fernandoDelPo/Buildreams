@@ -52,7 +52,7 @@ function SideBar() {
                 {/*<!-- Nav Item - Dashboard -->*/}
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
-                        <i className="fas fa-fw fa-tachometer-alt"></i>
+                        <i className="fas fa-pencil-ruler text-warning"></i>
                         <span>Dashboard - Buildreams</span>
                     </Link>
                 </li>
@@ -66,7 +66,7 @@ function SideBar() {
                 {/*<!-- Nav Item - Pages -->*/}
                 <li className="nav-item">
                     <Link className="nav-link collapsed" to="/CategoryInDb">
-                        <i className="fas fa-fw fa-folder"></i>
+                        <i className="fas fa-fw fa-folder text-primary"></i>
                         <span>Categorías de productos</span>
                     </Link>
                 </li>
@@ -74,7 +74,7 @@ function SideBar() {
                 {/*<!-- Nav Item - Charts -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="/LastProductInDb">
-                        <i className="fas fa-fw fa-chart-area"></i>
+                        <i className="fas fa-barcode text-ligth"></i>
                         <span>Último producto añadido</span>
                     </Link>
                 </li>
@@ -82,7 +82,7 @@ function SideBar() {
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
                     <Link className="nav-link" to="/ContentRowProducts">
-                        <i className="fas fa-fw fa-table"></i>
+                        <i className="fas fa-fw fa-table text-success"></i>
                         <span>Productos</span>
                     </Link>
                 </li>
@@ -90,7 +90,7 @@ function SideBar() {
                 {/* tabla */}
                 <li className="nav-item">
                     <Link className="nav-link" to="/table">
-                        <i className="fas fa-fw fa-film"></i>
+                        <i className="fas fa-dolly-flatbed text-danger"></i>
                         <span>Tabla de productos</span>
                     </Link>
                 </li>
@@ -98,7 +98,7 @@ function SideBar() {
                  {/* tabla */}
                  <li className="nav-item">
                     <Link className="nav-link" to="/table2">
-                        <i className="fas fa-fw fa-film"></i>
+                        <i className="far fa-address-card text-primary"></i>
                         <span>Tabla de usuarios</span>
                     </Link>
                 </li>

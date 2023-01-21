@@ -13,14 +13,13 @@ function CategoriaInDb() {
             })
             .then(categorias => {
                 
-                SetCategoriasList(categorias.data)
-                
+                SetCategoriasList(categorias.categorias)
             })
 
-
+            
    }, [])
-
-
+   
+   
         return (
             <React.Fragment>
                     {/*<!-- Categories in DB -->*/}
@@ -32,7 +31,9 @@ function CategoriaInDb() {
                             <div className="card-body fondoCaja">
                                 <div className="row">
                                     {
+                                        
                                         categoryList.map((category, index)=>{
+                                            
                                             return  <Categoria  {...category}  key={index} />
                                         })
                                     }

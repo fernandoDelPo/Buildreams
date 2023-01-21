@@ -5,10 +5,10 @@ function UserList(props){
         <React.Fragment>
             <tr>
                 <td>{props.id}</td>
-                <td>{props.title}</td>
-                <td>{props.rating}</td>
-                <td>{props.awards}</td>
-                <td>{props.length}</td>
+                <td>{props.nombre}</td>
+                <td>{props.nick}</td>
+                <td>{props.email}</td>
+                <td>{props.country}</td>
             </tr>
         </React.Fragment>
     )
