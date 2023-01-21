@@ -6,7 +6,7 @@ const db = require("../../database/models");
 const userApi = {
   allUsers: (req, res) => {
     db.Users.findAll({
-      attributes: ["id", "nombre", "nick", "email", "country"],
+      attributes: ["id", "nombre", "nick", "email", "country", "category"],
     })
       .then((users) => {
         for (let i = 0; i < users.length; i++) {
