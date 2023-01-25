@@ -6,19 +6,20 @@ const router = express.Router();
 // Controller require
 const productApi = require("../../controllers/Api/productApi");
 
-// Todos los productos http://localhost:3020/api/products
+// Todos los productos http://localhost:3030/api/products
 router.get("/", productApi.list);
 
-// Buscar producto http://localhost:3020/api/products/search?keyword=nike
+// Buscar producto http://localhost:3030/api/products/search?keyword=nike
 router.get("/search", productApi.search);
 
-// Crear producto http://localhost:3020/api/products
+// Crear producto http://localhost:3030/api/products
 router.post("/", productApi.store);
 
-// Detalle Producto http://localhost:3020/api/products/:id
+// Detalle Producto http://localhost:3030/api/products/:id
 router.get("/:id", productApi.productDetail);
 
-// Borrar producto http://localhost:3020/api/products/:id
+
+// Borrar producto http://localhost:3000/api/products/:id
 router.delete("/:id", productApi.delete);
 
 // Checkout cart
