@@ -40,6 +40,7 @@ class User extends Component{
                                     <th>Nick</th>
                                     <th>Email</th>
                                     <th>País</th>
+                                    <th>Detalle</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -49,6 +50,7 @@ class User extends Component{
                                     <th>Nick</th>
                                     <th>Email</th>
                                     <th>País</th>
+                                    <th>Detalle</th>
                                 </tr>
                             </tfoot>
                             <tbody>

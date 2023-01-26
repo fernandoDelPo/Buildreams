@@ -31,3 +31,8 @@ Creemos que hemos llegado a un punto en dónde trabajamos de forma audaz y rápi
 Retroespectiva del 7mo sprint:
 Se ha logrado realizar y completar todas las tareas para esta entrega, ya que una parte del trabajo lo habíamos realizado en otro sprint, por lo que el resto se pudo realizar en una semana. Seguimos implementando la modalidad de tareas en parejas, y se ha establecido que el lider natural de este grupo es Fernando debido a que es solidario con los demás y ayuda a todos ya sea en la explicación y en la resolución de problemas. 
 En cuanto a la comunicación, es importante destacar que el grupo se sigue comunicando a traves del wsp por lo que hay una relación fluida y constante en cuanto a los cambios y actualizaciones. 
+
+Retroespectiva del 8vo sprint:
+Se completaron todos los puntos propuestos. En este caso debiamos incorporar react y sus componentes, para ello, nos dividimos la tarea en partes y en parejas logrando acaparar todas las funcionalidades. 
+En esta ultima entrega, nuestra compañera Evelyn tuvo dificultades con su computador por lo que no pudo estar al 100% en esta entrega. 
+Finalmente queremos agradecer a todos los profesores por compartir sus conocimientos y agradecer a todos nuestros compañeros por la ayuda a lo largo de la cursada.
