@@ -42,7 +42,9 @@ function Product() {
     return (
 
         <>
+        <h1 className="h3 mb-2 text-gray-800 "> Tabla de productos </h1>
             {products ? (
+                
                 <div className="card shadow mb-4">
                     <div className="card-body">
                         <div className="table-responsive">

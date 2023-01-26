@@ -27,7 +27,7 @@ class User extends Component{
         return (
             <React.Fragment>
             {/*<!-- User LIST -->*/}
-            <h1 className="h3 mb-2 text-gray-800 ">Todos los usuarios en la Base de Datos</h1>
+            <h1 className="h3 mb-2 text-gray-800 "> Tabla de usuarios</h1>
             {/*<!-- DataTales Example -->*/}
             <div className="card shadow mb-4">
                 <div className="card-body">

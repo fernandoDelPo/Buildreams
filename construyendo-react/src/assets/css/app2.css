@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+:root {
+    --Yellow: #fcf300;
+    --Orange: #b3640b;
+    --Blue: #03264C;
+    --Light-Blue: #1259c3;
+    --Dark-Gray: #1e1e1e;
+    --Dark-Gray2: #2c2c2c;
+    --Light-Gray: #ebebeb;
+    --Shadow-Gray: rgb(100, 100, 100);
+    --Gray-Opacity: rgb(0, 0, 0, 0.5);
+    --Green: #39b54a;
+    --White: #ffffff;
+    --Red: #ff0000;
+    --Blue2: #0022AA;
+}
+
+.container-fluid{
+    color: var(--Dark-Gray);
+}
+
+
+.navbar-nav{
+    background-color: var(--Dark-Gray);
+}
+
+.navbar{
+    background-color: var(--Dark-Gray);
+}
+
+tbody td:hover {
+    background-color: var(--Gray-Opacity);
+    color: var(--White)
+}
+
+thead th:hover{
+    background-color: var(--Dark-Gray2);
+    color: var(--White);
+}
+tfoot th:hover{
+    background-color: var(--Dark-Gray2);
+    color: var(--White);
+}
+
+tbody a:hover{
+    color: var(--Green);
+}

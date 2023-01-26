@@ -1,13 +1,15 @@
 import React from 'react';
 import image from '../assets/images/buildreams.png';
+import "../assets/css/app2.css"
 import { Route, Link, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import ContentWrapper from './ContentWrapper';
 import CategoriaInDb from './CategoriaInDb';
 import LastProductInDb from './LastProductInDb';
-import ContentRowProducts from './ContentRowProducts';
+import ContentRow from './ContentRow';
 import Error404 from './Error404';
 import Product from './Product';
+import SearchProduct from './SearchProduct';
 import User from './User'
 
 function SideBar() {
@@ -36,7 +38,7 @@ function SideBar() {
     return (
         <React.Fragment>
             {/*<!-- Sidebar -->*/}
-            <ul className="navbar-nav bg-gradient-secondary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <ul className="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 {/*<!-- Sidebar - Brand -->*/}
                 <Link className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
@@ -80,9 +82,9 @@ function SideBar() {
 
                 {/*<!-- Nav Item - Tables -->*/}
                 <li className="nav-item">
-                    <Link className="nav-link" to="/ContentRowProducts">
+                    <Link className="nav-link" to="/ContentRow">
                         <i className="fas fa-fw fa-table text-success"></i>
-                        <span>Productos</span>
+                        <span>Contenido</span>
                     </Link>
                 </li>
 
@@ -91,6 +93,14 @@ function SideBar() {
                     <Link className="nav-link" to="/table">
                         <i className="fas fa-dolly-flatbed text-danger"></i>
                         <span>Tabla de productos</span>
+                    </Link>
+                </li>
+
+                {/* search */}
+                <li className="nav-item">
+                    <Link className="nav-link" to="/search">
+                        <i className="fas fa-dolly-flatbed text-warning"></i>
+                        <span>Buscar productos</span>
                     </Link>
                 </li>
 
@@ -111,11 +121,14 @@ function SideBar() {
                 <Route exat path='/' element={<ContentWrapper />} />
                 <Route path='/CategoryInDb' element={<CategoriaInDb />} />
                 <Route path='/LastProductInDb' element={<LastProductInDb />} />
-                <Route path='/ContentRowProducts' element={<ContentRowProducts products={products} users={users} />} />
+                <Route path='/ContentRow' element={<ContentRow products={products} users={users} />} />
                 <Route path='/table' element={<Product />} />
+                <Route path='/search' element={<SearchProduct />} />
                 <Route path='/table2' element={<User />} />
                 <Route path='*' element={<Error404 />} />
             </Routes>
+
+         
 
         </React.Fragment>
     )

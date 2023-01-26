@@ -1,7 +1,8 @@
 import React from 'react';
 import CategoriaInDb from './CategoriaInDb';
-import ContentRowProducts from './ContentRowProducts';
+import ContentRow from './ContentRow';
 import LastProductInDb from './LastProductInDb';
+import SearchProduct from './SearchProduct';
 
 function ContentRowTop(){
     return(
@@ -9,13 +10,17 @@ function ContentRowTop(){
 				{/*<!-- Content Row Top -->*/}
 				<div className="container-fluid">
 					<div className="d-sm-flex aligns-items-center justify-content-between mb-4">
-						<h1 className="h3 mb-0 text-gray-800">App Dashboard</h1>
+						<h1 className="h3 mb-0 text-gray-800">App Dashboard Buildreams</h1>
 					</div>
 				
 					{/*<!-- Content Row Product-->*/}
-					<ContentRowProducts />
+					<ContentRow />
 					{/*<!-- End Product in Data Base -->*/}
-					
+
+					{/*<!--Search products-->*/}
+					<SearchProduct />
+					{/*<!-- End search in Data Base -->*/}
+
 	
 					{/*<!-- Content Row Last Product in Data Base -->*/}
 					<div className="row">
