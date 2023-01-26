@@ -1,14 +1,10 @@
-//Trabajando con componentes de estado - Clases
-//Apis  - Eventos
+
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-
-
-//Importar nuestro componente
-// import ProductList from './ProductList';
 import "../assets/css/allProducts.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import ProductList from './ProductList';
+
 
 
 
@@ -27,7 +23,6 @@ function Product() {
                 setLimit(products.count);
             });
     }, [page]);
-    console.log(products);
 
     let totalPages = Math.ceil(limit);
 
@@ -76,24 +71,15 @@ function Product() {
                                 </tfoot>
                                 <tbody>
 
-
-                                    {products.map((product, i) => {
+                                {
+                                    products.map((product, index) => {
                                         return (
-                                            <tr key={i}>
-                                                <td>{product.id}</td>
-                                                <td>{product.nombre}</td>
-                                                <td>{product.precio}</td>
-                                                <td>{product.color}</td>
-                                                <td>{product.stock}</td>
-                                                <td>{product.category.nombre}</td>
-                                                <td> <Link to={`/product-detail/${product.id}`} className='linkTo'><button>Acceder al detalle</button></Link></td>
+                                            <ProductList {...product} key={index} />
+                                        )
+                                    })
+                                }
 
 
-                                            </tr>
-
-
-                                        );
-                                    })}
 
                                 </tbody>
                             </table>
@@ -112,6 +98,9 @@ function Product() {
                 "Cargando"
             )
             }
+
+
+
         </>
     );
 };

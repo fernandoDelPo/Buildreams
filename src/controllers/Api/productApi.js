@@ -16,6 +16,18 @@ const productApi = {
         type: QueryTypes.SELECT,
       }
     );
+
+
+    //Buscar último registro sin usar .length
+
+    // const lastProductInDb = await sequelize.query(
+    //   "SELECT Products.nombre, Products.descripcion, Products.imagen FROM `Products` ORDER BY Products.id DESC LIMIT 1",
+    //   {
+    //     type: QueryTypes.SELECT,
+    //   }
+    // );
+    // console.log(lastProductInDb);
+
     db.Products.findAll({
       include: ['category'],
       offset: page,
@@ -32,6 +44,8 @@ const productApi = {
             enOferta += 1;
           }
         });
+
+        
         let lastProductInDb = products[products.length - 1]
 
         for (let i = 0; i < products.length; i++) {
@@ -49,7 +63,7 @@ const productApi = {
           );
         }
 
-        // Creo un array que contendrá a cada usuario
+        // Creo un array que contendrá a cada producto
         // let datos = [];
         // dataSet(products, datos);
         //se pasan los datos finales al objeto para la respuesta
@@ -65,33 +79,46 @@ const productApi = {
       .catch((error) => res.send(error));
   },
 
-
-
-
+  
   productDetail: (req, res) => {
-    db.Products.findByPk(req.params.id)
-      .then(function (productSelected) {
-        let response = {
-          id: productSelected.id,    
-          nombre: productSelected.nombre,
-          marca: productSelected.marca,
-          precio: productSelected.precio,
-          stock: productSelected.stock,
-          color: productSelected.color,
-          enOferta: productSelected.enOferta,
-          stock: productSelected.stock,
-          categoria_id: productSelected.categoria_id,
-          descripcion: productSelected.descripcion,
-          imagen: productSelected.imagen,
-          descuento: productSelected.descuento,
-          pathImg: `http://localhost:3030/images/shoes-img/${productSelected.imgen}`,
-          status: 200,
-        };
 
-        res.status(200).json(response);
+    //Obtengo el producto por id
+    db.Products.findByPk(req.params.id)
+      .then((product) => {
+
+        // Creo el objeto
+        let producto = {
+          status: 200,
+          data: {
+            id: product.id,
+            nombre: product.nombre,
+            include: [{ association: "category" }],
+            categoria_id: product.categoria_id,
+            precio: product.precio,
+            stock: product.stock,
+            marca: product.marca,
+            enOferta: product.enOferta,
+            descripcion: product.descripcion,
+            color: product.color,
+            imagen: product.imagen,     
+            detail: `http://localhost:3030/api/products/${product.id}`,
+          },
+
+        };
+        res.json(producto);
+        
       })
-      .catch((error) => res.json(error));
+      .catch((error) => {
+        // Si hay un error corresponde un status 500
+        let errores = {
+          status: 500,
+          error: error,
+        };
+        res.json(errores);
+      });
   },
+
+
 
   store: (req, res) => {
     db.Product.create(req.body)

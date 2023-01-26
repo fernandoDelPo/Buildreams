@@ -16,7 +16,6 @@ function LastProductInDb() {
 
      /* Ultimo producto agregado */
      let lastProductInDb = products.lastProductInDb
-     console.log(lastProductInDb);
 
      return(
         <div className="col-lg-6 mb-4">
